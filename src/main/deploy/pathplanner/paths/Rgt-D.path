@@ -1,0 +1,58 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.761513061487663,
+        "y": 4.40065649362068
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.7615130614876637,
+        "y": 4.40065649362068
+      },
+      "isLocked": false,
+      "linkedName": "Rgt"
+    },
+    {
+      "anchor": {
+        "x": 2.685566909595359,
+        "y": 4.114515152107228
+      },
+      "prevControl": {
+        "x": 1.6855669095953592,
+        "y": 4.114515152107228
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Ring D"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 164.62374875117374,
+      "rotateFast": false
+    }
+  ],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -176.9225446005756,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": null,
+  "previewStartingState": {
+    "rotation": 120.0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}
