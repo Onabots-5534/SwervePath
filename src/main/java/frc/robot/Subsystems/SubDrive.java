@@ -19,7 +19,7 @@ import frc.robot.Sensor.Navigation;
 import frc.robot.Sensor.Selector;
 
 public class SubDrive extends SubsystemBase {
-  public SubSwerve[]           modules;
+  public SubSwerve[]           Modules;
   public SwerveDriveKinematics kinematics;
   public SwerveDriveOdometry   Odometer;
 
@@ -38,7 +38,7 @@ public class SubDrive extends SubsystemBase {
 
   public SubDrive() {
 
-    modules = new SubSwerve[]{
+    Modules = new SubSwerve[]{
       new SubSwerve( "FL", pSwerve.CAN_FL ),
       new SubSwerve( "FR", pSwerve.CAN_FR ),
       new SubSwerve( "BL", pSwerve.CAN_BL ),
@@ -104,7 +104,7 @@ public class SubDrive extends SubsystemBase {
 
   public void SetStates( SwerveModuleState[] targetStates ) {
     SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed );
-    for (int i = 0; i < modules.length; i++) { modules[i].SetTargetState( targetStates[i] ); }
+    for (int i = 0; i < Modules.length; i++) { Modules[i].SetTargetState( targetStates[i] ); }
   }
 
 //
@@ -115,14 +115,14 @@ public class SubDrive extends SubsystemBase {
   }
 
   public SwerveModulePosition[] getPositions() {
-    SwerveModulePosition[] positions = new SwerveModulePosition[ modules.length ];
-    for ( int i = 0; i < modules.length; i++ ) { positions[i] = modules[i].GetPosition(); }
+    SwerveModulePosition[] positions = new SwerveModulePosition[ Modules.length ];
+    for ( int i = 0; i < Modules.length; i++ ) { positions[i] = Modules[i].GetPosition(); }
     return positions;
   }
 
   public SwerveModuleState[] getModuleStates() {
-    SwerveModuleState[] states = new SwerveModuleState[modules.length];
-    for ( int i = 0; i < modules.length; i++ ) { states[i] = modules[i].GetVelocity(); }
+    SwerveModuleState[] states = new SwerveModuleState[Modules.length];
+    for ( int i = 0; i < Modules.length; i++ ) { states[i] = Modules[i].GetVelocity(); }
     return states;
   }
 
