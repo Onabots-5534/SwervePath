@@ -17,17 +17,17 @@ public final class Constants {
       maxModuleSpeed = 4.5; // M/S
 
     public static final Translation2d
-      flModuleOffset = new Translation2d(  RobotLength/2,  RobotWidth/2 ),
-      frModuleOffset = new Translation2d(  RobotLength/2, -RobotWidth/2 ),
-      blModuleOffset = new Translation2d( -RobotLength/2,  RobotWidth/2 ),
-      brModuleOffset = new Translation2d( -RobotLength/2, -RobotWidth/2 );
+      FL_Trans2d = new Translation2d(  RobotLength / 2,  RobotWidth / 2 ),
+      FR_Trans2d = new Translation2d(  RobotLength / 2, -RobotWidth / 2 ),
+      BL_Trans2d = new Translation2d( -RobotLength / 2,  RobotWidth / 2 ),
+      BR_Trans2d = new Translation2d( -RobotLength / 2, -RobotWidth / 2 );
 
     public static final HolonomicPathFollowerConfig
       pathFollowerConfig = new HolonomicPathFollowerConfig(
         new PIDConstants( 5.0, 0, 0 ), // Translation constants 
         new PIDConstants( 5.0, 0, 0 ), // Rotation constants 
         maxModuleSpeed,                // Maximum module speed
-        flModuleOffset.getNorm(),      // Drive base radius (distance from center to furthest module) 
+        FL_Trans2d.getNorm(),      // Drive base radius (distance from center to furthest module) 
         new ReplanningConfig()
       );
   }
