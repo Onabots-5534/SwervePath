@@ -19,13 +19,13 @@ import frc.robot.Sensor.Selector;
 public class SubDrive extends SubsystemBase {
   private SimSwerveModule[]     modules;
   private SwerveDriveKinematics kinematics;
-  private SwerveDriveOdometry   odometry;
+  private SwerveDriveOdometry   Odometer;
 
   private SimGyro
     gyro;
   
   private Field2d
-    field = new Field2d();
+    Field = new Field2d();
   
   public SubDrive() {
     gyro = new SimGyro();
@@ -38,13 +38,13 @@ public class SubDrive extends SubsystemBase {
     };
 
     kinematics = new SwerveDriveKinematics(
-      Constants.Swerve.flModuleOffset, 
-      Constants.Swerve.frModuleOffset, 
-      Constants.Swerve.blModuleOffset, 
-      Constants.Swerve.brModuleOffset
+      Constants.Swerve.FL_Trans2d, 
+      Constants.Swerve.FR_Trans2d, 
+      Constants.Swerve.BL_Trans2d, 
+      Constants.Swerve.BR_Trans2d
     );
 
-    odometry = new SwerveDriveOdometry(
+    Odometer = new SwerveDriveOdometry(
       kinematics,
       gyro.getRotation2d(),
       getPositions()
@@ -61,31 +61,34 @@ public class SubDrive extends SubsystemBase {
     );
 
     // Set up custom logging to add the current path to a field 2d widget
-    PathPlannerLogging.setLogActivePathCallback( ( poses ) -> field.getObject( "path" ).setPoses( poses ) );
-    SmartDashboard.putData( "Field", field );
+    PathPlannerLogging.setLogActivePathCallback( ( poses ) -> Field.getObject( "path" ).setPoses( poses ) );
+    SmartDashboard.putData( "Field", Field );
   }
 
-  @Override
-  public void periodic() {
+  @Override public void periodic() {
     // Update the simulated gyro, not needed in a real project
-    gyro.updateRotation(getSpeeds().omegaRadiansPerSecond);
-
-    odometry.update(gyro.getRotation2d(), getPositions());
-
-    field.setRobotPose(getPose());
+    gyro.updateRotation( getSpeeds().omegaRadiansPerSecond );
+    Odometer .update( gyro.getRotation2d(), getPositions() );
+    Field    .setRobotPose( getPose() );
   }
 
   public Pose2d getPose() {
-    return odometry.getPoseMeters();
+    return Odometer.getPoseMeters();
   }
 
-  public void resetPose(Pose2d pose) {
-    odometry.resetPosition( gyro.getRotation2d(), getPositions(), pose );
+  public void resetPose( Pose2d pose ) {
+    Odometer.resetPosition( gyro.getRotation2d(), getPositions(), pose );
   }
 
   public ChassisSpeeds getSpeeds() {
     return kinematics.toChassisSpeeds( getModuleStates() );
   }
+
+//
+// CALLABLE FUNCTIONS
+//
+  public void FieldDrive( double X, double Y, double Z ) { driveFieldRelative( new ChassisSpeeds( X, Y, Z ) ); }
+  public void RobotDrive( double X, double Y, double Z ) { driveRobotRelative( new ChassisSpeeds( X, Y, Z ) ); }
 
   public void driveFieldRelative( ChassisSpeeds FieldSpeeds ) {
     driveRobotRelative( ChassisSpeeds.fromFieldRelativeSpeeds( FieldSpeeds, getPose().getRotation() ) );

@@ -17,11 +17,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Config.Bindings;
 // import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.Config.Ports.pStick;
 import frc.robot.Subsystems.SubAimer;
 import frc.robot.Subsystems.SubClimber;
 import frc.robot.Subsystems.SubIntake;
@@ -41,10 +38,6 @@ public class RobotContainer {
   public static final SubMover    m_Mover    = new SubMover   ();
   public static final SubRoller   m_Roller   = new SubRoller  ();
   public static final SubShooter  m_Shooter  = new SubShooter ();
-
-  // CONTROLLERS
-  public static CommandPS4Controller  DS = new CommandPS4Controller ( pStick.USB_DS );
-  public static CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
 
   private final SendableChooser<Command> autoChooser;
 
