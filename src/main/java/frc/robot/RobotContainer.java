@@ -36,11 +36,11 @@ public class RobotContainer {
   // SUBSYSTEMS
   public static final SubAimer    m_Aimer    = new SubAimer   ();
   public static final SubClimber  m_Climber  = new SubClimber ();
+  public static final SubDrive    m_Drive    = new SubDrive   ();
   public static final SubIntake   m_Intake   = new SubIntake  ();
   public static final SubMover    m_Mover    = new SubMover   ();
   public static final SubRoller   m_Roller   = new SubRoller  ();
   public static final SubShooter  m_Shooter  = new SubShooter ();
-  public static final SubDrive   m_Swerve   = new SubDrive  ();
 
   // CONTROLLERS
   public static CommandPS4Controller  DS = new CommandPS4Controller ( pStick.USB_DS );
