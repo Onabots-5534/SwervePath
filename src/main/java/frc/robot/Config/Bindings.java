@@ -5,6 +5,7 @@ import com.pathplanner.lib.commands.PathPlannerAuto;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.RobotContainer;
 import frc.robot.Config.Ports.pStick;
 import frc.robot.Support.NewPose;
 
@@ -25,6 +26,7 @@ public class Bindings {
     }
 
     public static void Drive() {
+        DS.circle().onTrue( RobotContainer.m_Drive.RobotDrive( 0.30, 0.00, 0.00 ) );
     }
 
     public static void Manip() {
