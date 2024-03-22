@@ -20,8 +20,8 @@ public class SubSwerve extends SubsystemBase {
     public CANcoder
       Encod;
 
-    public PositionVoltage m_voltagePosition = new PositionVoltage( 0, 0, false, 0, 0, false, false, false ); // Slot0
-    public VelocityVoltage m_voltageVelocity = new VelocityVoltage( 0, 0, false, 0, 1, false, false, false ); // Slot1
+    public PositionVoltage m_VoltagePosition = new PositionVoltage( 0, 0, false, 0, 0, false, false, false ); // Slot0
+    public VelocityVoltage m_VoltageVelocity = new VelocityVoltage( 0, 0, false, 0, 1, false, false, false ); // Slot1
 
     public SubSwerve( int[] ID ) {
       Drive = new TalonFX ( ID[0] );
@@ -59,8 +59,8 @@ public class SubSwerve extends SubsystemBase {
     double Magnitude = currentVelocity.speedMetersPerSecond;
     double Direction = currentVelocity.angle.getDegrees();
 
-    Drive.setControl( m_voltageVelocity.withVelocity( Magnitude ) );
-    Steer.setControl( m_voltagePosition.withPosition( Direction ) );
+    Drive.setControl( m_VoltageVelocity.withVelocity( Magnitude ) );
+    Steer.setControl( m_VoltagePosition.withPosition( Direction ) );
   }
 
   private SwerveModulePosition currentPosition = new SwerveModulePosition ();
