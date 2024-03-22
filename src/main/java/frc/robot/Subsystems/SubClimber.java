@@ -40,10 +40,15 @@ public class SubClimber extends SubsystemBase {
 // TODO Need to implement Raising and Lowering the Robot Climber Arms
 /* These functions will raise or lower the robot until the encoder value reaches a specific
   * SetPoint and then stop. This prevents the climber arms from overextending themselves.
+  * This should read the encoder and check its value. There should also be a button on the
+  * Shuffleboard that resets the encoder.
   */
-  public static void RaiseRobot() {}
-  public Command    cRaiseRobot() { return this.runOnce( () -> LowerArms() ); }
+  public static void RaiseRobot   () {}
+  public Command    cRaiseRobot   () { return this.runOnce( () -> LowerArms()    ); }
 
-  public static void LowerRobot() {}
-  public Command    cLowerRobot() { return this.runOnce( () -> RaiseArms() ); }
+  public static void LowerRobot   () {}
+  public Command    cLowerRobot   () { return this.runOnce( () -> RaiseArms()    ); }
+
+  public static void ResetEncoder () {}
+  public Command    cResetEncoder () { return this.runOnce( () -> ResetEncoder() ); }
 }
