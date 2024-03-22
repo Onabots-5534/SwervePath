@@ -13,7 +13,7 @@ public class SubAimer extends SubsystemBase {
 
   public static DoubleSolenoid
     Lft = new DoubleSolenoid( PneumaticsModuleType.CTREPCM, pAimer.PCM_Lft[0], pAimer.PCM_Lft[1] ),
-    Rgt = new DoubleSolenoid( PneumaticsModuleType.CTREPCM, pAimer.PCM_Rgt[0], pAimer.PCM_Rgt[1]  );
+    Rgt = new DoubleSolenoid( PneumaticsModuleType.CTREPCM, pAimer.PCM_Rgt[0], pAimer.PCM_Rgt[1] );
 
   public static DoubleSolenoid.Value
     Raise = DoubleSolenoid.Value.kForward,

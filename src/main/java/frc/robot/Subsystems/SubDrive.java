@@ -95,17 +95,20 @@ public class SubDrive extends SubsystemBase {
   public void driveRobotRelative( ChassisSpeeds RobotSpeeds ) {
     ChassisSpeeds       targetSpeeds = ChassisSpeeds.discretize( RobotSpeeds, 0.02 );
     SwerveModuleState[] targetStates = kinematics.toSwerveModuleStates( targetSpeeds );
-    setStates( targetStates );
-  }
 
-  public void setStates(SwerveModuleState[] targetStates) {
+    // setStates( targetStates );
     SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed );
     for ( int i = 0; i < Modules.length; i++ ) { Modules[i].setTargetState( targetStates[i] ); }
   }
 
+  // public void setStates( SwerveModuleState[] targetStates ) {
+  //   SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed );
+  //   for ( int i = 0; i < Modules.length; i++ ) { Modules[i].setTargetState( targetStates[i] ); }
+  // }
+
   public SwerveModuleState[] getModuleStates() {
     SwerveModuleState[] states = new SwerveModuleState[ Modules.length];
-    for ( int i = 0; i < Modules.length; i++ ) { states[i] = Modules[i].getState(); }
+    for ( int i = 0; i < Modules.length; i++ ) { states[i] = Modules[i].getVelocity(); }
     return states;
   }
 

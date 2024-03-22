@@ -60,16 +60,17 @@ public class SubSwerve extends SubsystemBase {
   }
 
   private SwerveModulePosition currentPosition = new SwerveModulePosition ();
-  private SwerveModuleState    currentState    = new SwerveModuleState    ();
+  private SwerveModuleState    currentVelocity    = new SwerveModuleState    ();
 
   public SwerveModulePosition getPosition () { return currentPosition; }
-  public SwerveModuleState    getState    () { return currentState;    }
+  public SwerveModuleState    getVelocity () { return currentVelocity; }
 
   public void setTargetState( SwerveModuleState targetState ) {
-    currentState = SwerveModuleState.optimize( targetState, currentState.angle );
+    currentVelocity = SwerveModuleState.optimize( targetState, currentVelocity.angle );
+
     currentPosition = new SwerveModulePosition(
-      currentPosition.distanceMeters + ( currentState.speedMetersPerSecond * 0.02 ),
-      currentState.angle
+      currentPosition.distanceMeters + ( currentVelocity.speedMetersPerSecond * 0.02 ),
+      currentVelocity.angle
     );
   }
 

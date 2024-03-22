@@ -82,6 +82,9 @@ public class RobotContainer {
  * DRIVE STICK BINDINGS
  */
   public static void Drive() {
+
+    m_Drive.setDefaultCommand( null );
+
     DS.circle().onTrue( RobotContainer.m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
   }
 
