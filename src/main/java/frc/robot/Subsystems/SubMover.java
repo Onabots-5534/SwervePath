@@ -27,12 +27,12 @@ public class SubMover extends SubsystemBase {
 
 // ================ COMMANDS ====================
 
-  public static void Forward  () { Power =  0.50; }
-  public Command     cForward () { return this.runOnce( () -> Forward() ); }
+  public static void Forward () { Power =  0.50; }
+  public Command    cForward () { return this.runOnce( () -> Forward() ); }
 
-  public static void Reverse  () { Power = -0.40; }
-  public Command     cReverse () { return this.runOnce( () -> Reverse() ); }
+  public static void Reverse () { Power = -0.40; }
+  public Command    cReverse () { return this.runOnce( () -> Reverse() ); }
 
-  public static void Stop     () { Power =  0.00; }
-  public Command     cStop    () { return this.runOnce( () -> Stop   () ); }
+  public static void Stop    () { Power =  0.00; }
+  public Command    cStop    () { return this.runOnce( () -> Stop   () ); }
 }

@@ -20,7 +20,7 @@ import frc.robot.Sensor.Selector;
 
 public class SubDrive extends SubsystemBase {
   public SubSwerve[]           Modules                    ;
-  public SwerveDriveKinematics kinematics                 ;
+  public SwerveDriveKinematics Kinematics                 ;
   public SwerveDriveOdometry   Odometer                   ;
   public Field2d               Field      = new Field2d() ;
   
@@ -33,7 +33,7 @@ public class SubDrive extends SubsystemBase {
       new SubSwerve( pSwerve.CAN_BR )
     };
 
-    kinematics = new SwerveDriveKinematics(
+    Kinematics = new SwerveDriveKinematics(
       Constants.Swerve.FL_Trans2d, 
       Constants.Swerve.FR_Trans2d, 
       Constants.Swerve.BL_Trans2d, 
@@ -41,7 +41,7 @@ public class SubDrive extends SubsystemBase {
     );
 
     Odometer = new SwerveDriveOdometry(
-      kinematics,
+      Kinematics,
       Navigation.NavX.getRotation2d(),
       getPositions()
     );
@@ -75,12 +75,18 @@ public class SubDrive extends SubsystemBase {
   }
 
   public ChassisSpeeds getSpeeds() {
-    return kinematics.toChassisSpeeds( getModuleStates() );
+    return Kinematics.toChassisSpeeds( getModuleStates() );
   }
 
 //
 // CALLABLE FUNCTIONS
 //
+
+/* Driving the robot will eventuall call one of the following functons or commands. Passed
+ * in are the velocity components of the motion. At some point, we need to apply a deadband
+ * and other limiting factors. 
+ */
+
   public void     FieldDrive( double X, double Y, double Z ) { driveFieldRelative( new ChassisSpeeds( X, Y, Z ) ); }
   public Command cFieldDrive( double X, double Y, double Z ) { return this.runOnce( () -> FieldDrive( X, Y, Z ) ); }
 
@@ -94,17 +100,12 @@ public class SubDrive extends SubsystemBase {
 
   public void driveRobotRelative( ChassisSpeeds RobotSpeeds ) {
     ChassisSpeeds       targetSpeeds = ChassisSpeeds.discretize( RobotSpeeds, 0.02 );
-    SwerveModuleState[] targetStates = kinematics.toSwerveModuleStates( targetSpeeds );
+    SwerveModuleState[] targetStates = Kinematics.toSwerveModuleStates( targetSpeeds );
 
     // setStates( targetStates );
     SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed );
     for ( int i = 0; i < Modules.length; i++ ) { Modules[i].setTargetState( targetStates[i] ); }
   }
-
-  // public void setStates( SwerveModuleState[] targetStates ) {
-  //   SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed );
-  //   for ( int i = 0; i < Modules.length; i++ ) { Modules[i].setTargetState( targetStates[i] ); }
-  // }
 
   public SwerveModuleState[] getModuleStates() {
     SwerveModuleState[] states = new SwerveModuleState[ Modules.length];
