@@ -39,10 +39,10 @@ public class RobotContainer {
   public static CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
 
   // SUBSYSTEMS
-  public static final SubAimer    m_Aimer    = new SubAimer   ();
-  public static final SubClimber  m_Climber  = new SubClimber ();
+  // public static final SubAimer    m_Aimer    = new SubAimer   ();
+  // public static final SubClimber  m_Climber  = new SubClimber ();
   public static final SubDrive    m_Drive    = new SubDrive   ();
-  public static final SubIntake   m_Intake   = new SubIntake  ();
+  // public static final SubIntake   m_Intake   = new SubIntake  ();
   public static final SubMover    m_Mover    = new SubMover   ();
   public static final SubRoller   m_Roller   = new SubRoller  ();
   public static final SubShooter  m_Shooter  = new SubShooter ();
@@ -70,8 +70,8 @@ public class RobotContainer {
  */
   public static void Shuffle() {
     // Add a button to run the example auto to SmartDashboard, this will also be in the auto chooser built above
-    SmartDashboard.putData( "Example Auto", new PathPlannerAuto("Example Auto") );
-    SmartDashboard.putData( "Ctr-C",        new PathPlannerAuto( "Ctr-C" )      );
+    // SmartDashboard.putData( "Example Auto", new PathPlannerAuto("Example Auto") );
+    // SmartDashboard.putData( "Ctr-C",        new PathPlannerAuto( "Ctr-C" )      );
 
     // Add a button to run pathfinding commands to SmartDashboard
     SmartDashboard.putData( "Pickup Position",  NewPose.Absolute( 14.00, 6.50, 0 ) );
@@ -83,9 +83,9 @@ public class RobotContainer {
  */
   public static void Drive() {
 
-    m_Drive.setDefaultCommand( null );
+    // m_Drive.setDefaultCommand( null );
 
-    DS.circle().onTrue( RobotContainer.m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
+    // DS.circle().onTrue( RobotContainer.m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
   }
 
 /*
