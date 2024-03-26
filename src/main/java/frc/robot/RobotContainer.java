@@ -10,6 +10,7 @@ import com.pathplanner.lib.auto.NamedCommands;
 // import com.pathplanner.lib.path.PathPlannerPath;
 import com.pathplanner.lib.commands.PathPlannerAuto;
 
+import edu.wpi.first.wpilibj.PS4Controller;
 // import edu.wpi.first.math.geometry.Pose2d;
 // import edu.wpi.first.math.geometry.Rotation2d;
 // import edu.wpi.first.math.geometry.Translation2d;
@@ -35,8 +36,8 @@ import frc.robot.Subsystems.SubDrive;
 public class RobotContainer {
 
   // CONTROLLERS
-  public static CommandPS4Controller  DS = new CommandPS4Controller ( pStick.USB_DS );
-  public static CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
+  // public static CommandPS4Controller  DS = new CommandPS4Controller ( pStick.USB_DS );
+  // public static CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
 
   // SUBSYSTEMS
   // public static final SubAimer    m_Aimer    = new SubAimer   ();

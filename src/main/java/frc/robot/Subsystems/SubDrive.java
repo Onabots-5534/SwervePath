@@ -19,18 +19,18 @@ import frc.robot.Sensor.Navigation;
 import frc.robot.Sensor.Selector;
 
 public class SubDrive extends SubsystemBase {
-  public SubSwerve[]           Modules                    ;
-  public SwerveDriveKinematics Kinematics                 ;
-  public SwerveDriveOdometry   Odometer                   ;
-  public Field2d               Field      = new Field2d() ;
-  
+  public static SubSwerve[]           Modules                    ;
+  public static SwerveDriveKinematics Kinematics                 ;
+  public static SwerveDriveOdometry   Odometer                   ;
+  public static Field2d               Field      = new Field2d() ;
+
   public SubDrive() {
 
     Modules = new SubSwerve[]{
-      new SubSwerve( pSwerve.CAN_FL ),
-      new SubSwerve( pSwerve.CAN_FR ),
-      new SubSwerve( pSwerve.CAN_BL ),
-      new SubSwerve( pSwerve.CAN_BR )
+      new SubSwerve( "FL", pSwerve.CAN_FL ),
+      new SubSwerve( "FR", pSwerve.CAN_FR ),
+      new SubSwerve( "BL", pSwerve.CAN_BL ),
+      new SubSwerve( "BR", pSwerve.CAN_BR )
     };
 
     Kinematics = new SwerveDriveKinematics(
