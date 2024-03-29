@@ -1,5 +1,7 @@
 package frc.robot.Subsystems;
 
+import javax.xml.stream.events.EndDocument;
+
 // import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.PositionVoltage;
 // import com.ctre.phoenix6.controls.VelocityDutyCycle;
@@ -82,7 +84,7 @@ public SubSwerve( String name, int[] ID ) {
 
 // PROBLEM: Velocity control seems to work ok but I don't think I am scaling things correctly.
 // Position control is just plain wrong. This might also have to do with the Encoder returning a value
-// between 0 and 1 that the value I am passing is 0 to 360.
+// between 0 and 1 that the value I am passing is 0 to 360. Also, the PID controller might incorrect.
 
   @Override public void periodic() {
     double Magnitude = currentVelocity.speedMetersPerSecond;
@@ -92,8 +94,11 @@ public SubSwerve( String name, int[] ID ) {
     // display what is currently being presented so that I may collect data and make a good decision.
 
     if ( Name == "BL" ) {
-      SmartDashboard.putNumber( "2 MAG", Magnitude );
-      SmartDashboard.putNumber( "2 DIR", Direction );
+      SmartDashboard.putNumber( "Vel-SP", Magnitude );
+      SmartDashboard.putNumber( "Dir-SP", Direction );
+
+      SmartDashboard.putNumber( "Vel-PV", Drive.getVelocity()        .getValueAsDouble() );
+      SmartDashboard.putNumber( "Dir-PV", Encod.getAbsolutePosition().getValueAsDouble() );
     }
 
     Drive.setControl( m_VelocityVoltage.withVelocity( Magnitude ) );
@@ -110,4 +115,14 @@ public SubSwerve( String name, int[] ID ) {
     );
   }
 
+// CANCODER
+// CANCoder cancoder = new CANcoder( ... )
+// CANcoderConfiguration = cfg = new CAN ...
+// configs.MangetSensor.AbsoluteSensorRange = AbsoluteSensorRange.Signed_PlusMinusHalf
+//   MountPose.MagnetOffset = 0.26;
+//   MountPose.SensorDirection = SensorDirectionValue.Clockwise_Positive
+// cancoder.getConfigurator().apply( configs )
+// cancoder.setPosition( 0 );
+
+  
 }
