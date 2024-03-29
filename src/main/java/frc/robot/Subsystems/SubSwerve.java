@@ -25,21 +25,29 @@ public class SubSwerve extends SubsystemBase {
     public CANcoder
       Encod;
 
+// ================ SET POINTS ==================
+
   private SwerveModulePosition currentPosition = new SwerveModulePosition ();
   private SwerveModuleState    currentVelocity = new SwerveModuleState    ();
 
   public SwerveModulePosition  getPosition () { return currentPosition; }
   public SwerveModuleState     getVelocity () { return currentVelocity; }
 
-    public VelocityVoltage m_VelocityVoltage = new VelocityVoltage( 0, 0, false, 0, 0, false, false, false ); // Slot 0
+// ================ TALONFX SETTING =============
 
+    public VelocityVoltage m_VelocityVoltage = new VelocityVoltage( 0, 0, false, 0, 0, false, false, false ); // Slot 0
     public PositionVoltage m_PositionVoltage = new PositionVoltage( 0, 0, false, 0, 1, false, false, false ); // Slot 1
 
-    public SubSwerve( String name, int[] ID ) {
+// ================ SWERVE MODULE ===============
+
+public SubSwerve( String name, int[] ID ) {
       Name  = name;
       Drive = new TalonFX ( ID[0] );
       Steer = new TalonFX ( ID[1] );
       Encod = new CANcoder( ID[2] );
+
+// This code was dropped in favor of configuring that TalonFX with Phoenix Tuner X. I may go back to setting
+// this programatically once the Position and Velocity configs are separated out.
 
       // TalonFXConfiguration configs = new TalonFXConfiguration();
       
