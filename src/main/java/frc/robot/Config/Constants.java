@@ -7,7 +7,9 @@ import com.pathplanner.lib.util.ReplanningConfig;
 import edu.wpi.first.math.geometry.Translation2d;
 
 public final class Constants {
-  
+
+// ================ SWERVE DRIVE ================
+
   public static double
     RobotLength = 35,
     RobotWidth  = 35;
@@ -31,4 +33,7 @@ public final class Constants {
         new ReplanningConfig()
       );
   }
+
 }
+
+// TODO Implement Flipper features

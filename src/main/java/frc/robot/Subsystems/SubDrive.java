@@ -78,9 +78,9 @@ public class SubDrive extends SubsystemBase {
     return Kinematics.toChassisSpeeds( getModuleStates() );
   }
 
-//
-// CALLABLE FUNCTIONS
-//
+
+// ================ DRIVE STICK =================
+
 
 /* Driving the robot will eventuall call one of the following functons or commands. Passed
  * in are the velocity components of the motion. At some point, we need to apply a deadband
@@ -93,16 +93,19 @@ public class SubDrive extends SubsystemBase {
   public void     RobotDrive( double X, double Y, double Z ) { driveRobotRelative( new ChassisSpeeds( X, Y, Z ) ); }
   public Command cRobotDrive( double X, double Y, double Z ) { return this.runOnce( () -> RobotDrive( X, Y, Z ) ); }
 
+// ================ SUPPORT FUNCTIONS ===========
 
   public void driveFieldRelative( ChassisSpeeds FieldSpeeds ) {
     driveRobotRelative( ChassisSpeeds.fromFieldRelativeSpeeds( FieldSpeeds, getPose().getRotation() ) );
   }
 
+  // This method takes the ChassisSpeeds and sets each individual swerve modules to their respective values.
+  // NOTE: This does NOT send the information to the motor controllers. It only sets the values in each modules
+  // to the target value. The periodic() method will pick up these values and set the motor controllers.
   public void driveRobotRelative( ChassisSpeeds RobotSpeeds ) {
     ChassisSpeeds       targetSpeeds = ChassisSpeeds.discretize( RobotSpeeds, 0.02 );
     SwerveModuleState[] targetStates = Kinematics.toSwerveModuleStates( targetSpeeds );
 
-    // setStates( targetStates );
     SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed );
     for ( int i = 0; i < Modules.length; i++ ) { Modules[i].setTargetState( targetStates[i] ); }
   }
