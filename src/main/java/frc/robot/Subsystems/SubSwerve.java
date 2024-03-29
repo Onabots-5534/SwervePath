@@ -2,7 +2,7 @@ package frc.robot.Subsystems;
 
 // import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.PositionVoltage;
-import com.ctre.phoenix6.controls.VelocityDutyCycle;
+// import com.ctre.phoenix6.controls.VelocityDutyCycle;
 // import com.ctre.phoenix6.controls.VelocityTorqueCurrentFOC;
 import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.hardware.CANcoder;
@@ -14,6 +14,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class SubSwerve extends SubsystemBase {
 
+    public String
+      Name;
+
     public TalonFX
       Drive,
       Steer;
@@ -21,13 +24,18 @@ public class SubSwerve extends SubsystemBase {
     public CANcoder
       Encod;
 
-    public VelocityVoltage m_VelocityVoltage = new VelocityVoltage( 0, 0, false, 0, 0, false, false, false ); // Slot 0
+  private SwerveModulePosition currentPosition = new SwerveModulePosition ();
+  private SwerveModuleState    currentVelocity = new SwerveModuleState    ();
 
-    // public VelocityDutyCycle m_
+  public SwerveModulePosition  getPosition () { return currentPosition; }
+  public SwerveModuleState     getVelocity () { return currentVelocity; }
+
+    public VelocityVoltage m_VelocityVoltage = new VelocityVoltage( 0, 0, false, 0, 0, false, false, false ); // Slot 0
 
     public PositionVoltage m_PositionVoltage = new PositionVoltage( 0, 0, false, 0, 1, false, false, false ); // Slot 1
 
-    public SubSwerve( int[] ID ) {
+    public SubSwerve( String name, int[] ID ) {
+      Name  = name;
       Drive = new TalonFX ( ID[0] );
       Steer = new TalonFX ( ID[1] );
       Encod = new CANcoder( ID[2] );
@@ -71,16 +79,12 @@ public class SubSwerve extends SubsystemBase {
     double Magnitude = currentVelocity.speedMetersPerSecond;
     double Direction = currentVelocity.angle.getDegrees();
 
+    // At this point, I should take over 
+
     Drive.setControl( m_VelocityVoltage.withVelocity( Magnitude ) );
     Steer.setControl( m_PositionVoltage.withPosition( Direction ) );
 
   }
-
-  private SwerveModulePosition currentPosition = new SwerveModulePosition ();
-  private SwerveModuleState    currentVelocity = new SwerveModuleState    ();
-
-  public SwerveModulePosition  getPosition () { return currentPosition; }
-  public SwerveModuleState     getVelocity () { return currentVelocity; }
 
   public void setTargetState( SwerveModuleState targetState ) {
     currentVelocity = SwerveModuleState.optimize( targetState, currentVelocity.angle );
