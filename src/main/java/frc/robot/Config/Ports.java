@@ -14,6 +14,12 @@ public class Ports {
             HUB_Climber = 0;
     }
 
+    public class pFlipper {
+        public static int 
+            CAN_Servo = 0,
+            HUB_Servo = 0;
+    }
+
     public class pIntake {
         public static int
             CAN_Lft = 0,

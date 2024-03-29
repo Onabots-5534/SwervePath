@@ -20,39 +20,39 @@ public class SubSwerve extends SubsystemBase {
     public CANcoder
       Encod;
 
-    public PositionVoltage m_VoltagePosition = new PositionVoltage( 0, 0, false, 0, 0, false, false, false ); // Slot0
-    public VelocityVoltage m_VoltageVelocity = new VelocityVoltage( 0, 0, false, 0, 1, false, false, false ); // Slot1
+    public VelocityVoltage m_VoltageVelocity = new VelocityVoltage( 0, 0, false, 0, 0, false, false, false ); // Slot 0
+    public PositionVoltage m_VoltagePosition = new PositionVoltage( 0, 0, false, 0, 1, false, false, false ); // Slot 1
 
     public SubSwerve( int[] ID ) {
       Drive = new TalonFX ( ID[0] );
       Steer = new TalonFX ( ID[1] );
       Encod = new CANcoder( ID[2] );
 
-      TalonFXConfiguration configs = new TalonFXConfiguration();
+      // TalonFXConfiguration configs = new TalonFXConfiguration();
       
-      /* VOLTAGE BASED VELOCITY */
-      configs.Slot0.kP = 0.10; // An error of 1 rev/sec => 2V output
-      configs.Slot0.kI = 0.00; //
-      configs.Slot0.kD = 0.00; //
-      configs.Slot0.kV = 0.12; //
+      // /* VOLTAGE BASED VELOCITY */
+      // configs.Slot0.kP = 0.10; // An error of 1 rev/sec => 2V output
+      // configs.Slot0.kI = 0.00; //
+      // configs.Slot0.kD = 0.00; //
+      // configs.Slot0.kV = 0.12; //
 
-      /* POSITION CONTROL */
-      configs.Slot1.kP = 0.10; //
-      configs.Slot1.kI = 0.00; //
-      configs.Slot1.kD = 0.00; //
-      configs.Slot1.kV = 0.05; //
+      // /* POSITION CONTROL */
+      // configs.Slot1.kP = 0.10; //
+      // configs.Slot1.kI = 0.00; //
+      // configs.Slot1.kD = 0.00; //
+      // configs.Slot1.kV = 0.05; //
 
-      configs.CurrentLimits.StatorCurrentLimit       = 40;
-      configs.CurrentLimits.StatorCurrentLimitEnable = true;
+      // configs.CurrentLimits.StatorCurrentLimit       = 40;
+      // configs.CurrentLimits.StatorCurrentLimitEnable = true;
 
-      configs.Voltage.PeakForwardVoltage =  8;
-      configs.Voltage.PeakReverseVoltage = -8;
+      // configs.Voltage.PeakForwardVoltage =  8;
+      // configs.Voltage.PeakReverseVoltage = -8;
 
-      // configs.TorqueCurrent.PeakForwardTorqueCurrent =  40;
-      // configs.TorqueCurrent.PeakReverseTorqueCurrent = -40;
+      // // configs.TorqueCurrent.PeakForwardTorqueCurrent =  40;
+      // // configs.TorqueCurrent.PeakReverseTorqueCurrent = -40;
 
-      Drive.getConfigurator().apply( configs );
-      Steer.getConfigurator().apply( configs );
+      // Drive.getConfigurator().apply( configs );
+      // Steer.getConfigurator().apply( configs );
     }
 
   @Override public void periodic() {
