@@ -23,8 +23,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Config.Ports.pStick;
 // import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Subsystems.*;
-import frc.robot.Support.NewPose;
-// import frc.robot.Support.NewPose;
+import frc.robot.Unused.NewPose;
 
 public class RobotContainer {
 
@@ -60,12 +59,15 @@ public class RobotContainer {
     SmartDashboard.putData( "Auton PathPlanner", autoChooser );
   } 
 
-/*
- * SHUFFLEBOARD BUTTONS
- */
-  public static void Shuffle() {
+  public Command getAutonomousCommand() {
+    return autoChooser.getSelected();
+  }
+
+// ================ SHUFFLEBOARD ================
+
+public static void Shuffle() {
     // Add a button to run the example auto to SmartDashboard, this will also be in the auto chooser built above
-    SmartDashboard.putData( "Example Auto", new PathPlannerAuto("Example Auto") );
+    // SmartDashboard.putData( "Example Auto", new PathPlannerAuto("Example Auto") );
     SmartDashboard.putData( "Ctr-C",        new PathPlannerAuto( "Ctr-C" )      );
 
     // Add a button to run pathfinding commands to SmartDashboard
@@ -73,23 +75,18 @@ public class RobotContainer {
     SmartDashboard.putData( "Scoring Position", NewPose.Absolute(  2.15, 3.00, 0 ) );
   }
 
-/*
- * DRIVE STICK BINDINGS
- */
+// ================ DRIVE STICK =================
+
   public static void Drive() {
 
     m_Drive.setDefaultCommand( null );
 
-    DS.circle().onTrue( RobotContainer.m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
+    DS.circle().onTrue( m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
   }
 
-/*
- * MANIP STICK BINDINGS
- */
+// ================ MANIP STICK =================
+
   public static void Manip() {
   }
 
-  public Command getAutonomousCommand() {
-    return autoChooser.getSelected();
-  }
 }
