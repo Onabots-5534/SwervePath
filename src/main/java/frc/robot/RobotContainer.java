@@ -10,7 +10,6 @@ import com.pathplanner.lib.auto.NamedCommands;
 // import com.pathplanner.lib.path.PathPlannerPath;
 import com.pathplanner.lib.commands.PathPlannerAuto;
 
-import edu.wpi.first.wpilibj.PS4Controller;
 // import edu.wpi.first.math.geometry.Pose2d;
 // import edu.wpi.first.math.geometry.Rotation2d;
 // import edu.wpi.first.math.geometry.Translation2d;
@@ -29,19 +28,16 @@ import frc.robot.Unused.NewPose;
 public class RobotContainer {
 
   // CONTROLLERS
-  // public static CommandPS4Controller  DS = new CommandPS4Controller ( pStick.USB_DS );
-  // public static CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
+  public static CommandPS4Controller  DS = new CommandPS4Controller ( pStick.USB_DS );
+  public static CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
 
   // SUBSYSTEMS
   // public static final SubAimer    m_Aimer    = new SubAimer   ();
   // public static final SubClimber  m_Climber  = new SubClimber ();
   public static final SubDrive    m_Drive    = new SubDrive   ();
-<<<<<<< HEAD
   // public static final SubIntake   m_Intake   = new SubIntake  ();
-=======
   public static final SubFlipper  m_Flipper  = new SubFlipper ();
   public static final SubIntake   m_Intake   = new SubIntake  ();
->>>>>>> 56715c62c146f2596d9724780ea2d4774c6e860c
   public static final SubMover    m_Mover    = new SubMover   ();
   public static final SubRoller   m_Roller   = new SubRoller  ();
   public static final SubShooter  m_Shooter  = new SubShooter ();
@@ -73,11 +69,8 @@ public class RobotContainer {
 public static void Shuffle() {
     // Add a button to run the example auto to SmartDashboard, this will also be in the auto chooser built above
     // SmartDashboard.putData( "Example Auto", new PathPlannerAuto("Example Auto") );
-<<<<<<< HEAD
     // SmartDashboard.putData( "Ctr-C",        new PathPlannerAuto( "Ctr-C" )      );
-=======
     SmartDashboard.putData( "Ctr-C",        new PathPlannerAuto( "Ctr-C" )      );
->>>>>>> 56715c62c146f2596d9724780ea2d4774c6e860c
 
     // Add a button to run pathfinding commands to SmartDashboard
     SmartDashboard.putData( "Pickup Position",  NewPose.Absolute( 14.00, 6.50, 0 ) );
@@ -90,11 +83,7 @@ public static void Shuffle() {
 
     // m_Drive.setDefaultCommand( null );
 
-<<<<<<< HEAD
-    // DS.circle().onTrue( RobotContainer.m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
-=======
     DS.circle().onTrue( m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
->>>>>>> 56715c62c146f2596d9724780ea2d4774c6e860c
   }
 
 // ================ MANIP STICK =================
