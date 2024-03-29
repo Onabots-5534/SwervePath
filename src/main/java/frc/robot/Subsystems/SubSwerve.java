@@ -10,6 +10,7 @@ import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class SubSwerve extends SubsystemBase {
@@ -79,7 +80,13 @@ public class SubSwerve extends SubsystemBase {
     double Magnitude = currentVelocity.speedMetersPerSecond;
     double Direction = currentVelocity.angle.getDegrees();
 
-    // At this point, I should take over 
+    // At this point, I should take over the handling and translate into values that I understand. First though,
+    // display what is currently being presented so that I may collect data and make a good decision.
+
+    if ( Name == "BL" ) {
+      SmartDashboard.putNumber( "2 MAG", Magnitude );
+      SmartDashboard.putNumber( "2 DIR", Direction );
+    }
 
     Drive.setControl( m_VelocityVoltage.withVelocity( Magnitude ) );
     Steer.setControl( m_PositionVoltage.withPosition( Direction ) );
