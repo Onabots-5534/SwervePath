@@ -99,6 +99,9 @@ public SubSwerve( String name, int[] ID ) {
       SmartDashboard.putNumber( "Dir-PV", Encod.getAbsolutePosition().getValueAsDouble() );
     }
 
+    // Now that I have the inforamtion to understand the problem, I can scale the values so that they
+    // make sense in terms of what the TalonFX requires.
+
     Drive.setControl( m_VelocityVoltage.withVelocity( Magnitude ) );
     Steer.setControl( m_PositionVoltage.withPosition( Direction ) );
 
