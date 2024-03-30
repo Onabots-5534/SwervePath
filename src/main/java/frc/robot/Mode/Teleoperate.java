@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.RobotContainer;
 import frc.robot.Config.Ports.pStick;
+import frc.robot.Subsystems.SubClimber;
 import frc.robot.Subsystems.SubFlipper;
 import frc.robot.Subsystems.SubIntake;
 import frc.robot.Subsystems.SubRoller;
@@ -39,11 +40,15 @@ public class Teleoperate {
 
 
         if ( MS.getAButton() ) {
-            SubShooter.Shoot( 1.00 );
+            SubClimber.RaiseArms();
+        }
+
+        else if ( MS.getBButton() ) {
+            SubClimber.LowerArms();
         }
 
         else {
-            SubShooter.Stop();
+            SubClimber.Stop();
         }
     }
 

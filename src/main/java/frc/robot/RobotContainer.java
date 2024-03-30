@@ -33,7 +33,7 @@ public class RobotContainer {
 
   // SUBSYSTEMS
   // public static final SubAimer    m_Aimer    = new SubAimer   ();
-  // public static final SubClimber  m_Climber  = new SubClimber ();
+  public static final SubClimber  m_Climber  = new SubClimber ();
   public static final SubDrive    m_Drive    = new SubDrive   ();
   // public static final SubIntake   m_Intake   = new SubIntake  ();
   public static final SubFlipper  m_Flipper  = new SubFlipper ();

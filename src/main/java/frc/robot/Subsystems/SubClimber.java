@@ -1,7 +1,6 @@
 package frc.robot.Subsystems;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkLowLevel.MotorType;
+import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -10,14 +9,13 @@ import frc.robot.Config.Ports.pClimber;
 
 public class SubClimber extends SubsystemBase {
 
-  public static CANSparkMax
-    Climber = new CANSparkMax( pClimber.CAN_Climber, MotorType.kBrushless );
+  public static TalonFX
+    Climber = new TalonFX( pClimber.CAN_Climber );
 
   public static double
     Power = 0;
 
   public SubClimber() {
-    Climber.restoreFactoryDefaults();
     Climber.setInverted( false );
   }
 
@@ -31,14 +29,16 @@ public class SubClimber extends SubsystemBase {
 
 // ================ COMMANDS ====================
 
-  public static void LowerArms() { Power = -0.50; }
+  public static void LowerArms() { Power =  0.50; }
   public Command    cLowerArms() { return this.runOnce( () -> LowerArms() ); }
 
-  public static void RaiseArms() { Power =  0.80; }
+  public static void RaiseArms() { Power = -0.80; }
   public Command    cRaiseArms() { return this.runOnce( () -> RaiseArms() ); }
 
   public static void ResetEncoder () {}
   public Command    cResetEncoder () { return this.runOnce( () -> ResetEncoder() ); }
+
+  public static void Stop() { Power = 0.00; }
 
 // TODO Need to implement Raising and Lowering the Robot Climber Arms
 /* These functions will raise or lower the robot until the encoder value reaches a specific
