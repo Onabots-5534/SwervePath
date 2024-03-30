@@ -78,10 +78,12 @@ public class SubDrive extends SubsystemBase {
     return Kinematics.toChassisSpeeds( getModuleStates() );
   }
 
+// ================ DRIVE SHORT CUTS ============
 
-// ================ DRIVE STICK =================
+  public void     Stop() { FieldDrive( 0, 0, 0); }
+  public Command cStop() { return this.runOnce( () -> Stop() ); }
 
-
+// ================ DRIVE FUNCTIONS =============
 /* Driving the robot will eventuall call one of the following functons or commands. Passed
  * in are the velocity components of the motion. At some point, we need to apply a deadband
  * and other limiting factors. 

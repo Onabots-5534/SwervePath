@@ -29,16 +29,16 @@ public class SubClimber extends SubsystemBase {
 
 // ================ COMMANDS ====================
 
-  public static void LowerArms() { Power =  0.50; }
-  public Command    cLowerArms() { return this.runOnce( () -> LowerArms() ); }
+  public void     LowerArms    () { Power =  0.50; }
+  public Command cLowerArms    () { return this.runOnce( () -> LowerArms() ); }
 
-  public static void RaiseArms() { Power = -0.80; }
-  public Command    cRaiseArms() { return this.runOnce( () -> RaiseArms() ); }
+  public void     RaiseArms    () { Power = -0.80; }
+  public Command cRaiseArms    () { return this.runOnce( () -> RaiseArms() ); }
 
-  public static void ResetEncoder () {}
-  public Command    cResetEncoder () { return this.runOnce( () -> ResetEncoder() ); }
+  public void     ResetEncoder () {}
+  public Command cResetEncoder () { return this.runOnce( () -> ResetEncoder() ); }
 
-  public static void Stop() { Power = 0.00; }
+  public void Stop() { Power = 0.00; }
 
 // TODO Need to implement Raising and Lowering the Robot Climber Arms
 /* These functions will raise or lower the robot until the encoder value reaches a specific
