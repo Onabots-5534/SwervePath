@@ -42,13 +42,13 @@ public class SubIntake extends SubsystemBase {
 
 // ================ COMMANDS ====================
 
-  public static void Spit() { Power = -1.00; }
-  public Command    cSpit() { return this.runOnce( () -> Spit() ); }
+  public void     Spit() { Power = -1.00; }
+  public Command cSpit() { return this.runOnce( () -> Spit() ); }
 
-  public static void Stop() { Power =  0.00; }
-  public Command    cStop() { return this.runOnce( () -> Stop() ); }
+  public void     Stop() { Power =  0.00; }
+  public Command cStop() { return this.runOnce( () -> Stop() ); }
 
-  public static void Suck() { Power =  1.00; }
-  public Command    cSuck() { return this.runOnce( () -> Suck() ); }
+  public void     Suck() { Power =  1.00; }
+  public Command cSuck() { return this.runOnce( () -> Suck() ); }
 
 }

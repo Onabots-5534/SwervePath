@@ -34,12 +34,12 @@ public class SubAimer extends SubsystemBase {
 
 // ================ COMMANDS ====================
 
-  public static void Off  () { State = Off; }
-  public Command    cOff  () { return this.runOnce( () -> Off  () ); }   
+  public void     Off  () { State = Off; }
+  public Command cOff  () { return this.runOnce( () -> Off  () ); }   
 
-  public static void Lower() { State = Lower; }
-  public Command    cLower() { return this.runOnce( () -> Lower() ); }
+  public void     Lower() { State = Lower; }
+  public Command cLower() { return this.runOnce( () -> Lower() ); }
 
-  public static void Raise() { State = Raise; }
-  public Command    cRaise() { return this.runOnce( () -> Raise() ); }
+  public void     Raise() { State = Raise; }
+  public Command cRaise() { return this.runOnce( () -> Raise() ); }
 }

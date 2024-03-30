@@ -28,10 +28,10 @@ public class SubFlipper extends SubsystemBase {
 
 // ================ COMMANDS ====================
 
-    public static void Extend  () { State = -0.5; }
-    public Command    cExtend  () { return this.runOnce( () -> Extend () ); }
+    public void    Extend  () { State = -0.5; }
+    public Command cExtend  () { return this.runOnce( () -> Extend () ); }
 
-    public static void Retract () { State = 0.77; }
-    public Command    cRetract () { return this.runOnce( () -> Retract() ); }
+    public void     Retract () { State = 0.77; }
+    public Command cRetract () { return this.runOnce( () -> Retract() ); }
 
 }

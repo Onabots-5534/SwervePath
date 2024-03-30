@@ -29,9 +29,9 @@ public class SubShooter extends SubsystemBase {
 
 // ================ COMMANDS ====================
 
-  public static void Shoot ( double power ) { Power = power; }
-  public Command    cShoot ( double power ) { return this.runOnce( () -> Shoot( power ) ); }
+  public void     Shoot ( double power ) { Power = power; }
+  public Command cShoot ( double power ) { return this.runOnce( () -> Shoot( power ) ); }
 
-  public static void Stop ()                { Power = 0.00;  }
-  public Command    cStop ()                { return this.runOnce( () -> Stop()         ); } 
+  public void     Stop ()                { Power = 0.00;  }
+  public Command cStop ()                { return this.runOnce( () -> Stop()         ); } 
 }

@@ -46,9 +46,9 @@ public class SubClimber extends SubsystemBase {
   * This should read the encoder and check its value. There should also be a button on the
   * Shuffleboard that resets the encoder.
   */
-  public static void RaiseRobot   () {}
-  public Command    cRaiseRobot   () { return this.runOnce( () -> LowerArms()    ); }
+  public void     RaiseRobot   () {}
+  public Command cRaiseRobot   () { return this.runOnce( () -> LowerArms()    ); }
 
-  public static void LowerRobot   () {}
-  public Command    cLowerRobot   () { return this.runOnce( () -> RaiseArms()    ); }
+  public void     LowerRobot   () {}
+  public Command cLowerRobot   () { return this.runOnce( () -> RaiseArms()    ); }
 }

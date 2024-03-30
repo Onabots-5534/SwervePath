@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.RobotContainer;
 import frc.robot.Config.Ports.pStick;
-import frc.robot.Subsystems.*;
 
 public class Teleoperate {
 
@@ -35,11 +34,11 @@ public class Teleoperate {
 
 
         if ( MS.getAButton() ) {
-            SubAimer.Raise();
+            RobotContainer.m_Aimer.Raise();
         }
 
         else {
-            SubAimer.Lower();
+            RobotContainer.m_Aimer.Lower();
         }
     }
 
