@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Config.Ports.pIntake;
-import frc.robot.Sensor.Shuffle;
 
 public class SubIntake extends SubsystemBase {
 
@@ -27,8 +26,6 @@ public class SubIntake extends SubsystemBase {
 
     Lft.setSmartCurrentLimit( 25, 10 );
     Rgt.setSmartCurrentLimit( 25, 10 );
-
-    Shuffle.MechTab.add( "Intake Suck", cSuck() );
   }
 
   @Override public void periodic() {

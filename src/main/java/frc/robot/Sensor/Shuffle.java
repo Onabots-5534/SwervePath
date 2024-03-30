@@ -1,22 +1,20 @@
 package frc.robot.Sensor;
 
+// import edu.wpi.first.wpilibj.drive.RobotDriveBase;
 // import edu.wpi.first.wpilibj.shuffleboard.BuiltInLayouts;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+// import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 // import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardLayout;
-import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+// import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shuffle {
     
-    public static ShuffleboardTab AutoTab = Shuffleboard.getTab( "Auto" );
-    public static ShuffleboardTab CompTab = Shuffleboard.getTab( "Comp" );
-    public static ShuffleboardTab DrivTab = Shuffleboard.getTab( "Driv" );
-    public static ShuffleboardTab LimeTab = Shuffleboard.getTab( "Lime" );
-    public static ShuffleboardTab MechTab = Shuffleboard.getTab( "Mech" );
-    public static ShuffleboardTab PoseTab = Shuffleboard.getTab( "Pose" );
-    public static ShuffleboardTab TestTab = Shuffleboard.getTab( "Test" );
 
     public static void Initialize() {
 
+// ================ COMPETITION =================
+
+        
 
         // AutoTab.add( "Stage Distance", Stage.GetStageDist( Stage.Number ) ).withPosition( 2, 1 ).withSize( 2, 1 );
         // AutoTab.add( "Stage Number", Stage.GetStageNumber() ).withPosition( 3, 1 ).withSize( 2, 1 );
@@ -42,7 +40,7 @@ public class Shuffle {
     // // MECHANISM TAB
     // //
     //     if ( MechTab != null ) {        
-    //         MechTab.add( "Intake Current Power" , Intake  .GetPower() ).withPosition( 1, 1 ).withSize( 2, 1 );
+            // MechTab.add( "Intake Current Power" , Intake  .GetPower() ).withPosition( 1, 1 ).withSize( 2, 1 );
     //         MechTab.add( "Roller Current Power" , Roller  .GetPower() ).withPosition( 2, 1 ).withSize( 2, 1 );
     //         MechTab.add( "Mover Current Power"  , Mover   .GetPower() ).withPosition( 3, 1 ).withSize( 2, 1 );
     //         MechTab.add( "Shooter Current Power", Shooter .GetPower() ).withPosition( 4, 1 ).withSize( 2, 1 );
