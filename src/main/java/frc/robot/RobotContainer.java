@@ -40,7 +40,7 @@ public class RobotContainer {
   // public static final SubIntake   m_Intake   = new SubIntake  ();
   // public static final SubMover    m_Mover    = new SubMover   ();
   public static final SubRoller   m_Roller   = new SubRoller  ();
-  // public static final SubShooter  m_Shooter  = new SubShooter ();
+  public static final SubShooter  m_Shooter  = new SubShooter ();
 
   private final SendableChooser<Command> autoChooser;
 

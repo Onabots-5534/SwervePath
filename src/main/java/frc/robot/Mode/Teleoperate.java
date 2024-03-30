@@ -7,6 +7,7 @@ import frc.robot.Config.Ports.pStick;
 import frc.robot.Subsystems.SubFlipper;
 import frc.robot.Subsystems.SubIntake;
 import frc.robot.Subsystems.SubRoller;
+import frc.robot.Subsystems.SubShooter;
 
 public class Teleoperate {
 
@@ -38,11 +39,11 @@ public class Teleoperate {
 
 
         if ( MS.getAButton() ) {
-            SubRoller.Forward();
+            SubShooter.Shoot( 1.00 );
         }
 
         else {
-            SubRoller.Stop();
+            SubShooter.Stop();
         }
     }
 
