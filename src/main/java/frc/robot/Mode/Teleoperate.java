@@ -1,11 +1,16 @@
 package frc.robot.Mode;
 
+import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.RobotContainer;
 import frc.robot.Config.Ports.pStick;
+import frc.robot.Subsystems.SubFlipper;
+import frc.robot.Subsystems.SubIntake;
+import frc.robot.Subsystems.SubRoller;
 
 public class Teleoperate {
 
+  public static PS4Controller  DS = new PS4Controller ( pStick.USB_DS );
   public static XboxController MS = new XboxController( pStick.USB_MS );
 
     public static void Initialize() {
@@ -16,16 +21,28 @@ public class Teleoperate {
 
     public static void Periodic() {
         
-        if ( MS.getAButton() ) {
-            RobotContainer.m_Drive.FieldDrive( 0.80, 0, 0 );
-        }
+        // GET JOYSTICK VALUES
+        double
+            X = -DS.getLeftY(),
+            Y = -DS.getLeftX(),
+            Z = -DS.getRightX();
 
-        else if ( MS.getBButton() ) {
-            RobotContainer.m_Drive.FieldDrive( 0.00, 0.80, 0 );
+        // JOYSTICK DEAD ZONE
+        if ( Math.abs( X ) < 0.07 ) { X = 0; }
+        if ( Math.abs( Y ) < 0.07 ) { Y = 0; }
+        if ( Math.abs( Z ) < 0.07 ) { Z = 0; } else { Z /= 20; }
+
+
+        // DRIVE THE ROBOT
+        RobotContainer.m_Drive.FieldDrive( X, Y, Z );
+
+
+        if ( MS.getAButton() ) {
+            SubRoller.Forward();
         }
 
         else {
-            RobotContainer.m_Drive.FieldDrive( 0, 0, 0 );
+            SubRoller.Stop();
         }
     }
 

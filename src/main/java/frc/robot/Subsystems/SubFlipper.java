@@ -9,7 +9,7 @@ import frc.robot.Config.Ports.pFlipper;
 public class SubFlipper extends SubsystemBase {
 
     public static Servo
-        Flipper = new Servo( pFlipper.CAN_Servo );
+        Flipper = new Servo( pFlipper.PWM_Servo );
 
     public static double
         State = 0;
@@ -28,10 +28,10 @@ public class SubFlipper extends SubsystemBase {
 
 // ================ COMMANDS ====================
 
-    public static void Extend  () { State = 0; }
+    public static void Extend  () { State = -0.5; }
     public Command    cExtend  () { return this.runOnce( () -> Extend () ); }
 
-    public static void Retract () { State = 1; }
+    public static void Retract () { State = 0.77; }
     public Command    cRetract () { return this.runOnce( () -> Retract() ); }
 
 }

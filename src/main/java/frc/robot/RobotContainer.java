@@ -9,7 +9,7 @@ import com.pathplanner.lib.auto.NamedCommands;
 // import com.pathplanner.lib.path.PathConstraints;
 // import com.pathplanner.lib.path.PathPlannerPath;
 import com.pathplanner.lib.commands.PathPlannerAuto;
-
+// 
 // import edu.wpi.first.math.geometry.Pose2d;
 // import edu.wpi.first.math.geometry.Rotation2d;
 // import edu.wpi.first.math.geometry.Translation2d;
@@ -37,10 +37,10 @@ public class RobotContainer {
   public static final SubDrive    m_Drive    = new SubDrive   ();
   // public static final SubIntake   m_Intake   = new SubIntake  ();
   public static final SubFlipper  m_Flipper  = new SubFlipper ();
-  public static final SubIntake   m_Intake   = new SubIntake  ();
-  public static final SubMover    m_Mover    = new SubMover   ();
+  // public static final SubIntake   m_Intake   = new SubIntake  ();
+  // public static final SubMover    m_Mover    = new SubMover   ();
   public static final SubRoller   m_Roller   = new SubRoller  ();
-  public static final SubShooter  m_Shooter  = new SubShooter ();
+  // public static final SubShooter  m_Shooter  = new SubShooter ();
 
   private final SendableChooser<Command> autoChooser;
 
@@ -70,7 +70,7 @@ public static void Shuffle() {
     // Add a button to run the example auto to SmartDashboard, this will also be in the auto chooser built above
     // SmartDashboard.putData( "Example Auto", new PathPlannerAuto("Example Auto") );
     // SmartDashboard.putData( "Ctr-C",        new PathPlannerAuto( "Ctr-C" )      );
-    SmartDashboard.putData( "Ctr-C",        new PathPlannerAuto( "Ctr-C" )      );
+    // SmartDashboard.putData( "Ctr-C",        new PathPlannerAuto( "Ctr-C" )      );
 
     // Add a button to run pathfinding commands to SmartDashboard
     SmartDashboard.putData( "Pickup Position",  NewPose.Absolute( 14.00, 6.50, 0 ) );
@@ -80,8 +80,6 @@ public static void Shuffle() {
 // ================ DRIVE STICK =================
 
   public static void Drive() {
-
-    // m_Drive.setDefaultCommand( null );
 
     DS.circle().onTrue( m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
   }

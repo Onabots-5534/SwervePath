@@ -14,7 +14,7 @@ public class Test {
     }
 
     public static void Periodic() {
-        RobotContainer.m_Drive.RobotDrive( 0.00, 0.00, 0.00 );
+        RobotContainer.m_Drive.RobotDrive( 0.00, 0.00, 0.20 );
     }
 
 }

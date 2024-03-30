@@ -1,18 +1,12 @@
 package frc.robot.Subsystems;
 
-// import com.ctre.phoenix6.configs.TalonFXConfiguration;
-import com.ctre.phoenix6.controls.PositionVoltage;
-// import com.ctre.phoenix6.controls.VelocityDutyCycle;
-// import com.ctre.phoenix6.controls.VelocityTorqueCurrentFOC;
 import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.hardware.CANcoder;
 import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-// import frc.robot.Config.Constants;
 
 public class SubSwerve extends SubsystemBase {
 
@@ -27,11 +21,8 @@ public class SubSwerve extends SubsystemBase {
       Encod;
 
     public double
-      DirSP = 0,
-      DirPV = 0;
-
-    public PositionVoltage m_VoltagePosition = new PositionVoltage( 0, 0, false, 0, 0, false, false, false ); // Slot0
-    public VelocityVoltage m_VoltageVelocity = new VelocityVoltage( 0, 0, false, 0, 1, false, false, false ); // Slot1
+      DirSP = 0, DirPV = 0, DirEr = 0, DirPw = 0,
+      VelSP = 0, VelPV = 0, VelEr = 0, VelPw = 0;
 
 // ================ SET POINTS ==================
 
@@ -44,7 +35,7 @@ public class SubSwerve extends SubsystemBase {
 // ================ TALONFX SETTING =============
 
     public VelocityVoltage m_VelocityVoltage = new VelocityVoltage( 0, 0, false, 0, 0, false, false, false ); // Slot 0
-    public PositionVoltage m_PositionVoltage = new PositionVoltage( 0, 0, false, 0, 1, false, false, false ); // Slot 1
+    // public PositionVoltage m_PositionVoltage = new PositionVoltage( 0, 0, false, 0, 1, false, false, false ); // Slot 1
 
 // ================ SWERVE MODULE ===============
 
@@ -84,35 +75,24 @@ public SubSwerve( String name, int[] ID ) {
       // Steer.getConfigurator().apply( configs );
     }
 
-// TODO: Consider dropping support for the built-in PID controller and instead go back to using my own.
-// This requires more testing to see if I can get it to work. Remember that I also need to implement the
-// flipper. Check if this is too high to move under the hanging chain.
-
-// PROBLEM: Velocity control seems to work ok but I don't think I am scaling things correctly.
-// Position control is just plain wrong. This might also have to do with the Encoder returning a value
-// between 0 and 1 that the value I am passing is 0 to 360. Also, the PID controller might incorrect.
-
   @Override public void periodic() {
-    double Magnitude = currentVelocity.speedMetersPerSecond;
-    double Direction = currentVelocity.angle.getDegrees();
 
-    // At this point, I should take over the handling and translate into values that I understand. First though,
-    // display what is currently being presented so that I may collect data and make a good decision.
+    // VELOCITY INFO
+    VelPV = Drive.getVelocity().getValueAsDouble();
+    VelSP = currentVelocity.speedMetersPerSecond;
 
-    if ( Name == "BL" ) {
-      SmartDashboard.putNumber( "Vel-SP", Magnitude );
-      SmartDashboard.putNumber( "Dir-SP", Direction );
+    // DIRECTION INFO
+    DirPV = Encod.getAbsolutePosition().getValueAsDouble() * 360;
+    DirSP = currentVelocity.angle.getDegrees();
+    DirEr = ( DirPV - DirSP + 540 ) % 360 - 180;
+    DirPw = DirEr * 0.01;
 
-      SmartDashboard.putNumber( "Vel-PV", Drive.getVelocity()        .getValueAsDouble() );
-      SmartDashboard.putNumber( "Dir-PV", Encod.getAbsolutePosition().getValueAsDouble() );
-    }
+    // Drive.set( VelSP );
+    Drive.setControl( m_VelocityVoltage.withVelocity( VelSP * 200 ) );
+    Steer.set( DirPw );
 
-    // Now that I have the inforamtion to understand the problem, I can scale the values so that they
-    // make sense in terms of what the TalonFX requires.
-
-    Drive.setControl( m_VelocityVoltage.withVelocity( Magnitude ) );
-    Steer.setControl( m_PositionVoltage.withPosition( Direction ) );
-
+    // Drive.setControl( m_VelocityVoltage.withVelocity( Magnitude ) );
+    // Steer.setControl( m_PositionVoltage.withPosition( Direction ) );
   }
 
   public void setTargetState( SwerveModuleState targetState ) {

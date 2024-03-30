@@ -29,7 +29,7 @@ public final class Constants {
         new PIDConstants( 5.0, 0, 0 ), // Translation constants 
         new PIDConstants( 5.0, 0, 0 ), // Rotation constants 
         maxModuleSpeed,                // Maximum module speed
-        FL_Trans2d.getNorm(),      // Drive base radius (distance from center to furthest module) 
+        FL_Trans2d.getNorm(),          // Drive base radius (distance from center to furthest module) 
         new ReplanningConfig()
       );
   }

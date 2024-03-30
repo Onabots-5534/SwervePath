@@ -16,7 +16,7 @@ public class Ports {
 
     public class pFlipper {
         public static int 
-            CAN_Servo = 0,
+            PWM_Servo = 0,
             HUB_Servo = 0;
     }
 
