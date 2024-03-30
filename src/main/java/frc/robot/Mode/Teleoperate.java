@@ -35,15 +35,11 @@ public class Teleoperate {
 
 
         if ( MS.getAButton() ) {
-            SubClimber.RaiseArms();
-        }
-
-        else if ( MS.getBButton() ) {
-            SubClimber.LowerArms();
+            SubAimer.Raise();
         }
 
         else {
-            SubClimber.Stop();
+            SubAimer.Lower();
         }
     }
 

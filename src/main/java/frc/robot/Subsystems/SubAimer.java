@@ -16,8 +16,8 @@ public class SubAimer extends SubsystemBase {
     Rgt = new DoubleSolenoid( PneumaticsModuleType.CTREPCM, pAimer.PCM_Rgt[0], pAimer.PCM_Rgt[1] );
 
   public static DoubleSolenoid.Value
-    Raise = DoubleSolenoid.Value.kForward,
-    Lower = DoubleSolenoid.Value.kReverse,
+    Lower = DoubleSolenoid.Value.kForward,
+    Raise = DoubleSolenoid.Value.kReverse,
     Off   = DoubleSolenoid.Value.kOff,
     State = Raise;
 
