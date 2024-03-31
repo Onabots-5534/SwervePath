@@ -1,6 +1,7 @@
 package frc.robot.Subsystems;
 
-import com.ctre.phoenix6.hardware.TalonFX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -11,8 +12,8 @@ public class SubMover extends SubsystemBase {
 
   public SubMover() {}
 
-  public static TalonFX
-    Mover = new TalonFX( pMover.CAN_Mover );
+  public static CANSparkMax
+    Mover = new CANSparkMax( pMover.CAN_Mover, MotorType.kBrushless );
 
   public static double
     Power = 0;

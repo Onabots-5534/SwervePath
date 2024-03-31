@@ -26,7 +26,7 @@ public final class Constants {
 
     public static final HolonomicPathFollowerConfig
       pathFollowerConfig = new HolonomicPathFollowerConfig(
-        new PIDConstants( 5.0, 0, 0 ), // Translation constants 
+        new PIDConstants( 50.0, 0, 0 ), // Translation constants 
         new PIDConstants( 5.0, 0, 0 ), // Rotation constants 
         maxModuleSpeed,                // Maximum module speed
         FL_Trans2d.getNorm(),          // Drive base radius (distance from center to furthest module) 

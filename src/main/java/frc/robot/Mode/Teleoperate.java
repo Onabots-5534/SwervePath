@@ -34,11 +34,11 @@ public class Teleoperate {
 
 
         if ( MS.getAButton() ) {
-            RobotContainer.m_Aimer.Raise();
+            // RobotContainer.m_Aimer.Raise();
         }
 
         else {
-            RobotContainer.m_Aimer.Lower();
+            // RobotContainer.m_Aimer.Lower();
         }
     }
 

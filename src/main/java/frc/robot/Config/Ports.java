@@ -8,9 +8,9 @@ public class Ports {
             PCM_Rgt = { 2, 3 };
     }
 
-    public class pClimber {
+    public class pClimber { // TalonFX
         public static int
-            CAN_Climber = 19, // PROBABLE
+            CAN_Climber = 19,
             HUB_Climber = 0;
     }
 
@@ -22,8 +22,8 @@ public class Ports {
 
     public class pIntake {
         public static int
-            CAN_Lft = 5,
-            CAN_Rgt = 6,
+            CAN_Lft = 1,
+            CAN_Rgt = 2,
 
             HUB_Lft = 0,
             HUB_Rgt = 0;
@@ -31,17 +31,17 @@ public class Ports {
 
     public class pMover {
         public static int
-            CAN_Mover = 0, // UNCHECKED, SPARKMAX ?
+            CAN_Mover = 3,
             HUB_Mover = 0;
     }
 
-    public class pRoller {
+    public class pRoller { // TalonSRX
         public static int
-            CAN_Roller = 3,
+            CAN_Roller = 4, 
             HUB_Roller = 0;
     }
 
-    public class pShooter {
+    public class pShooter { // TalonFX
         public static int
             CAN_Hi = 9,
             CAN_Lo = 10,

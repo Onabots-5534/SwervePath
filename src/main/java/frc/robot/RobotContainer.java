@@ -1,13 +1,8 @@
 package frc.robot;
 
-// import java.util.List;
-
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
-import com.pathplanner.lib.commands.PathPlannerAuto;
 
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 // import com.pathplanner.lib.path.GoalEndState;
 // import com.pathplanner.lib.path.PathConstraints;
 // import com.pathplanner.lib.path.PathPlannerPath;
@@ -24,7 +19,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Config.Ports.pStick;
 // import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Subsystems.*;
-import frc.robot.Unused.NewPose;
 
 public class RobotContainer {
 
@@ -33,7 +27,7 @@ public class RobotContainer {
   public static CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
 
   // SUBSYSTEMS
-  public static final SubAimer    m_Aimer    = new SubAimer   ();
+  // public static final SubAimer    m_Aimer    = new SubAimer   ();
   public static final SubClimber  m_Climber  = new SubClimber ();
   public static final SubDrive    m_Drive    = new SubDrive   ();
   public static final SubFlipper  m_Flipper  = new SubFlipper ();
@@ -42,7 +36,13 @@ public class RobotContainer {
   public static final SubRoller   m_Roller   = new SubRoller  ();
   public static final SubShooter  m_Shooter  = new SubShooter ();
 
-  public final SendableChooser<Command> autoChooser;
+  public static SendableChooser<Command> autoChooser;
+
+  // ShuffleboardTab Auto = Shuffleboard.getTab( "Auto" );
+  // ShuffleboardTab Comp = Shuffleboard.getTab( "Comp" );
+  // ShuffleboardTab Driv = Shuffleboard.getTab( "Driv" );
+  // ShuffleboardTab Mech = Shuffleboard.getTab( "Mech" );
+  // ShuffleboardTab Pose = Shuffleboard.getTab( "Pose" );
 
   public RobotContainer() {
   
@@ -55,38 +55,26 @@ public class RobotContainer {
 // ================ SHUFFLEBOARD ================
 // ==============================================
 
-    // ShuffleboardTab Auto = Shuffleboard.getTab( "Auto" );
-    // ShuffleboardTab Comp = Shuffleboard.getTab("CompTab");
-    // ShuffleboardTab Driv = Shuffleboard.getTab( "Driv" );
-    // ShuffleboardTab Mech = Shuffleboard.getTab( "Mech" );
-    // ShuffleboardTab Pose = Shuffleboard.getTab( "Pose" );
+    autoChooser = AutoBuilder.buildAutoChooser(); // Default auto will be `Commands.none()`
 
-    //   Comp.addCamera( "Shooter", "Limelight 2", "http://10.55.34.12:5800" ).withPosition( 11, 0 )
-    //   .withProperties( Map.of( "showControls", false ) ).withSize( 5, 5 );
-    //   GenericEntry SX = Comp.add( "Shooter TX", 0 ).withPosition( 9, 0 ).withSize( 2, 1 ).getEntry();
-    //   GenericEntry SY = Comp.add( "Shooter TY", 0 ).withPosition( 9, 1 ).withSize( 2, 1 ).getEntry();
 
       // Add a button to run the example auto to SmartDashboard, this will also be in the auto chooser built above
       // SmartDashboard.putData( "Example Auto", new PathPlannerAuto("Example Auto") );
       // SmartDashboard.putData( "Ctr-C",        new PathPlannerAuto( "Ctr-C" )      );
 
-
-    ShuffleboardTab Test = Shuffleboard.getTab("Test");
-      Test.add( m_Aimer   ).withPosition(  0, 0 );
-      Test.add( m_Climber ).withPosition(  2, 0 );
-      Test.add( m_Drive   ).withPosition(  4, 0 );
-      Test.add( m_Flipper ).withPosition(  6, 0 );
-      Test.add( m_Intake  ).withPosition(  8, 0 );
-      Test.add( m_Mover   ).withPosition( 10, 0 );
-      Test.add( m_Roller  ).withPosition( 12, 0 );
-      Test.add( m_Shooter ).withPosition( 14, 0 );
+      // Test.add( m_Aimer   ).withPosition(  0, 0 );
+      // Test.add( m_Climber ).withPosition(  2, 0 );
+      // Test.add( m_Drive   ).withPosition(  4, 0 );
+      // Test.add( m_Flipper ).withPosition(  6, 0 );
+      // Test.add( m_Intake  ).withPosition(  8, 0 );
+      // Test.add( m_Mover   ).withPosition( 10, 0 );
+      // Test.add( m_Roller  ).withPosition( 12, 0 );
+      // Test.add( m_Shooter ).withPosition( 14, 0 );
       
-      autoChooser = AutoBuilder.buildAutoChooser(); // Default auto will be `Commands.none()`
-      Test.add( "PathPlanner", AutoBuilder.buildAutoChooser() );
 
       // Add a button to run pathfinding commands to SmartDashboard
-      Test.add( "Pickup Position",  NewPose.Absolute( 14.00, 6.50, 0 ) );
-      Test.add( "Scoring Position", NewPose.Absolute(  2.15, 3.00, 0 ) );
+      // Test.add( "Pickup Position",  NewPose.Absolute( 14.00, 6.50, 0 ) );
+      // Test.add( "Scoring Position", NewPose.Absolute(  2.15, 3.00, 0 ) );
 
       // Add a button to run pathfinding commands to SmartDashboard
       // SmartDashboard.putData( "Pickup Position",  NewPose.Absolute( 14.00, 6.50, 0 ) );
@@ -97,7 +85,7 @@ public class RobotContainer {
 // ================ DRIVE STICK =================
 // ==============================================
 
-    DS.circle().onTrue( m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
+    // DS.circle().whileTrue( m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
 
 // ==============================================
 // ================ MANIP STICK =================
