@@ -1,7 +1,7 @@
 package frc.robot.Config;
 
 import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
-import com.pathplanner.lib.util.PIDConstants;
+// import com.pathplanner.lib.util.PIDConstants;
 import com.pathplanner.lib.util.ReplanningConfig;
 
 import edu.wpi.first.math.geometry.Translation2d;
@@ -12,8 +12,8 @@ public final class Constants {
 // ================ SWERVE DRIVE ================
 
   public static double
-    RobotLength = Units.inchesToMeters( 35 ),
-    RobotWidth  = Units.inchesToMeters( 35 );
+    RobotLength = Units.inchesToMeters( 27 ),
+    RobotWidth  = Units.inchesToMeters( 27 );
 
   public static final class Swerve {
     public static final double
@@ -27,8 +27,8 @@ public final class Constants {
 
     public static final HolonomicPathFollowerConfig
       pathFollowerConfig = new HolonomicPathFollowerConfig(
-        new PIDConstants( 5.0, 0, 0 ), // Translation constants 
-        new PIDConstants( 5.0, 0, 0 ), // Rotation constants 
+        // new PIDConstants( 5.0, 0, 0 ), // Translation constants 
+        // new PIDConstants( 5.0, 0, 0 ), // Rotation constants 
         maxModuleSpeed,                // Maximum module speed
         FL_Trans2d.getNorm(),          // Drive base radius (distance from center to furthest module) 
         new ReplanningConfig()

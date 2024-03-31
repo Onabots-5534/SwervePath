@@ -30,8 +30,8 @@ public class SubSwerve extends SubsystemBase {
   public SwerveModulePosition currentPosition = new SwerveModulePosition ();
   public SwerveModuleState    currentVelocity = new SwerveModuleState    ();
 
-  public SwerveModulePosition  getPosition () { return currentPosition; }
-  public SwerveModuleState     getVelocity () { return currentVelocity; }
+  public SwerveModulePosition  GetPosition () { return currentPosition; }
+  public SwerveModuleState     GetVelocity () { return currentVelocity; }
 
 // ================ TALONFX SETTING =============
 
@@ -59,12 +59,16 @@ public SubSwerve( String name, int[] ID ) {
     if ( VelSP == 0 ) { VelPw = 0; }
 
     if ( Name == "FL" ) {
+      SmartDashboard.putNumber( "SetPoint MPS", currentVelocity.speedMetersPerSecond );
+
       SmartDashboard.putNumber( "VelPV", VelPV );
       SmartDashboard.putNumber( "VelSP", VelSP );
       SmartDashboard.putNumber( "VelEr", VelEr );
       SmartDashboard.putNumber( "VelPw", VelPw );
 
       SmartDashboard.putNumber( "Pos", Drive.getPosition().getValueAsDouble() );
+
+      SmartDashboard.putNumber( "Real Power", Drive.getMotorVoltage().getValueAsDouble() );
     }
 
     // DIRECTION INFO
@@ -73,13 +77,17 @@ public SubSwerve( String name, int[] ID ) {
     DirEr = ( DirPV - DirSP + 540 ) % 360 - 180;
     DirPw = DirEr * 0.01;
 
-    Drive.set( VelPw );
-    // Drive.setControl( m_VelocityVoltage.withVelocity( VelSP ) );
+    // Drive.set( VelPw );
+    Drive.setControl( m_VelocityVoltage.withVelocity( VelSP ) );
     Steer.set( DirPw );
   }
 
   public void setTargetState( SwerveModuleState targetState ) {
     currentVelocity = SwerveModuleState.optimize( targetState, currentVelocity.angle );
+
+    if ( Name == "FL") {
+      SmartDashboard.putNumber( "FL TS", currentVelocity.speedMetersPerSecond );
+    }
 
     currentPosition = new SwerveModulePosition(
       currentPosition.distanceMeters + ( currentVelocity.speedMetersPerSecond * 0.02 ),

@@ -16,13 +16,17 @@ public class Teleoperate {
         }      
     }
 
+    public static double
+        X = 0,
+        Y = 0,
+        Z = 0;
+
     public static void Periodic() {
         
         // GET JOYSTICK VALUES
-        double
-            X = -DS.getLeftY(),
-            Y = -DS.getLeftX(),
-            Z = -DS.getRightX();
+        X = -DS.getLeftY();
+        Y = -DS.getLeftX();
+        Z = -DS.getRightX();
 
         // JOYSTICK DEAD ZONE
         if ( Math.abs( X ) < 0.07 ) { X = 0; }
@@ -30,7 +34,7 @@ public class Teleoperate {
         if ( Math.abs( Z ) < 0.07 ) { Z = 0; } else { Z /= 20; }
 
         // DRIVE THE ROBOT
-        RobotContainer.m_Drive.FieldDrive( X, Y, Z );
+        // RobotContainer.m_Drive.FieldDrive( X, Y, Z );
 
 
         if ( MS.getAButton() ) {

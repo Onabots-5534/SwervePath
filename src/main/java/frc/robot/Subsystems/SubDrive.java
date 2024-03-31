@@ -52,7 +52,7 @@ public class SubDrive extends SubsystemBase {
       this::getPose, 
       this::resetPose, 
       this::getSpeeds, 
-      this::driveRobotRelative, 
+      this::driveRobotRelative,
       Constants.Swerve.pathFollowerConfig,
       () -> { return Alliance.isRed(); }, // Boolean supplier indicating when to flip path for Red
       this
@@ -118,19 +118,21 @@ public class SubDrive extends SubsystemBase {
     SmartDashboard.putNumber("Field Vy", targetSpeeds.vyMetersPerSecond );
     SmartDashboard.putNumber("Field Vt", targetSpeeds.omegaRadiansPerSecond );
 
-    SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed );
+    SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed*100 );
     for ( int i = 0; i < Modules.length; i++ ) { Modules[i].setTargetState( targetStates[i] ); }
+
+    SmartDashboard.putNumber( "FS", targetStates[0].speedMetersPerSecond );
   }
 
   public SwerveModuleState[] getModuleStates() {
     SwerveModuleState[] states = new SwerveModuleState[ Modules.length];
-    for ( int i = 0; i < Modules.length; i++ ) { states[i] = Modules[i].getVelocity(); }
+    for ( int i = 0; i < Modules.length; i++ ) { states[i] = Modules[i].GetVelocity(); }
     return states;
   }
 
   public SwerveModulePosition[] getPositions() {
     SwerveModulePosition[] positions = new SwerveModulePosition[ Modules.length ];
-    for ( int i = 0; i < Modules.length; i++ ) { positions[i] = Modules[i].getPosition(); }
+    for ( int i = 0; i < Modules.length; i++ ) { positions[i] = Modules[i].GetPosition(); }
     return positions;
   }
 

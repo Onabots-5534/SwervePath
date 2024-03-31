@@ -12,11 +12,11 @@ import com.pathplanner.lib.auto.NamedCommands;
 // import edu.wpi.first.math.geometry.Translation2d;
 // import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.Commands.RobotDrive;
 import frc.robot.Config.Ports.pStick;
 // import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Subsystems.*;
@@ -55,6 +55,8 @@ public class RobotContainer {
 // ==============================================
 // ================ DRIVE STICK =================
 // ==============================================
+
+    m_Drive.setDefaultCommand( new RobotDrive() );
 
     // DS.circle().whileTrue( m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
 
