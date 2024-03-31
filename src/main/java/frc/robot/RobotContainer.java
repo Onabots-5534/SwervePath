@@ -1,6 +1,5 @@
 package frc.robot;
 
-import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 
 // import com.pathplanner.lib.path.GoalEndState;
@@ -50,7 +49,7 @@ public class RobotContainer {
 // ================ SHUFFLEBOARD ================
 // ==============================================
 
-    autoChooser = AutoBuilder.buildAutoChooser(); // Default auto will be `Commands.none()`
+    // autoChooser = AutoBuilder.buildAutoChooser(); // Default auto will be `Commands.none()`
 
 // ==============================================
 // ================ DRIVE STICK =================

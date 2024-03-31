@@ -2,7 +2,7 @@ package frc.robot.Mode;
 
 import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.RobotContainer;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Config.Ports.pStick;
 
 public class Teleoperate {
@@ -12,7 +12,7 @@ public class Teleoperate {
 
     public static void Initialize() {
         if ( Autonomous.m_autonomousCommand != null) {
-            Autonomous.m_autonomousCommand.cancel();
+            CommandScheduler.getInstance().cancelAll();
         }      
     }
 

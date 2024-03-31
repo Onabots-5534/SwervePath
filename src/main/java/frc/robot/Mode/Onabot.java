@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import frc.robot.Sensor.Alliance;
+import frc.robot.Sensor.AutonSelector;
 import frc.robot.Sensor.CameraIntake;
 import frc.robot.Sensor.CameraTarget;
 import frc.robot.Subsystems.SubIntake;
@@ -16,11 +17,13 @@ import frc.robot.Subsystems.SubIntake;
 public class Onabot {
 
     public static GenericEntry
-        RobotX = Shuffleboard.getTab("Comp").add( "Robot X", 0 ).getEntry(),
-        RobotY = Shuffleboard.getTab("Comp").add( "Robot Y", 0 ).getEntry();
+        RobotX = Shuffleboard.getTab("Comp").add( "Robot X", 0 ).withPosition(  9, 5 ).getEntry(),
+        RobotY = Shuffleboard.getTab("Comp").add( "Robot Y", 0 ).withPosition( 10, 5 ).getEntry();
 
     public static void Initialize() {
         Robot.m_Container = new RobotContainer();
+
+        AutonSelector.Initialize();
 
         CameraIntake.Initialize();
         CameraTarget.Initialize();

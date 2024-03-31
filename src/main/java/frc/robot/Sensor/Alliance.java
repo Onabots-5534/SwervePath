@@ -6,7 +6,8 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 
 public class Alliance {
 
-    public static GenericEntry Color = Shuffleboard.getTab( "Comp" ).add( "Alliance", "" ).getEntry();
+    public static GenericEntry Color = Shuffleboard.getTab( "Comp" ).add( "Alliance", "" )
+        .withPosition( 5, 5 ).withSize( 2, 1 ).getEntry();
 
 //
 // ALLIANCE COLOR
@@ -14,7 +15,7 @@ public class Alliance {
     public static String GetAlliance() {
         var Alliance = DriverStation.getAlliance();
         if ( Alliance.isPresent() ) { return Alliance.get() == DriverStation.Alliance.Red ? "Red" : "Blue"; }
-        return "Blue";
+        return "Red";
     }
 
     public static boolean isRed  () { return GetAlliance() == "Red"  ? true : false; }
