@@ -11,13 +11,14 @@ import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Config.Constants;
 import frc.robot.Config.Ports.pSwerve;
 import frc.robot.Mode.Onabot;
 import frc.robot.Sensor.Navigation;
-import frc.robot.Sensor.Selector;
+import frc.robot.Sensor.Alliance;
 
 public class SubDrive extends SubsystemBase {
   public static SubSwerve[]           Modules                    ;
@@ -53,7 +54,7 @@ public class SubDrive extends SubsystemBase {
       this::getSpeeds, 
       this::driveRobotRelative, 
       Constants.Swerve.pathFollowerConfig,
-      () -> { return Selector.isRed(); }, // Boolean supplier indicating when to flip path for Red
+      () -> { return Alliance.isRed(); }, // Boolean supplier indicating when to flip path for Red
       this
     );
 
@@ -112,6 +113,10 @@ public class SubDrive extends SubsystemBase {
   public void driveRobotRelative( ChassisSpeeds RobotSpeeds ) {
     ChassisSpeeds       targetSpeeds = ChassisSpeeds.discretize( RobotSpeeds, 0.02 );
     SwerveModuleState[] targetStates = Kinematics.toSwerveModuleStates( targetSpeeds );
+
+    SmartDashboard.putNumber("Field Vx", targetSpeeds.vxMetersPerSecond );
+    SmartDashboard.putNumber("Field Vy", targetSpeeds.vyMetersPerSecond );
+    SmartDashboard.putNumber("Field Vt", targetSpeeds.omegaRadiansPerSecond );
 
     SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed );
     for ( int i = 0; i < Modules.length; i++ ) { Modules[i].setTargetState( targetStates[i] ); }
