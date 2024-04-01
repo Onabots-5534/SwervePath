@@ -1,19 +1,12 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj2.command.Command;
 // import com.pathplanner.lib.auto.NamedCommands;
 // import com.pathplanner.lib.path.GoalEndState;
 // import com.pathplanner.lib.path.PathConstraints;
 // import com.pathplanner.lib.path.PathPlannerPath;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.robot.Commands.Drive_By_Stick;
-import frc.robot.Commands.Spit_Ring;
-import frc.robot.Commands.Attack_Ring;
-import frc.robot.Commands.Cancel_All;
-import frc.robot.Commands.Collect_For_5;
-import frc.robot.Commands.Collection_Off;
-import frc.robot.Commands.Collection_On;
+import frc.robot.Commands.*;
 import frc.robot.Config.Ports.pStick;
 import frc.robot.Subsystems.*;
 
