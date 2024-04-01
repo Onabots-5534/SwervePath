@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.RobotDrive;
 import frc.robot.Config.Ports.pStick;
+import frc.robot.MechState.*;
 // import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Subsystems.*;
 
@@ -46,28 +47,22 @@ public class RobotContainer {
     NamedCommands.registerCommand( "print hello", Commands.print( "hello" ) );
 
 // ==============================================
-// ================ SHUFFLEBOARD ================
-// ==============================================
-
-    // autoChooser = AutoBuilder.buildAutoChooser(); // Default auto will be `Commands.none()`
-
-// ==============================================
 // ================ DRIVE STICK =================
 // ==============================================
 
-    m_Drive.setDefaultCommand( new RobotDrive() );
+    m_Drive.setDefaultCommand ( new RobotDrive() );
 
-    // DS.circle().whileTrue( m_Drive.cRobotDrive( 0.30, 0.00, 0.00 ) );
+    MS.a()
+      .onTrue ( m_Roller.cForward () )
+      .onFalse( m_Roller.cStop    () );
 
-// ==============================================
-// ================ MANIP STICK =================
-// ==============================================
+    MS.b() 
+      .onTrue ( m_Intake.cSuck() )
+      .onFalse( m_Intake.cStop() );
 
-  
+    MS.x()
+      .onTrue ( new CollectOn () )
+      .onFalse( new CollectOff() );  
   } 
-
-  public Command getAutonomousCommand() {
-    return autoChooser.getSelected();
-  }
 
 }

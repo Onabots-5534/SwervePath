@@ -23,16 +23,14 @@ public class SubIntake extends SubsystemBase {
     Lft.restoreFactoryDefaults();
     Rgt.restoreFactoryDefaults();
 
-    Lft.setInverted( false );
+    Lft.setInverted( true  );
     Rgt.setInverted( false );
 
     Lft.setSmartCurrentLimit( 25, 10 );
     Rgt.setSmartCurrentLimit( 25, 10 );
   }
 
-  public static void Initialize() {
-        Shuffleboard.getTab("Test").add( RobotContainer.m_Intake );
-  }
+  public static void Initialize() {}
 
   @Override public void periodic() {
     Lft.set( Power );

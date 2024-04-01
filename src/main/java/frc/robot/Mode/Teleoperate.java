@@ -36,14 +36,6 @@ public class Teleoperate {
         // DRIVE THE ROBOT
         // RobotContainer.m_Drive.FieldDrive( X, Y, Z );
 
-
-        if ( MS.getAButton() ) {
-            // RobotContainer.m_Aimer.Raise();
-        }
-
-        else {
-            // RobotContainer.m_Aimer.Lower();
-        }
     }
 
 }
