@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
-import frc.robot.Sensor.Alliance;
-import frc.robot.Sensor.AutonSelector;
+import frc.robot.Sensor.*;
+// import frc.robot.Sensor.AutonSelector;
 import frc.robot.Sensor.CameraIntake;
-import frc.robot.Sensor.CameraTarget;
+// import frc.robot.Sensor.CameraTarget;
 import frc.robot.Subsystems.SubIntake;
 
 public class Onabot {
