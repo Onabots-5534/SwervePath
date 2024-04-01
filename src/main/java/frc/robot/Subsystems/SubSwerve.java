@@ -6,7 +6,6 @@ import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class SubSwerve extends SubsystemBase {
@@ -27,8 +26,8 @@ public class SubSwerve extends SubsystemBase {
 
 // ================ SET POINTS ==================
 
-  public SwerveModulePosition currentPosition = new SwerveModulePosition ();
-  public SwerveModuleState    currentVelocity = new SwerveModuleState    ();
+  public SwerveModulePosition  currentPosition = new SwerveModulePosition ();
+  public SwerveModuleState     currentVelocity = new SwerveModuleState    ();
 
   public SwerveModulePosition  GetPosition () { return currentPosition; }
   public SwerveModuleState     GetVelocity () { return currentVelocity; }
@@ -50,26 +49,12 @@ public SubSwerve( String name, int[] ID ) {
   @Override public void periodic() {
 
     // VELOCITY INFO
-    VelPV = Drive.getVelocity().getValueAsDouble();
+    // VelPV = Drive.getVelocity().getValueAsDouble();
     VelSP = currentVelocity.speedMetersPerSecond * 100;
-    VelEr = ( VelPV - VelSP );
+    // VelEr = ( VelPV - VelSP );
 
-    VelPw += VelEr * -0.001;
-
-    if ( VelSP == 0 ) { VelPw = 0; }
-
-    if ( Name == "FL" ) {
-      SmartDashboard.putNumber( "SetPoint MPS", currentVelocity.speedMetersPerSecond );
-
-      SmartDashboard.putNumber( "VelPV", VelPV );
-      SmartDashboard.putNumber( "VelSP", VelSP );
-      SmartDashboard.putNumber( "VelEr", VelEr );
-      SmartDashboard.putNumber( "VelPw", VelPw );
-
-      SmartDashboard.putNumber( "Pos", Drive.getPosition().getValueAsDouble() );
-
-      SmartDashboard.putNumber( "Real Power", Drive.getMotorVoltage().getValueAsDouble() );
-    }
+    // VelPw += VelEr * -0.001;
+    // if ( VelSP == 0 ) { VelPw = 0; }
 
     // DIRECTION INFO
     DirPV = Encod.getAbsolutePosition().getValueAsDouble() * 360;
@@ -77,17 +62,15 @@ public SubSwerve( String name, int[] ID ) {
     DirEr = ( DirPV - DirSP + 540 ) % 360 - 180;
     DirPw = DirEr * 0.01;
 
-    // Drive.set( VelPw );
     Drive.setControl( m_VelocityVoltage.withVelocity( VelSP ) );
     Steer.set( DirPw );
   }
 
   public void setTargetState( SwerveModuleState targetState ) {
-    currentVelocity = SwerveModuleState.optimize( targetState, currentVelocity.angle );
-
-    if ( Name == "FL") {
-      SmartDashboard.putNumber( "FL TS", currentVelocity.speedMetersPerSecond );
-    }
+    currentVelocity = SwerveModuleState.optimize(
+      targetState,
+      currentVelocity.angle
+    );
 
     currentPosition = new SwerveModulePosition(
       currentPosition.distanceMeters + ( currentVelocity.speedMetersPerSecond * 0.02 ),
@@ -95,14 +78,4 @@ public SubSwerve( String name, int[] ID ) {
     );
   }
 
-// CANCODER
-// CANCoder cancoder = new CANcoder( ... )
-// CANcoderConfiguration = cfg = new CAN ...
-// configs.MangetSensor.AbsoluteSensorRange = AbsoluteSensorRange.Signed_PlusMinusHalf
-//   MountPose.MagnetOffset = 0.26;
-//   MountPose.SensorDirection = SensorDirectionValue.Clockwise_Positive
-// cancoder.getConfigurator().apply( configs )
-// cancoder.setPosition( 0 );
-
-  
 }

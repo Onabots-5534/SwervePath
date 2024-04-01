@@ -2,7 +2,6 @@ package frc.robot.Subsystems;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.util.PathPlannerLogging;
-
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
@@ -113,14 +112,8 @@ public class SubDrive extends SubsystemBase {
     ChassisSpeeds       targetSpeeds = ChassisSpeeds.discretize( RobotSpeeds, 0.02 );
     SwerveModuleState[] targetStates = Kinematics.toSwerveModuleStates( targetSpeeds );
 
-    SmartDashboard.putNumber("Field Vx", targetSpeeds.vxMetersPerSecond );
-    SmartDashboard.putNumber("Field Vy", targetSpeeds.vyMetersPerSecond );
-    SmartDashboard.putNumber("Field Vt", targetSpeeds.omegaRadiansPerSecond );
-
     SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed*100 );
     for ( int i = 0; i < Modules.length; i++ ) { Modules[i].setTargetState( targetStates[i] ); }
-
-    SmartDashboard.putNumber( "FS", targetStates[0].speedMetersPerSecond );
   }
 
   public SwerveModuleState[] getModuleStates() {

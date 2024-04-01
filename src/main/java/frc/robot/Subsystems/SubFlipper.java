@@ -1,7 +1,6 @@
 package frc.robot.Subsystems;
 
 import edu.wpi.first.wpilibj.Servo;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Config.Ports.pFlipper;
@@ -14,24 +13,17 @@ public class SubFlipper extends SubsystemBase {
     public static double
         State = 0;
 
-    public SubFlipper() {
-
-    }
+    public SubFlipper() {}
 
     @Override public void periodic() {
         Flipper.set( State );
     }
 
-    public static void Display() {
-        SmartDashboard.putNumber( "Flipper State", State );
-    }
-
 // ================ COMMANDS ====================
 
-    public void    Extend  () { State = -0.5; }
+    public void     Extend  () { State = -0.5; }
     public Command cExtend  () { return this.runOnce( () -> Extend () ); }
 
     public void     Retract () { State = 0.77; }
     public Command cRetract () { return this.runOnce( () -> Retract() ); }
-
 }
