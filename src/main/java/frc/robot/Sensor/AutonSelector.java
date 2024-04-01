@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 public class AutonSelector {
 
-     static List<String> T = AutoBuilder.getAllAutoNames();
+    static List<String> T = AutoBuilder.getAllAutoNames();
 
     public static SendableChooser<String> m_Chooser = new SendableChooser<>();
 
