@@ -5,8 +5,6 @@ import frc.robot.RobotContainer;
 
 public class Test {
 
-    // public static GenericEntry TEST = Shuffle.TestTab.add( "VALUE", 0 ).getEntry();
-
     public static void Initialize() {
         CommandScheduler.getInstance().cancelAll();
     }
