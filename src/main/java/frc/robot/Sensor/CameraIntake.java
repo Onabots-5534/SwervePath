@@ -38,13 +38,4 @@ public class CameraIntake extends SubsystemBase {
     public static void Reset() {}
 
     public static double GetCode( String S ) { return CamI.getEntry( S ).getDouble( 0 ); }
-
-    public static double TX() { return GetCode("tx"); }
-    public static double TY() { return GetCode("ty"); }
-    public static double TV() { return GetCode("tv"); }
-
-    public static double GetErr( String Code, double Desired ) {
-        return Desired - GetCode( Code );
-    }
-
 }

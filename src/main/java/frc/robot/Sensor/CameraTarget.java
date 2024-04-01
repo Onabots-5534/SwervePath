@@ -1,5 +1,7 @@
 package frc.robot.Sensor;
 
+import java.util.Map;
+
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
@@ -20,21 +22,18 @@ public class CameraTarget {
         Y = Comp.add( "Target TY", 0 ).withPosition( 11, 3 ).withSize( 2, 1 ).getEntry();
 
     public static void Initialize() {
-    //     Comp.addCamera( "Camera Shooter", "Limelight 2", "http://10.55.34.12:5800" )
-    //         .withPosition( 11, 0 )
-    //         .withProperties( Map.of( "showControls", false ) )
-    //         .withSize( 5, 5 );
+        Comp.addCamera( "Camera Shooter", "Limelight 2", "http://10.55.34.12:5800" )
+            .withPosition( 11, 0 )
+            .withProperties( Map.of( "showControls", false ) )
+            .withSize( 5, 5 );
     }
 
     public static void Periodic() {
-        X.setDouble( TX() );
-        Y.setDouble( TY() );
+        X.setDouble( GetCode("tx") );
+        Y.setDouble( GetCode("ty") );
     }
 
     public static void Reset() {}
 
     public static double GetCode( String S ) { return CamS.getEntry( S ).getDouble( 0 ); }
-    public static double TX() { return GetCode("tx"); }
-    public static double TY() { return GetCode("ty"); }
-    public static double TV() { return GetCode("tv"); }
 }
