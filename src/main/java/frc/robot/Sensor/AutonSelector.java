@@ -18,9 +18,7 @@ public class AutonSelector {
 
         m_Chooser.setDefaultOption( "Do Nothing", "" );
 
-        for ( String e : T ) {
-            m_Chooser.addOption( e, e );
-        }
+        for ( String e : T ) { m_Chooser.addOption( e, e ); }
 
         Shuffleboard.getTab("Comp").add( "Auton Selector", m_Chooser )
             .withWidget( BuiltInWidgets.kComboBoxChooser )
