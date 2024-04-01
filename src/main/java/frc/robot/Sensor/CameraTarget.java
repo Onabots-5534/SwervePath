@@ -12,8 +12,7 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 public class CameraTarget {
 
     public static NetworkTable
-        CamS = NetworkTableInstance.getDefault()
-            .getTable("limelight-target");
+        CamS = NetworkTableInstance.getDefault().getTable("limelight-target");
 
     public static ShuffleboardTab
         Comp = Shuffleboard.getTab( "Comp" );

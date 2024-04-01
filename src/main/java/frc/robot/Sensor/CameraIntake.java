@@ -8,9 +8,8 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class CameraIntake extends SubsystemBase {
+public class CameraIntake {
 
     public static NetworkTable
         CamI = NetworkTableInstance.getDefault().getTable("limelight-intake");
