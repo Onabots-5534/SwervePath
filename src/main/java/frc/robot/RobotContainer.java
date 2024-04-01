@@ -1,15 +1,13 @@
 package frc.robot;
 
 // import com.pathplanner.lib.auto.NamedCommands;
-
 // import com.pathplanner.lib.path.GoalEndState;
 // import com.pathplanner.lib.path.PathConstraints;
 // import com.pathplanner.lib.path.PathPlannerPath;
-// 
-// import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.Drive_By_Stick;
+import frc.robot.Commands.Attack_Ring;
 import frc.robot.Commands.Collect_For_5;
 import frc.robot.Commands.Collection_Off;
 import frc.robot.Commands.Collection_On;
@@ -39,11 +37,15 @@ public class RobotContainer {
     // NamedCommands.registerCommand( "marker2",     Commands.print( "Passed marker 2") );
     // NamedCommands.registerCommand( "print hello", Commands.print( "hello" ) );
 
-// ==============================================
 // ================ BINDINGS ====================
-// ==============================================
 
     m_Drive.setDefaultCommand ( new Drive_By_Stick() );
+
+    DS.circle()
+      .onTrue ( new Attack_Ring()    )
+      .onFalse( new Collection_Off() );
+
+// ==============================================
 
     MS.a()
       .onTrue ( m_Roller.cForward () )
