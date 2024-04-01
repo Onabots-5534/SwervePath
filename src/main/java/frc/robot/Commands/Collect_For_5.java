@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Subsystems.SubIntake;
 
-public class CollectFor5 extends SequentialCommandGroup {
+public class Collect_For_5 extends SequentialCommandGroup {
 
-  public CollectFor5() {
+  public Collect_For_5() {
     addCommands(
       new SubIntake().cSuck(),
       new Collection_On(),

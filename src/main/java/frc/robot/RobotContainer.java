@@ -10,7 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.DriveByStick;
-import frc.robot.Commands.CollectFor5;
+import frc.robot.Commands.Collect_For_5;
 import frc.robot.Commands.Collection_Off;
 import frc.robot.Commands.Collection_On;
 import frc.robot.Config.Ports.pStick;
@@ -58,7 +58,7 @@ public class RobotContainer {
       .onFalse( new Collection_Off() );  
 
     MS.y() 
-      .onTrue ( new CollectFor5() );
+      .onTrue ( new Collect_For_5() );
   } 
 
 }
