@@ -1,25 +1,19 @@
 package frc.robot;
 
-import com.pathplanner.lib.auto.NamedCommands;
+// import com.pathplanner.lib.auto.NamedCommands;
 
 // import com.pathplanner.lib.path.GoalEndState;
 // import com.pathplanner.lib.path.PathConstraints;
 // import com.pathplanner.lib.path.PathPlannerPath;
 // 
-// import edu.wpi.first.math.geometry.Pose2d;
-// import edu.wpi.first.math.geometry.Rotation2d;
-// import edu.wpi.first.math.geometry.Translation2d;
-// import edu.wpi.first.math.util.Units;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands;
+// import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.robot.Commands.RobotDrive;
+import frc.robot.Commands.DriveByStick;
 import frc.robot.Commands.CollectFor5;
+import frc.robot.Commands.Collection_Off;
+import frc.robot.Commands.Collection_On;
 import frc.robot.Config.Ports.pStick;
-import frc.robot.MechState.*;
-// import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Subsystems.*;
 
 public class RobotContainer {
@@ -38,20 +32,18 @@ public class RobotContainer {
   public static final SubRoller   m_Roller   = new SubRoller  ();
   public static final SubShooter  m_Shooter  = new SubShooter ();
 
-  public static SendableChooser<Command> autoChooser;
-
   public RobotContainer() {
   
     // REGISTER NAMED COMMANDS
-    NamedCommands.registerCommand( "marker1",     Commands.print( "Passed marker 1") );
-    NamedCommands.registerCommand( "marker2",     Commands.print( "Passed marker 2") );
-    NamedCommands.registerCommand( "print hello", Commands.print( "hello" ) );
+    // NamedCommands.registerCommand( "marker1",     Commands.print( "Passed marker 1") );
+    // NamedCommands.registerCommand( "marker2",     Commands.print( "Passed marker 2") );
+    // NamedCommands.registerCommand( "print hello", Commands.print( "hello" ) );
 
 // ==============================================
-// ================ DRIVE STICK =================
+// ================ BINDINGS ====================
 // ==============================================
 
-    m_Drive.setDefaultCommand ( new RobotDrive() );
+    m_Drive.setDefaultCommand ( new DriveByStick() );
 
     MS.a()
       .onTrue ( m_Roller.cForward () )
@@ -62,8 +54,8 @@ public class RobotContainer {
       .onFalse( m_Intake.cStop() );
 
     MS.x()
-      .onTrue ( new CollectOn () )
-      .onFalse( new CollectOff() );  
+      .onTrue ( new Collection_On () )
+      .onFalse( new Collection_Off() );  
 
     MS.y() 
       .onTrue ( new CollectFor5() );

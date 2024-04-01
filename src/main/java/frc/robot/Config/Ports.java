@@ -8,19 +8,19 @@ public class Ports {
             PCM_Rgt = { 2, 3 };
     }
 
-    public class pClimber { // TalonFX
+    public class pClimber { // Talon FX
         public static int
             CAN_Climber = 19,
             HUB_Climber = 0;
     }
 
-    public class pFlipper {
+    public class pFlipper { // Servo
         public static int 
             PWM_Servo = 0,
             HUB_Servo = 0;
     }
 
-    public class pIntake {
+    public class pIntake { // Spark Max
         public static int
             CAN_Lft = 1,
             CAN_Rgt = 2,
@@ -29,19 +29,19 @@ public class Ports {
             HUB_Rgt = 0;
     }
 
-    public class pMover {
+    public class pMover { // Spark Max
         public static int
             CAN_Mover = 3,
             HUB_Mover = 0;
     }
 
-    public class pRoller { // TalonSRX
+    public class pRoller { // Talon SRX
         public static int
             CAN_Roller = 4, 
             HUB_Roller = 0;
     }
 
-    public class pShooter { // TalonFX
+    public class pShooter { // Talon FX
         public static int
             CAN_Hi = 9,
             CAN_Lo = 10,
@@ -50,7 +50,7 @@ public class Ports {
             HUB_Lo = 0;
     }
 
-    public class pSonar {
+    public class pSonar { // Untested
         public static int[]
             DIO_Frt = { 0, 0 },
             DIO_Bck = { 0, 0 };
@@ -62,7 +62,7 @@ public class Ports {
             USB_MS = 1;
     }
 
-    public class pSwerve {
+    public class pSwerve { // Talon FX
         public static int[]
             CAN_FL = { 12, 11, 5 },
             CAN_FR = { 14, 13, 6 },

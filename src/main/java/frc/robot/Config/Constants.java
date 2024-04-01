@@ -12,8 +12,8 @@ public final class Constants {
 // ================ SWERVE DRIVE ================
 
   public static double
-    RobotLength = Units.inchesToMeters( 27 ),
-    RobotWidth  = Units.inchesToMeters( 27 );
+    RobotLength = Units.inchesToMeters( 35 ),
+    RobotWidth  = Units.inchesToMeters( 35 );
 
   public static final class Swerve {
     public static final double

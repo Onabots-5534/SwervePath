@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.Mode.Teleoperate;
 
-public class RobotDrive extends Command {
+public class DriveByStick extends Command {
 
-  public RobotDrive() {
+  public DriveByStick() {
     addRequirements( RobotContainer.m_Drive );
   }
 
