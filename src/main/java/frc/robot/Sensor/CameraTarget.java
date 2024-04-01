@@ -18,8 +18,8 @@ public class CameraTarget {
         Comp = Shuffleboard.getTab( "Comp" );
 
     public static GenericEntry
-        X = Comp.add( "Target TX", 0 ).withPosition( 11, 0 ).withSize( 2, 1 ).getEntry(),
-        Y = Comp.add( "Target TY", 0 ).withPosition( 11, 3 ).withSize( 2, 1 ).getEntry();
+        X = Comp.add( "Target TX", 0 ).withPosition( 11, 5 ).withSize( 2, 1 ).getEntry(),
+        Y = Comp.add( "Target TY", 0 ).withPosition( 14, 5 ).withSize( 2, 1 ).getEntry();
 
     public static void Initialize() {
         Comp.addCamera( "Camera Shooter", "Limelight 2", "http://10.55.34.12:5800" )

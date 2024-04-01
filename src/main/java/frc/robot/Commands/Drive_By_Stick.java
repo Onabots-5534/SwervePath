@@ -19,7 +19,7 @@ public class Drive_By_Stick extends Command {
       Y = Teleoperate.Y,
       Z = Teleoperate.Z;
 
-    RobotContainer.m_Drive.FieldDrive( X, Y, Z );
+    RobotContainer.m_Drive.RobotDrive( X, Y, Z );
   }
 
   @Override public void end( boolean interrupted ) {}

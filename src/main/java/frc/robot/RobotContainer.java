@@ -1,5 +1,6 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj2.command.Command;
 // import com.pathplanner.lib.auto.NamedCommands;
 // import com.pathplanner.lib.path.GoalEndState;
 // import com.pathplanner.lib.path.PathConstraints;
@@ -7,7 +8,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.Drive_By_Stick;
+import frc.robot.Commands.Spit_Ring;
 import frc.robot.Commands.Attack_Ring;
+import frc.robot.Commands.Cancel_All;
 import frc.robot.Commands.Collect_For_5;
 import frc.robot.Commands.Collection_Off;
 import frc.robot.Commands.Collection_On;
@@ -30,6 +33,8 @@ public class RobotContainer {
   public static final SubRoller   m_Roller   = new SubRoller  ();
   public static final SubShooter  m_Shooter  = new SubShooter ();
 
+  public static final CameraIntake m_CamIntake = new CameraIntake ();
+
   public RobotContainer() {
   
     // REGISTER NAMED COMMANDS
@@ -39,33 +44,39 @@ public class RobotContainer {
 
 // ================ BINDINGS ====================
 
-    m_Drive.setDefaultCommand ( new Drive_By_Stick() );
+    m_Drive   .setDefaultCommand ( new Drive_By_Stick() );
+    m_Intake  .setDefaultCommand ( m_Intake.cStop()     );
+    m_Roller  .setDefaultCommand ( m_Roller.cStop()     );
 
     DS.circle()
-      .onTrue ( new Attack_Ring()    )
-      .onFalse( new Collection_Off() );
+      .onTrue ( new Attack_Ring() );
+
+    DS.cross()
+      .onTrue ( new Spit_Ring  () )
+      .onFalse( new Cancel_All () );
 
 // ==============================================
 
-    MS.a()
+    MS.a() // TEMP: MOVE ROLLER
       .onTrue ( m_Roller.cForward () )
       .onFalse( m_Roller.cStop    () );
 
-    MS.b() 
+    MS.b() // TEMP: RUN INTAKE
       .onTrue ( m_Intake.cSuck () )
       .onFalse( m_Intake.cStop () );
 
-    MS.x()
-      .onTrue ( new Collection_On () )
-      .onFalse( new Collection_Off() );  
-
-    MS.y() 
+    MS.y() // TEMP: COLLECTION SEQUENCE
       .onTrue ( new Collect_For_5() );
 
+    // RESET ARMS AFTER MATCH
     MS.leftBumper().and( MS.rightBumper () )
       .onTrue ( m_Climber.cLowerArms    () )
       .onFalse( m_Climber.cStop         () );
   
+    MS.start()
+      .onTrue ( m_Climber.cRaiseArms() )
+      .onFalse( m_Climber.cStop     () );
+
   } 
 
 }

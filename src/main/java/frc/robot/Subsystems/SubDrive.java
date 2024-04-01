@@ -111,7 +111,7 @@ public class SubDrive extends SubsystemBase {
     ChassisSpeeds       targetSpeeds = ChassisSpeeds.discretize( RobotSpeeds, 0.02 );
     SwerveModuleState[] targetStates = Kinematics.toSwerveModuleStates( targetSpeeds );
 
-    SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed*100 );
+    SwerveDriveKinematics.desaturateWheelSpeeds( targetStates, Constants.Swerve.maxModuleSpeed );
     for ( int i = 0; i < Modules.length; i++ ) { Modules[i].setTargetState( targetStates[i] ); }
   }
 

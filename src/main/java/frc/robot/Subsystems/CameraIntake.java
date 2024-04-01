@@ -1,4 +1,4 @@
-package frc.robot.Sensor;
+package frc.robot.Subsystems;
 
 import java.util.Map;
 
@@ -8,8 +8,9 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class CameraIntake {
+public class CameraIntake extends SubsystemBase {
 
     public static NetworkTable
         CamI = NetworkTableInstance.getDefault().getTable("limelight-intake");
@@ -21,6 +22,10 @@ public class CameraIntake {
         X = Comp.add( "Intake TX", 0 ).withPosition( 0, 5 ).withSize( 2, 1 ).getEntry(),
         Y = Comp.add( "Intake TY", 0 ).withPosition( 3, 5 ).withSize( 2, 1 ).getEntry();
 
+    public double
+        Xi = 0,
+        Yi = 0;
+
     public static void Initialize() {
       Comp.addCamera( "Intake Camera", "Limelight 3", "http://10.55.34.13:5800" )
         .withPosition( 0, 0 )
@@ -29,12 +34,15 @@ public class CameraIntake {
         .withWidget( BuiltInWidgets.kCameraStream );
     }
 
-    public static void Periodic() {
+    public void periodic() {
         X.setDouble( GetCode( "tx" ) );
         Y.setDouble( GetCode( "ty" ) );
+
+        Xi = GetCode("tx");
+        Yi = GetCode("ty");
     }
 
     public static void Reset() {}
 
-    public static double GetCode( String S ) { return CamI.getEntry( S ).getDouble( 0 ); }
+    public double GetCode( String S ) { return CamI.getEntry( S ).getDouble( 0 ); }
 }
