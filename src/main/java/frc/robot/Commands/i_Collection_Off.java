@@ -3,9 +3,9 @@ package frc.robot.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.RobotContainer;
 
-public class Collection_Off extends InstantCommand {
+public class i_Collection_Off extends InstantCommand {
 
-  public Collection_Off() {
+  public i_Collection_Off() {
     addRequirements(
       RobotContainer.m_Intake,
       RobotContainer.m_Roller

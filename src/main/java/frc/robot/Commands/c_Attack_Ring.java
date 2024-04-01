@@ -6,13 +6,13 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 
-public class Attack_Ring extends Command {
+public class c_Attack_Ring extends Command {
 
   public double
     TargetX = 0,
     TargetY = 2;
 
-  public Attack_Ring() {
+  public c_Attack_Ring() {
     addRequirements(
       // RobotContainer.m_CamIntake,
       RobotContainer.m_Drive,

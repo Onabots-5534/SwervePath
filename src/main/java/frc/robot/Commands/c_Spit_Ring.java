@@ -3,13 +3,13 @@ package frc.robot.Commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 
-public class Spit_Ring extends Command {
+public class c_Spit_Ring extends Command {
 
   public double
     TargetX = 0,
     TargetY = 2;
 
-  public Spit_Ring() {
+  public c_Spit_Ring() {
     addRequirements(
       RobotContainer.m_Drive,
       RobotContainer.m_Intake,

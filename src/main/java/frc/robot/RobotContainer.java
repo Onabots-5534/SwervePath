@@ -37,16 +37,17 @@ public class RobotContainer {
 
 // ================ BINDINGS ====================
 
-    m_Drive   .setDefaultCommand ( new Drive_By_Stick() );
+    m_Drive   .setDefaultCommand ( new d_Drive_By_Stick() );
     m_Intake  .setDefaultCommand ( m_Intake.cStop()     );
     m_Roller  .setDefaultCommand ( m_Roller.cStop()     );
 
     DS.circle()
-      .onTrue ( new Attack_Ring() );
+      .onTrue ( new c_Attack_Ring() )
+      .onFalse( new i_Off()         );
 
     DS.cross()
-      .onTrue ( new Spit_Ring  () )
-      .onFalse( new Cancel_All () );
+      .onTrue ( new c_Spit_Ring  () )
+      .onFalse( new i_Off        () );
 
 // ==============================================
 
@@ -57,9 +58,6 @@ public class RobotContainer {
     MS.b() // TEMP: RUN INTAKE
       .onTrue ( m_Intake.cSuck () )
       .onFalse( m_Intake.cStop () );
-
-    MS.y() // TEMP: COLLECTION SEQUENCE
-      .onTrue ( new Collect_For_5() );
 
     // RESET ARMS AFTER MATCH
     MS.leftBumper().and( MS.rightBumper () )
