@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 public class Alliance {
 
     public static GenericEntry Color = Shuffleboard.getTab( "Comp" ).add( "Alliance", "" )
-        .withPosition( 5, 5 ).withSize( 2, 1 ).getEntry();
+        .withPosition( 5, 4 ).withSize( 2, 1 ).getEntry();
 
 //
 // ALLIANCE COLOR

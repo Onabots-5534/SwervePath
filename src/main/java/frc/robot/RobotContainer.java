@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.RobotDrive;
+import frc.robot.Commands.CollectFor5;
 import frc.robot.Config.Ports.pStick;
 import frc.robot.MechState.*;
 // import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -63,6 +64,9 @@ public class RobotContainer {
     MS.x()
       .onTrue ( new CollectOn () )
       .onFalse( new CollectOff() );  
+
+    MS.y() 
+      .onTrue ( new CollectFor5() );
   } 
 
 }
