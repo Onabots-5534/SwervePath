@@ -5,6 +5,7 @@ import java.util.Map;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 
@@ -25,7 +26,8 @@ public class CameraTarget {
         Comp.addCamera( "Camera Shooter", "Limelight 2", "http://10.55.34.12:5800" )
             .withPosition( 11, 0 )
             .withProperties( Map.of( "showControls", false ) )
-            .withSize( 5, 5 );
+            .withSize( 5, 5 )
+            .withWidget( BuiltInWidgets.kCameraStream );
     }
 
     public static void Periodic() {
