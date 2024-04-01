@@ -22,6 +22,7 @@ public class Onabot {
         AutonSelector   .Initialize();
         CameraIntake    .Initialize();
         CameraTarget    .Initialize();
+        Navigation      .Initialize();
         SubIntake       .Initialize();
 
         Shuffleboard.getTab("Comp").add( "Test Auton", new PathPlannerAuto( "Ctr-CBD" ) );

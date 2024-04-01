@@ -9,7 +9,7 @@ package frc.robot;
 // import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.robot.Commands.DriveByStick;
+import frc.robot.Commands.Drive_By_Stick;
 import frc.robot.Commands.Collect_For_5;
 import frc.robot.Commands.Collection_Off;
 import frc.robot.Commands.Collection_On;
@@ -43,15 +43,15 @@ public class RobotContainer {
 // ================ BINDINGS ====================
 // ==============================================
 
-    m_Drive.setDefaultCommand ( new DriveByStick() );
+    m_Drive.setDefaultCommand ( new Drive_By_Stick() );
 
     MS.a()
       .onTrue ( m_Roller.cForward () )
       .onFalse( m_Roller.cStop    () );
 
     MS.b() 
-      .onTrue ( m_Intake.cSuck() )
-      .onFalse( m_Intake.cStop() );
+      .onTrue ( m_Intake.cSuck () )
+      .onFalse( m_Intake.cStop () );
 
     MS.x()
       .onTrue ( new Collection_On () )
@@ -59,6 +59,11 @@ public class RobotContainer {
 
     MS.y() 
       .onTrue ( new Collect_For_5() );
+
+    MS.leftBumper().and( MS.rightBumper () )
+      .onTrue ( m_Climber.cLowerArms    () )
+      .onFalse( m_Climber.cStop         () );
+  
   } 
 
 }

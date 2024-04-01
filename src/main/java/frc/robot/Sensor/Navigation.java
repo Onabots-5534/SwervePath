@@ -1,7 +1,6 @@
 package frc.robot.Sensor;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-// import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Navigation {
