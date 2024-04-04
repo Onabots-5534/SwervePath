@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Config.Constants;
 import frc.robot.Config.Ports.pSwerve;
 import frc.robot.Mode.Onabot;
-import frc.robot.Sensor.*;
+import frc.robot.Support.*;
 
 public class SubDrive extends SubsystemBase {
   public static SubSwerve[]           Modules                    ;
@@ -41,7 +41,7 @@ public class SubDrive extends SubsystemBase {
 
     Odometer = new SwerveDriveOdometry(
       Kinematics,
-      Navigation.NavX.getRotation2d(),
+      SubNavigation.NavX.getRotation2d(),
       getPositions()
     );
 
@@ -62,7 +62,7 @@ public class SubDrive extends SubsystemBase {
   }
 
   @Override public void periodic() {
-    Odometer .update( Navigation.NavX.getRotation2d(), getPositions() );
+    Odometer .update( SubNavigation.NavX.getRotation2d(), getPositions() );
     Field    .setRobotPose( getPose() );
 
     Onabot.RobotX.setDouble( getPose().getX() );
@@ -74,7 +74,7 @@ public class SubDrive extends SubsystemBase {
   }
 
   public void resetPose( Pose2d pose ) {
-    Odometer.resetPosition( Navigation.NavX.getRotation2d(), getPositions(), pose );
+    Odometer.resetPosition( SubNavigation.NavX.getRotation2d(), getPositions(), pose );
   }
 
   public ChassisSpeeds getSpeeds() {

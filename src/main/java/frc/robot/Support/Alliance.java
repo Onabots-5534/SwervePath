@@ -1,4 +1,4 @@
-package frc.robot.Sensor;
+package frc.robot.Support;
 
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DriverStation;

@@ -1,7 +1,8 @@
 package frc.robot.Mode;
 
 import com.pathplanner.lib.auto.AutoBuilder;
-import frc.robot.Sensor.AutonSelector;
+
+import frc.robot.Support.AutonSelector;
 
 public class Autonomous {
 

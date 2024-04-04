@@ -1,11 +1,12 @@
-package frc.robot.Sensor;
+package frc.robot.Subsystems;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Navigation {
+public class SubNavigation extends SubsystemBase {
     
     public static ADXRS450_Gyro
         NavX = new ADXRS450_Gyro();
@@ -13,7 +14,7 @@ public class Navigation {
     public static ShuffleboardTab    
         Comp = Shuffleboard.getTab("Comp");
 
-    public static void Initialize() {
+    public SubNavigation() {
         NavX.calibrate();
 
         Comp.add( NavX )
@@ -22,9 +23,7 @@ public class Navigation {
             .withWidget( BuiltInWidgets.kGyro );
     }
 
-    public static void Display() {}
-
-    public static void Periodic() {}
+    @Override public void periodic() {}
 
     public static double GetDirection() { 
         return ( GetYaw() + 360 ) % 360;
