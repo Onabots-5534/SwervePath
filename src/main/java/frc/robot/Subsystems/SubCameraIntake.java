@@ -1,4 +1,4 @@
-package frc.robot.Sensor;
+package frc.robot.Subsystems;
 
 import java.util.Map;
 
@@ -8,8 +8,9 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class CameraIntake {
+public class SubCameraIntake extends SubsystemBase {
 
     public static NetworkTable
         CamI = NetworkTableInstance.getDefault().getTable("limelight-intake");
@@ -25,7 +26,7 @@ public class CameraIntake {
         Xi = 0,
         Yi = 0;
 
-    public static void Initialize() {
+    public SubCameraIntake() {
       Comp.addCamera( "Intake Camera", "Limelight 3", "http://10.55.34.13:5800" )
         .withPosition( 0, 0 )
         .withProperties( Map.of( "showControls", false ) )
@@ -33,8 +34,7 @@ public class CameraIntake {
         .withWidget( BuiltInWidgets.kCameraStream );
     }
 
-
-    public static void Periodic() {
+    @Override public void periodic() {
         X.setDouble( GetCode( "tx" ) );
         Y.setDouble( GetCode( "ty" ) );
 

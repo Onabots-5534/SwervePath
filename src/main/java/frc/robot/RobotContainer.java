@@ -17,7 +17,7 @@ public class RobotContainer {
   public static CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
 
   // SUBSYSTEMS
-  // public static final SubAimer    m_Aimer    = new SubAimer   ();
+  public static final SubAimer    m_Aimer    = new SubAimer   ();
   public static final SubClimber  m_Climber  = new SubClimber ();
   public static final SubDrive    m_Drive    = new SubDrive   ();
   public static final SubFlipper  m_Flipper  = new SubFlipper ();
@@ -25,6 +25,8 @@ public class RobotContainer {
   public static final SubMover    m_Mover    = new SubMover   ();
   public static final SubRoller   m_Roller   = new SubRoller  ();
   public static final SubShooter  m_Shooter  = new SubShooter ();
+
+  public static final SubCameraIntake m_CamIntake = new SubCameraIntake();
 
   public RobotContainer() {
   
