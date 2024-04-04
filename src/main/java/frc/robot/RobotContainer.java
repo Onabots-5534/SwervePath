@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.*;
 import frc.robot.Config.Ports.pStick;
+import frc.robot.Sensor.CameraIntake;
 import frc.robot.Subsystems.*;
 
 public class RobotContainer {
@@ -38,8 +39,8 @@ public class RobotContainer {
 // ================ BINDINGS ====================
 
     m_Drive   .setDefaultCommand ( new d_Drive_By_Stick() );
-    m_Intake  .setDefaultCommand ( m_Intake.cStop()     );
-    m_Roller  .setDefaultCommand ( m_Roller.cStop()     );
+    // m_Intake  .setDefaultCommand ( m_Intake.cStop()     );
+    // m_Roller  .setDefaultCommand ( m_Roller.cStop()     );
 
     DS.circle()
       .onTrue ( new c_Attack_Ring() )
@@ -69,5 +70,5 @@ public class RobotContainer {
       .onFalse( m_Climber.cStop     () );
 
   } 
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 }

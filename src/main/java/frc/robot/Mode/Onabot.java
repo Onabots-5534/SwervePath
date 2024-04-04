@@ -8,8 +8,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import frc.robot.Sensor.*;
-import frc.robot.Subsystems.CameraIntake;
-import frc.robot.Subsystems.SubIntake;
+import frc.robot.Subsystems.*;
 
 public class Onabot {
 
@@ -33,7 +32,7 @@ public class Onabot {
         CommandScheduler.getInstance().run();
 
         Alliance        .Periodic();
-        // CameraIntake    .Periodic();
+        CameraIntake    .Periodic();
         CameraTarget    .Periodic();
     }
 
