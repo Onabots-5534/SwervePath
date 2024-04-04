@@ -10,6 +10,7 @@ import frc.robot.Commands.*;
 import frc.robot.Commands.SplitStick;
 import frc.robot.Configuration.Ports.pStick;
 import frc.robot.Subsystems.*;
+import frc.robot.Support.SubLED;
 import frc.robot.Support.SubSonar;
 
 public class RobotContainer {
@@ -31,6 +32,7 @@ public class RobotContainer {
   // SENSORS
   public static final SubCameraIntake m_CamIntake  = new SubCameraIntake ();
   public static final SubCameraTarget m_CamTarget  = new SubCameraTarget ();
+  public static final SubLED          m_Led        = new SubLED          ();
   public static final SubNavigation   m_Navigation = new SubNavigation   ();
   public static final SubSonar        m_Sonar      = new SubSonar        ();
 
