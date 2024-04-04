@@ -7,7 +7,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.*;
-import frc.robot.Config.Ports.pStick;
+import frc.robot.Commands.Drivetrain;
+import frc.robot.Configuration.Ports.pStick;
 import frc.robot.Subsystems.*;
 
 public class RobotContainer {
@@ -16,7 +17,7 @@ public class RobotContainer {
   public static CommandPS4Controller  DS = new CommandPS4Controller ( pStick.USB_DS );
   public static CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
 
-  // SUBSYSTEMS
+  // SYSTEMS
   public static final SubAimer    m_Aimer    = new SubAimer   ();
   public static final SubClimber  m_Climber  = new SubClimber ();
   public static final SubDrive    m_Drive    = new SubDrive   ();
@@ -26,8 +27,11 @@ public class RobotContainer {
   public static final SubRoller   m_Roller   = new SubRoller  ();
   public static final SubShooter  m_Shooter  = new SubShooter ();
 
-  public static final SubCameraIntake m_CamIntake = new SubCameraIntake();
-  public static final SubCameraTarget m_CamTarget = new SubCameraTarget();
+  // SENSORS
+  public static final SubCameraIntake m_CamIntake  = new SubCameraIntake ();
+  public static final SubCameraTarget m_CamTarget  = new SubCameraTarget ();
+  public static final SubNavigation   m_Navigation = new SubNavigation   ();
+  public static final SubSonar        m_Sonar      = new SubSonar        ();
 
   public RobotContainer() {
   
@@ -38,27 +42,16 @@ public class RobotContainer {
 
 // ================ BINDINGS ====================
 
-    m_Drive.setDefaultCommand ( new dflt_Drive_By_Stick() );
-    // m_Intake  .setDefaultCommand ( m_Intake.cStop()     );
-    // m_Roller  .setDefaultCommand ( m_Roller.cStop()     );
+    m_Drive   .setDefaultCommand ( new Drivetrain() );
 
     DS.circle()
-      .onTrue ( new comp_Attack_Ring() )
-      .onFalse( new inst_Off()         );
-
-    DS.cross()
-      .onTrue ( new comp_Spit_Ring  () )
-      .onFalse( new inst_Off        () );
+      .onTrue ( new Seek_and_Destroy() );
 
 // ==============================================
 
-    MS.a() // TEMP: MOVE ROLLER
-      .onTrue ( m_Roller.cForward () )
-      .onFalse( m_Roller.cStop    () );
-
-    MS.b() // TEMP: RUN INTAKE
-      .onTrue ( m_Intake.cSuck () )
-      .onFalse( m_Intake.cStop () );
+    MS.a()
+      .onTrue ( new Collector_On () )
+      .onFalse( new Collector_Off() );
 
     // RESET ARMS AFTER MATCH
     MS.leftBumper().and( MS.rightBumper () )

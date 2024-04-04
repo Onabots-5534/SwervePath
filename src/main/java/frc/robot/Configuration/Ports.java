@@ -1,4 +1,4 @@
-package frc.robot.Config;
+package frc.robot.Configuration;
 
 public class Ports {
 
@@ -27,6 +27,11 @@ public class Ports {
 
             HUB_Lft = 0,
             HUB_Rgt = 0;
+    }
+
+    public class pLED { // Programmable LEDs
+        public static int
+            PWM_LED = 2;
     }
 
     public class pMover { // Spark Max

@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
-import frc.robot.Config.Setting;
+import frc.robot.Configuration.Setting;
 import frc.robot.Support.*;
 
 public class Onabot {
@@ -26,7 +26,7 @@ public class Onabot {
         // CONFIG AND SENSORS
         Alliance        .Initialize();
         AutonSelector   .Initialize();
-        Setting          .Initialize();
+        Setting         .Initialize();
 
         // ADDITIONAL COMMANDS
         Comp.add( "Test Auton", new PathPlannerAuto( "Ctr-CBD" ) );
@@ -38,7 +38,7 @@ public class Onabot {
         // CONFIG AND SENSORS
         Alliance        .Periodic();
         AutonSelector   .Periodic();
-        Setting          .Periodic();
+        Setting         .Periodic();
  
     }
 

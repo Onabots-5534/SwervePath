@@ -1,4 +1,4 @@
-package frc.robot.Config;
+package frc.robot.Configuration;
 
 import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
 import com.pathplanner.lib.util.PIDConstants;

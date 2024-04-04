@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Config.Constants;
-import frc.robot.Config.Ports.pSwerve;
+import frc.robot.Configuration.Constants;
+import frc.robot.Configuration.Ports.pSwerve;
 import frc.robot.Mode.Onabot;
 import frc.robot.Support.*;
 

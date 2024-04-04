@@ -3,20 +3,17 @@ package frc.robot.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.RobotContainer;
 
-public class inst_Collection_On extends InstantCommand {
+public class Collector_On extends InstantCommand {
 
-  public inst_Collection_On() {
+  public Collector_On() {
     addRequirements(
       RobotContainer.m_Intake,
       RobotContainer.m_Roller
     );
   }
 
-  @Override public void initialize() {}
-
-  @Override public void execute() {
+  @Override public void initialize() {
     RobotContainer.m_Intake.Suck();
     RobotContainer.m_Roller.Forward();
   }
-
 }

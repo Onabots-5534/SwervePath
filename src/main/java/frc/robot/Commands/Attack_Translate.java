@@ -6,9 +6,9 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 
-public class comp_Attack_Ring extends Command {
+public class Attack_Translate extends Command {
 
-  public comp_Attack_Ring() {
+  public Attack_Translate() {
     addRequirements(
       RobotContainer.m_Drive,
       RobotContainer.m_Intake,
@@ -66,7 +66,7 @@ public class comp_Attack_Ring extends Command {
     if ( DriveZ >  max ) { DriveZ =  max; }
     if ( DriveZ < -max ) { DriveZ = -max; }
 
-    RobotContainer.m_Drive.RobotDrive( DriveX, 0, DriveZ );
+    RobotContainer.m_Drive.RobotDrive( DriveX, DriveY, 0 );
   }
 
   @Override public void end( boolean interrupted ) {
@@ -76,7 +76,6 @@ public class comp_Attack_Ring extends Command {
   }
 
   @Override public boolean isFinished() {
-    if ( Math.abs( ErrorY ) <= 1 ) { return true; }
-    return false;
+    return Math.abs( ErrorY ) <= 1 ? true : false;
   }
 }
