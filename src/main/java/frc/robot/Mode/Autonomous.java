@@ -5,7 +5,8 @@ import frc.robot.Sensor.AutonSelector;
 
 public class Autonomous {
 
-    public static String  m_autonomousCommand = "";
+    public static String
+        m_autonomousCommand = "";
 
     public static void Initialize() {
 
@@ -18,6 +19,5 @@ public class Autonomous {
 
     public static void Periodic() {
     }
-
 
 }
