@@ -127,4 +127,11 @@ public class SubDrive extends SubsystemBase {
     return positions;
   }
 
+// ================ ADDITIONAL SUPPORT ==========
+
+  public Command cResetEncoders() { return this.runOnce( () -> ResetEncoders() ); } 
+  public void     ResetEncoders() {
+    for ( int i = 0; i < Modules.length; i++ ) { Modules[i].Drive.setPosition( 0.00 ); }
+  } 
+
 }

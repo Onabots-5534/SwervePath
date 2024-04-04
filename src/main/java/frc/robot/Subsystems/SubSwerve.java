@@ -7,6 +7,7 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Config.Setting;
 
 public class SubSwerve extends SubsystemBase {
 
@@ -77,11 +78,17 @@ public SubSwerve( String name, int[] ID ) {
       currentVelocity.angle
     );
 
+    double SwerveRatio = Setting.SwerveRatio.getDouble( 4.0 );
+
+    // Mechanically, the ratio should be about 3.133 for 12.566 inches (circumference) over 39.566 inches (1 meter)
     currentPosition = new SwerveModulePosition(
-      // 4.00 is CLOSE FOR NOW
-      currentPosition.distanceMeters + ( currentVelocity.speedMetersPerSecond * 0.02 ) * 4.0,
+      currentPosition.distanceMeters + ( currentVelocity.speedMetersPerSecond * 0.02 ) * SwerveRatio,
       currentVelocity.angle
     );
+  }
+
+  public void ResetEncoder() {
+    Drive.setPosition( 0.00 );
   }
 
 }
