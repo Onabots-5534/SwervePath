@@ -3,8 +3,8 @@ package frc.robot.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.RobotContainer;
 
-public class i_Off extends InstantCommand {
-  public i_Off() {
+public class inst_Off extends InstantCommand {
+  public inst_Off() {
     addRequirements(
       RobotContainer.m_Climber,
       RobotContainer.m_Climber,

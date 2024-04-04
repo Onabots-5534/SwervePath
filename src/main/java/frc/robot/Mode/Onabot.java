@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import frc.robot.Sensor.*;
-import frc.robot.Subsystems.*;
 
 public class Onabot {
 
@@ -23,7 +22,6 @@ public class Onabot {
         CameraIntake    .Initialize();
         CameraTarget    .Initialize();
         Navigation      .Initialize();
-        SubIntake       .Initialize();
 
         Shuffleboard.getTab("Comp").add( "Test Auton", new PathPlannerAuto( "Ctr-CBD" ) );
     }
@@ -34,6 +32,7 @@ public class Onabot {
         Alliance        .Periodic();
         CameraIntake    .Periodic();
         CameraTarget    .Periodic();
+        Navigation      .Periodic();
     }
 
 }

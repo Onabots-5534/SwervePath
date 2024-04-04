@@ -6,39 +6,43 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 
-public class c_Attack_Ring extends Command {
+public class comp_Attack_Ring extends Command {
 
-  public double
-    TargetX = 0,
-    TargetY = 2;
-
-  public c_Attack_Ring() {
+  public comp_Attack_Ring() {
     addRequirements(
-      // RobotContainer.m_CamIntake,
       RobotContainer.m_Drive,
       RobotContainer.m_Intake,
       RobotContainer.m_Roller
     );
   }
 
-  NetworkTable      table;
-  NetworkTableEntry tx;
-
-  @Override public void initialize() {
-    RobotContainer.m_Roller.Forward();
-    RobotContainer.m_Intake.Suck();
-
-    table = NetworkTableInstance.getDefault().getTable("limelight-intake");
-    tx = table.getEntry("tx");
-  }
-
-  double max = 0.08;
+  public double
+    TargetX = 0,
+    TargetY = 2;
 
   double
     ErrorX = 0,
     ErrorY = 0,
     ErrorZ = 0;
 
+  NetworkTable
+    table;
+
+  NetworkTableEntry
+    tx;
+
+  @Override public void initialize() {
+    RobotContainer.m_Roller.Forward();
+    RobotContainer.m_Intake.Suck();
+
+    table = NetworkTableInstance.getDefault().getTable("limelight-intake");
+
+    ErrorX = 0;
+    ErrorY = 0;
+    ErrorZ = 0;
+  }
+
+  double max = 0.08;
 
   @Override public void execute() {
     double RingX = table.getEntry("tx").getDouble( 0 );
@@ -47,7 +51,7 @@ public class c_Attack_Ring extends Command {
     ErrorX = ( TargetX - RingX );
     ErrorY = ( TargetY - RingY );
 
-    // NOTICE THAT THESE ARE INTENTIALLY FLIPPED
+    // NOTICE THAT X AND YARE INTENTIALLY FLIPPED
     // Camera Vertical is Y, Drive Forward is X
     double DriveX = ErrorY *  0.08;
     double DriveY = ErrorX * -0.08;

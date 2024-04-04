@@ -6,7 +6,6 @@ import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class SubSwerve extends SubsystemBase {
@@ -54,10 +53,10 @@ public SubSwerve( String name, int[] ID ) {
     VelSP = currentVelocity.speedMetersPerSecond * 200;
     // VelEr = ( VelPV - VelSP );
 
-    if ( Name == "FL" ) {
-      SmartDashboard.putNumber( "Supply Voltage", Drive.getSupplyVoltage().getValueAsDouble() );
-      SmartDashboard.putNumber( "Motor Voltage", Drive.getMotorVoltage().getValueAsDouble() );
-    }
+    // if ( Name == "FL" ) {
+    //   SmartDashboard.putNumber( "Supply Voltage", Drive.getSupplyVoltage().getValueAsDouble() );
+    //   SmartDashboard.putNumber( "Motor Voltage",  Drive.getMotorVoltage ().getValueAsDouble() );
+    // }
 
     // VelPw += VelEr * -0.001;
     // if ( VelSP == 0 ) { VelPw = 0; }

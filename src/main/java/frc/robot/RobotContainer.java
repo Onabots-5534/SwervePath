@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.*;
 import frc.robot.Config.Ports.pStick;
-import frc.robot.Sensor.CameraIntake;
 import frc.robot.Subsystems.*;
 
 public class RobotContainer {
@@ -27,8 +26,6 @@ public class RobotContainer {
   public static final SubRoller   m_Roller   = new SubRoller  ();
   public static final SubShooter  m_Shooter  = new SubShooter ();
 
-  public static final CameraIntake m_CamIntake = new CameraIntake ();
-
   public RobotContainer() {
   
     // REGISTER NAMED COMMANDS
@@ -38,17 +35,17 @@ public class RobotContainer {
 
 // ================ BINDINGS ====================
 
-    m_Drive   .setDefaultCommand ( new d_Drive_By_Stick() );
+    m_Drive.setDefaultCommand ( new dflt_Drive_By_Stick() );
     // m_Intake  .setDefaultCommand ( m_Intake.cStop()     );
     // m_Roller  .setDefaultCommand ( m_Roller.cStop()     );
 
     DS.circle()
-      .onTrue ( new c_Attack_Ring() )
-      .onFalse( new i_Off()         );
+      .onTrue ( new comp_Attack_Ring() )
+      .onFalse( new inst_Off()         );
 
     DS.cross()
-      .onTrue ( new c_Spit_Ring  () )
-      .onFalse( new i_Off        () );
+      .onTrue ( new comp_Spit_Ring  () )
+      .onFalse( new inst_Off        () );
 
 // ==============================================
 
