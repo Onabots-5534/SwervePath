@@ -57,8 +57,7 @@ public class Ports {
 
     public class pSonar { // Untested
         public static int[]
-            DIO_Frt = { 0, 0 },
-            DIO_Bck = { 0, 0 };
+            DIO_Chute = { 0, 0 };
     }
 
     public class pStick {

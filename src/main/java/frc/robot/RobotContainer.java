@@ -7,7 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.*;
-import frc.robot.Commands.Drivetrain;
+import frc.robot.Commands.SplitStick;
 import frc.robot.Configuration.Ports.pStick;
 import frc.robot.Subsystems.*;
 import frc.robot.Support.SubSonar;
@@ -43,7 +43,7 @@ public class RobotContainer {
 
 // ================ BINDINGS ====================
 
-    m_Drive   .setDefaultCommand ( new Drivetrain() );
+    m_Drive.setDefaultCommand( new SplitStick() );
 
     DS.circle()
       .onTrue ( new Seek_and_Destroy() );
