@@ -33,13 +33,19 @@ public class SubLED extends SubsystemBase {
         m_led.setData( m_buf );
     }
 
+    public Command cOff   () { return this.runOnce( () -> Off() ); }
+    public void     Off   () { H = 0; S = 0; V = 0; } 
+
     public Command cRed   () { return this.runOnce( () -> Red() ); }
-    public void     Red   () { H =   0; }
+    public void     Red   () { H = 0; S = 100; V = 100; }
 
     public Command cGreen () { return this.runOnce( () -> Green() ); }
-    public void     Green () { H = 120; }
+    public void     Green () { H = 120; S = 100; V = 100; }
 
     public Command cBlue  () { return this.runOnce( () -> Blue() ); }
-    public void     Blue  () { H = 240; }
+    public void     Blue  () { H = 240; S = 100; V = 100; }
+
+    public Command cOn ( int[] C ) { return this.runOnce( () -> On( C ) ); }
+    public void     On ( int[] C ) { H = C[0]; S = C[1]; V = C[2]; }     
 
 }

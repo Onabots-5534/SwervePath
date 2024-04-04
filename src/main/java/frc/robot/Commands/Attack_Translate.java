@@ -41,7 +41,7 @@ public class Attack_Translate extends Command {
     ErrorY = 0;
     ErrorZ = 0;
 
-    RobotContainer.m_Led.Red();
+    RobotContainer.m_Led.Off();
   }
 
   double max = 0.08;
@@ -68,9 +68,9 @@ public class Attack_Translate extends Command {
     if ( DriveZ >  max ) { DriveZ =  max; }
     if ( DriveZ < -max ) { DriveZ = -max; }
 
-    if ( Math.abs( ErrorX ) <= 1 && Math.abs( ErrorY ) <= 2  ) {
-      RobotContainer.m_Led.Blue();
-    }
+    if      ( Math.abs( ErrorX ) <= 2 && Math.abs( ErrorY ) <= 6  ) { RobotContainer.m_Led.Blue (); }
+    else if ( Math.abs( ErrorX ) <= 1 && Math.abs( ErrorY ) <= 2  ) { RobotContainer.m_Led.Green(); }
+    else                                                            { RobotContainer.m_Led.Off  (); }
 
     RobotContainer.m_Drive.RobotDrive( DriveX, DriveY, 0 );
   }
