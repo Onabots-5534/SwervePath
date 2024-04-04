@@ -24,7 +24,6 @@ public class Onabot {
         Robot.m_Container = new RobotContainer();
 
         // IMPORTANT SYSTEMS
-        CameraTarget    .Initialize();
         Navigation      .Initialize();
 
         // CONFIG AND SENSORS
@@ -40,7 +39,6 @@ public class Onabot {
         CommandScheduler.getInstance().run();
 
         // IMPORTANT SYSTEMS
-        CameraTarget    .Periodic();
         Navigation      .Periodic();
 
         // CONFIG AND SENSORS

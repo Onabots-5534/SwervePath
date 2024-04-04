@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class SubCameraIntake extends SubsystemBase {
 
     public static NetworkTable
-        CamI = NetworkTableInstance.getDefault().getTable("limelight-intake");
+        NT = NetworkTableInstance.getDefault().getTable("limelight-intake");
 
     public static ShuffleboardTab    
         Comp = Shuffleboard.getTab("Comp");
@@ -42,7 +42,5 @@ public class SubCameraIntake extends SubsystemBase {
         Yi = GetCode("ty");
     }
 
-    public static void Reset() {}
-
-    public static double GetCode( String S ) { return CamI.getEntry( S ).getDouble( 0 ); }
+    public static double GetCode( String S ) { return NT.getEntry( S ).getDouble( 0 ); }
 }

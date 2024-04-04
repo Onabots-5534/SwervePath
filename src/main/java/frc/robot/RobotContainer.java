@@ -27,6 +27,7 @@ public class RobotContainer {
   public static final SubShooter  m_Shooter  = new SubShooter ();
 
   public static final SubCameraIntake m_CamIntake = new SubCameraIntake();
+  public static final SubCameraTarget m_CamTarget = new SubCameraTarget();
 
   public RobotContainer() {
   

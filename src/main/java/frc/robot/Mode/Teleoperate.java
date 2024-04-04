@@ -22,27 +22,15 @@ public class Teleoperate {
         Z = 0;
 
     public static void Periodic() {
-        
-        // GET JOYSTICK VALUES
-        // X = -DS.getLeftY();
-        // Y = -DS.getLeftX();
-        // Z = -DS.getRightX();
-
-        // JOYSTICK DEAD ZONE
         X = Deadzone( -DS.getLeftY  () );
         Y = Deadzone( -DS.getLeftX  () );
         Z = Deadzone( -DS.getRightX () );
-
-        // DRIVE THE ROBOT
-        // Not needed since Command Scheduler calls periodic()  
-        // RobotContainer.m_Drive.FieldDrive( X, Y, Z );
     }
 
     static double DZ = 0.07;
 
     public static double Deadzone( double V ) {
-        // return Math.abs(V)<DZ ? 0 : V;
-        return Math.abs(V)<DZ ? 0 : (V-Math.signum(V)*DZ) / (1-DZ); // 
+        return Math.abs(V)<DZ ? 0 : (V-Math.signum(V)*DZ) / (1-DZ); 
     } 
 
 }
