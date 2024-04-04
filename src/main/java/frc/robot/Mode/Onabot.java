@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
-import frc.robot.Config.Setting;
+import frc.robot.Config.Config;
 import frc.robot.Sensor.*;
 
 public class Onabot {
@@ -23,7 +23,7 @@ public class Onabot {
         CameraIntake    .Initialize();
         CameraTarget    .Initialize();
         Navigation      .Initialize();
-        Setting         .Initialize();
+        Config         .Initialize();
 
         Shuffleboard.getTab("Comp").add( "Test Auton", new PathPlannerAuto( "Ctr-CBD" ) );
     }

@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotContainer;
 import frc.robot.Subsystems.SubDrive;
 
-public class Setting {
+public class Config {
 
     public static ShuffleboardTab
         Cfg = Shuffleboard.getTab("Config");
