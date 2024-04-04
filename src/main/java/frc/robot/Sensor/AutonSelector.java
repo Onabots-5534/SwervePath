@@ -1,9 +1,7 @@
 package frc.robot.Sensor;
 
 import java.util.List;
-
 import com.pathplanner.lib.auto.AutoBuilder;
-
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -22,8 +20,9 @@ public class AutonSelector {
 
         Shuffleboard.getTab("Comp").add( "Auton Selector", m_Chooser )
             .withWidget( BuiltInWidgets.kComboBoxChooser )
-            .withPosition( 7, 4 ).withSize( 2, 1 );
-
+            .withPosition( 7, 4 )
+            .withSize( 2, 1 );
     }
 
+    public static void Periodic() {}
 }
