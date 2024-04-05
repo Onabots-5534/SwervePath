@@ -27,7 +27,7 @@ public class Teleoperate {
         Z = Deadzone( -DS.getRightX () );
     }
 
-    static double DZ = 0.07;
+    static double DZ = 0.06;
 
     public static double Deadzone( double V ) {
         return Math.abs(V)<DZ ? 0 : (V-Math.signum(V)*DZ) / (1-DZ); 
