@@ -51,23 +51,38 @@ public class RobotContainer {
 
     m_Drive.setDefaultCommand( new SplitStick() );
 
-    DS.circle()
+    DS.R2()
       .onTrue ( new Seek_and_Destroy() );
 
 // ==============================================
 
-    MS.a()
-      .onTrue ( new Collector_On () )
-      .onFalse( new Collector_Off() );
+    MS.a() // SHOOT LOW
+      .onTrue ( new Shoot_Low           () );
+
+    MS.b()
+      .onTrue ( m_Mover.cReverse        () )
+      .onFalse( m_Mover.cStop           () );
+
+    MS.x()
+      .onTrue ( new Collector_On        () )
+      .onFalse( new Collector_Off       () );
+
+    MS.y()
+      .onTrue ( new Shoot_High          () );
+   
+    MS.start()
+      .onTrue ( m_Climber.cRaiseArms    () )
+      .onFalse( m_Climber.cStop         () );
+
+    MS.back()
+      .onTrue ( m_Climber.cLowerRobot   () )
+      .onFalse( m_Climber.cStop         () );
 
     // RESET ARMS AFTER MATCH
     MS.leftBumper().and( MS.rightBumper () )
       .onTrue ( m_Climber.cLowerArms    () )
       .onFalse( m_Climber.cStop         () );
   
-    MS.start()
-      .onTrue ( m_Climber.cRaiseArms() )
-      .onFalse( m_Climber.cStop     () );
 
   } 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
