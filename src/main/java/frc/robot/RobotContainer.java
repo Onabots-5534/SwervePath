@@ -41,7 +41,7 @@ public class RobotContainer {
   
     // REGISTER NAMED COMMANDS
     NamedCommands.registerCommand( "Seek and Destroy", new Seek_and_Destroy () );
-    NamedCommands.registerCommand( "Shoot High",       new Shoot_High       ());
+    NamedCommands.registerCommand( "Shoot High",       new Shoot_High       () );
 
     // NamedCommands.registerCommand( "marker1",     Commands.print( "Passed marker 1") );
     // NamedCommands.registerCommand( "marker2",     Commands.print( "Passed marker 2") );
