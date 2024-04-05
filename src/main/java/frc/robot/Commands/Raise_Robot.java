@@ -3,9 +3,9 @@ package frc.robot.Commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 
-public class Raise_Arms extends Command {
+public class Raise_Robot extends Command {
 
-  public Raise_Arms() {
+  public Raise_Robot() {
     addRequirements(
       RobotContainer.m_Climber
     );
@@ -14,7 +14,7 @@ public class Raise_Arms extends Command {
   @Override public void initialize() {}
 
   @Override public void execute() {
-    RobotContainer.m_Climber.RaiseArms();
+    RobotContainer.m_Climber.LowerArms();
   }
 
   @Override public void end(boolean interrupted) {
@@ -22,6 +22,6 @@ public class Raise_Arms extends Command {
   }
 
   @Override public boolean isFinished() {
-    return RobotContainer.m_Climber.GetDistance() >= -420 ? false : true;
+    return RobotContainer.m_Climber.GetDistance() <= 0 ? false : true;
   }
 }

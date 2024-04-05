@@ -71,25 +71,16 @@ public class RobotContainer {
       .onTrue ( new Shoot_High          () );
    
     MS.start()
-      .onTrue ( m_Climber.cRaiseRobot   () )
-      .onFalse( m_Climber.cStop         () );
+      .onTrue ( new Raise_Robot         () );
 
     MS.back()
-      .onTrue ( m_Climber.cLowerRobot   () )
-      .onFalse( m_Climber.cStop         () );
+      .onTrue ( new Raise_Arms          () );
 
     // RESET ARMS AFTER MATCH
     MS.leftBumper().and( MS.rightBumper () )
       .onTrue ( m_Climber.cLowerArms    () )
       .onFalse( m_Climber.cStop         () );
 
-      /*
-78 
-38 28 12 L
-5 18 39
-*/
+  }
+}  
 
-
-} 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-}
