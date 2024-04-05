@@ -1,8 +1,6 @@
 package frc.robot;
 
 import com.pathplanner.lib.auto.NamedCommands;
-
-// import com.pathplanner.lib.auto.NamedCommands;
 // import com.pathplanner.lib.path.GoalEndState;
 // import com.pathplanner.lib.path.PathConstraints;
 // import com.pathplanner.lib.path.PathPlannerPath;
@@ -56,7 +54,7 @@ public class RobotContainer {
 
 // ==============================================
 
-    MS.a() // SHOOT LOW
+    MS.a()
       .onTrue ( new Shoot_Low           () );
 
     MS.b()
