@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.73,
-      "y": 6.72
+      "x": 1.4,
+      "y": 5.5
     },
-    "rotation": -120.0
+    "rotation": 180.0
   },
   "command": {
     "type": "sequential",
@@ -18,15 +18,9 @@
           }
         },
         {
-          "type": "wait",
-          "data": {
-            "waitTime": 5.0
-          }
-        },
-        {
           "type": "path",
           "data": {
-            "pathName": "Lft-B"
+            "pathName": "Center C1"
           }
         },
         {
@@ -38,7 +32,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "B-Lft"
+            "pathName": "Center C2"
           }
         },
         {
@@ -50,6 +44,6 @@
       ]
     }
   },
-  "folder": null,
+  "folder": "Center",
   "choreoAuto": false
 }

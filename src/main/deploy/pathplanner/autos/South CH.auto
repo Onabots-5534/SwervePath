@@ -1,0 +1,73 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.7572843717116003,
+      "y": 4.348972507468824
+    },
+    "rotation": 120.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "South C1"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Seek and Destroy"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "South C2"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "South H1"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Seek and Destroy"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "South H2"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "South",
+  "choreoAuto": false
+}

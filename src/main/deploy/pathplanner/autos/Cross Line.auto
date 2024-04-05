@@ -1,0 +1,25 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.574041148082296,
+      "y": 2.1011889642826898
+    },
+    "rotation": 180.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Wall Cross Line"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "Wall",
+  "choreoAuto": false
+}

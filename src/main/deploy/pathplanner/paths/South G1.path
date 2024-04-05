@@ -1,0 +1,52 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.7572843717116003,
+        "y": 4.348972507468824
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.5024734811374385,
+        "y": 2.4554591966326793
+      },
+      "isLocked": false,
+      "linkedName": "South"
+    },
+    {
+      "anchor": {
+        "x": 7.500635001270003,
+        "y": 2.003459245013728
+      },
+      "prevControl": {
+        "x": 5.753716269337302,
+        "y": 0.3420540174413678
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Ring G"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 4.5,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 360.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -145.92280471986925,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": null,
+  "previewStartingState": {
+    "rotation": 120.96375653207349,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

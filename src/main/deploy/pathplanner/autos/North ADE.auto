@@ -1,0 +1,97 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.75,
+      "y": 6.75
+    },
+    "rotation": -120.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "North A1"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Seek and Destroy"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "North A2"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "North D1"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Seek and Destroy"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "North D2"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "North E1"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Seek and Destroy"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "North E2"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "North",
+  "choreoAuto": false
+}
