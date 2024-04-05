@@ -26,6 +26,10 @@ public class SubClimber extends SubsystemBase {
     SmartDashboard.putNumber( "Climber Power", Power );
   }
 
+  public static double GetDistance() {
+    return Climber.getPosition().getValueAsDouble();
+  }
+
 // ================ COMMANDS ====================
 
   public void     LowerArms    () { Power =  0.50; }
