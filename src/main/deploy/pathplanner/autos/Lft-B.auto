@@ -2,49 +2,49 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.4028643441902284,
-      "y": 5.495887145620446
+      "x": 0.73,
+      "y": 6.72
     },
-    "rotation": 180.0
+    "rotation": -120.0
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "Ctr-C"
+            "name": "Shoot High"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 5.0
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "C-Ctr"
+            "pathName": "Lft-B"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Seek and Destroy"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Ctr-B"
+            "pathName": "B-Lft"
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "B-Ctr"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Ctr-D"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "D-Ctr"
+            "name": "Shoot High"
           }
         }
       ]

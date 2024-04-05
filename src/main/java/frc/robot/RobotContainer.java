@@ -1,5 +1,7 @@
 package frc.robot;
 
+import com.pathplanner.lib.auto.NamedCommands;
+
 // import com.pathplanner.lib.auto.NamedCommands;
 // import com.pathplanner.lib.path.GoalEndState;
 // import com.pathplanner.lib.path.PathConstraints;
@@ -7,7 +9,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.*;
-import frc.robot.Commands.SplitStick;
 import frc.robot.Configuration.Ports.pStick;
 import frc.robot.Subsystems.*;
 import frc.robot.Support.SubLED;
@@ -39,6 +40,9 @@ public class RobotContainer {
   public RobotContainer() {
   
     // REGISTER NAMED COMMANDS
+    NamedCommands.registerCommand( "Seek and Destroy", new Seek_and_Destroy () );
+    NamedCommands.registerCommand( "Shoot High",       new Shoot_High       ());
+
     // NamedCommands.registerCommand( "marker1",     Commands.print( "Passed marker 1") );
     // NamedCommands.registerCommand( "marker2",     Commands.print( "Passed marker 2") );
     // NamedCommands.registerCommand( "print hello", Commands.print( "hello" ) );

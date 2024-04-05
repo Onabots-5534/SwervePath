@@ -79,4 +79,9 @@ public class Ports {
             HUB_BR = { 0, 0 };
     }
 
+    public class pSwitch { // DIO Switches
+        public static int
+            DIO_Intake = 0;
+    }
+
 }

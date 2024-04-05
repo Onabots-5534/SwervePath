@@ -2,7 +2,6 @@ package frc.robot.Configuration;
 
 import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
 import com.pathplanner.lib.util.PIDConstants;
-// import com.pathplanner.lib.util.PIDConstants;
 import com.pathplanner.lib.util.ReplanningConfig;
 
 import edu.wpi.first.math.geometry.Translation2d;
@@ -18,7 +17,7 @@ public final class Constants {
 
   public static final class Swerve {
     public static final double
-      maxModuleSpeed = 0.4; // M/S
+      maxModuleSpeed = 4.5; // M/S, not sure if this is correct
 
     public static final Translation2d
       FL_Trans2d = new Translation2d(  RobotLength/2,  RobotWidth/2 ),
