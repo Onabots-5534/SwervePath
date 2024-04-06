@@ -11,9 +11,9 @@ public class Teleoperate {
   public static XboxController MS = new XboxController( pStick.USB_MS );
 
     public static void Initialize() {
-        if ( Autonomous.m_autonomousCommand != null) {
+        // if ( Autonomous.m_autonomousCommand != null) {
             CommandScheduler.getInstance().cancelAll();
-        }      
+        // }      
     }
 
     public static double

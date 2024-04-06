@@ -19,8 +19,8 @@ public class RobotContainer {
   private CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
 
   // SENSORS AND SUPPORT
-  public static final CameraIntake  m_CamIntake     = new CameraIntake ();
-  public static final CameraTarget  m_CamTarget     = new CameraTarget ();
+  public static final CameraIntake  m_CamIntake  = new CameraIntake ();
+  public static final CameraTarget  m_CamTarget  = new CameraTarget ();
   public static final Navigation    m_Navigation = new Navigation   ();
   // public static final SubLED          m_Led        = new SubLED          ();
   // public static final SubSonar        m_Sonar      = new SubSonar        ();
