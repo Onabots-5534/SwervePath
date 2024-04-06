@@ -49,8 +49,8 @@ public class RobotContainer {
 
     m_Drive.setDefaultCommand( new SplitStick() );
 
-    DS.R2()
-      .onTrue ( new Seek_and_Destroy() );
+    // DS.R2()
+    //   .onTrue ( new Seek_and_Destroy() );
 
 // ==============================================
 

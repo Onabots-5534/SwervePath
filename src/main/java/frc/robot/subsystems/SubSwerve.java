@@ -49,12 +49,15 @@ public SubSwerve( String name, int[] ID ) {
 
   @Override public void periodic() {
 
+    if ( Name == "FL" ) {
+      System.out.println( "FL Velocity := " + VelSP );
+    }
 
     // VELOCITY INFO
     // VelPV = Drive.getVelocity().getValueAsDouble();
     VelSP = currentVelocity.speedMetersPerSecond * 200;
     // VelEr = ( VelPV - VelSP );
-    System.out.println( VelSP );
+
 
     // if ( Name == "FL" ) {
     //   SmartDashboard.putNumber( "Supply Voltage", Drive.getSupplyVoltage().getValueAsDouble() );
