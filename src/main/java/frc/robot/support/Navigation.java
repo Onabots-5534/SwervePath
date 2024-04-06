@@ -5,25 +5,25 @@ import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.board.NavigationTab;
 
-public class SubNavigation extends SubsystemBase {
+public class Navigation {
     
     public static ADXRS450_Gyro
         NavX = new ADXRS450_Gyro();
 
-    public static ShuffleboardTab    
-        Comp = Shuffleboard.getTab("Comp");
+    public static NavigationTab    
+        SBT;
 
-    public SubNavigation() {
+    public Navigation() {
         NavX.calibrate();
 
-        Comp.add( NavX )
+        SBT = Shared.m_NavigationTab; 
+        SBT.add( NavX )
             .withPosition( 5, 4 )
             .withSize( 3, 3 )
             .withWidget( BuiltInWidgets.kGyro );
     }
-
-    @Override public void periodic() {}
 
     public static double GetDirection() { 
         return ( GetYaw() + 360 ) % 360;

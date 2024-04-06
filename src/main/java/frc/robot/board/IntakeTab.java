@@ -17,7 +17,7 @@ public class IntakeTab {
         SBT = Shuffleboard.getTab("Collector");
 
         enabled = SBT.add( "Enabled", true  ).getEntry();
-        power   = SBT.add( "Power",   power ).getEntry();
+        // power   = SBT.add( "Power",   power ).getEntry();
     }
 
     public void    SetEnabled( boolean flag ) { enabled.setBoolean( flag ); }

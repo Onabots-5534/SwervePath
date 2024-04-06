@@ -8,13 +8,11 @@ import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants;
 import frc.robot.constants.Ports.pSwerve;
-import frc.robot.mode.Onabot;
 import frc.robot.support.*;
 
 public class SubDrive extends SubsystemBase {
@@ -58,15 +56,15 @@ public class SubDrive extends SubsystemBase {
     // Set up custom logging to add the current path to a field 2d widget
     PathPlannerLogging.setLogActivePathCallback( ( poses ) -> Field.getObject( "path" ).setPoses( poses ) );
 
-    Shuffleboard.getTab("Comp").add( "Field Diagram", Field ).withPosition( 5, 0 ).withSize( 6, 4 );
+    // Shuffleboard.getTab("Comp").add( "Field Diagram", Field ).withPosition( 5, 0 ).withSize( 6, 4 );
   }
 
   @Override public void periodic() {
     Odometer .update( SubNavigation.NavX.getRotation2d(), getPositions() );
     Field    .setRobotPose( getPose() );
 
-    Onabot.RobotX.setDouble( getPose().getX() );
-    Onabot.RobotY.setDouble( getPose().getY() );
+    // Onabot.RobotX.setDouble( getPose().getX() );
+    // Onabot.RobotY.setDouble( getPose().getY() );
   }
 
   public Pose2d getPose() {

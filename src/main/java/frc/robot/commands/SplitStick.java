@@ -7,11 +7,11 @@ import frc.robot.subsystems.SubDrive;
 
 public class SplitStick extends Command {
 
-  private SubDrive m_Drive = null;
+  private SubDrive m_Drive;
 
   public SplitStick() {
 
-    m_Drive = Shared.m_Drive;
+    m_Drive = Shared.getSubDrive();
 
     addRequirements( m_Drive );
   }
