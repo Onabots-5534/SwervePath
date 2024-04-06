@@ -21,27 +21,29 @@ public class RobotContainer {
   // SENSORS AND SUPPORT
   public static final CameraIntake  m_CamIntake     = new CameraIntake ();
   public static final CameraTarget  m_CamTarget     = new CameraTarget ();
-  // public static final SubLED          m_Led        = new SubLED          ();
   public static final Navigation    m_Navigation = new Navigation   ();
+  // public static final SubLED          m_Led        = new SubLED          ();
   // public static final SubSonar        m_Sonar      = new SubSonar        ();
 
   // SUBSYSTEM MECHANISMS
-  // private SubClimber m_Climber;
-  public static SubDrive   m_Drive  = new SubDrive();
-  public static SubIntake  m_Intake = new SubIntake();
-  public static SubMover   m_Mover  = new SubMover();
-  public static SubRoller  m_Roller = new SubRoller();
+  public static SubAimer   m_Aimer   = new SubAimer();
+  public static SubClimber m_Climber = new SubClimber();
+  public static SubDrive   m_Drive   = new SubDrive();
+  public static SubIntake  m_Intake  = new SubIntake();
+  public static SubMover   m_Mover   = new SubMover();
+  public static SubRoller  m_Roller  = new SubRoller();
+  public static SubShooter m_Shooter = new SubShooter();
 
 
   public RobotContainer() {
 
     // REGISTER NAMED COMMANDS
-    // NamedCommands.registerCommand( "Seek and Destroy", new Seek_and_Destroy () );
+    NamedCommands.registerCommand( "Seek and Destroy", new Seek_and_Destroy () );
     // NamedCommands.registerCommand( "Shoot High",       new Shoot_High       () );
 
-    // NamedCommands.registerCommand( "marker1",     Commands.print( "Passed marker 1") );
-    // NamedCommands.registerCommand( "marker2",     Commands.print( "Passed marker 2") );
-    // NamedCommands.registerCommand( "print hello", Commands.print( "hello" ) );
+    NamedCommands.registerCommand( "marker1",     Commands.print( "Passed marker 1") );
+    NamedCommands.registerCommand( "marker2",     Commands.print( "Passed marker 2") );
+    NamedCommands.registerCommand( "print hello", Commands.print( "hello" ) );
 
 // ================ BINDINGS ====================
 
