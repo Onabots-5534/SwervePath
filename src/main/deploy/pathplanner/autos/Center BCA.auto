@@ -12,21 +12,9 @@
     "data": {
       "commands": [
         {
-          "type": "named",
-          "data": {
-            "name": "Shoot High"
-          }
-        },
-        {
           "type": "path",
           "data": {
             "pathName": "Center B1"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Seek and Destroy"
           }
         },
         {
@@ -36,21 +24,9 @@
           }
         },
         {
-          "type": "named",
-          "data": {
-            "name": "Shoot High"
-          }
-        },
-        {
           "type": "path",
           "data": {
             "pathName": "Center C1"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Seek and Destroy"
           }
         },
         {
@@ -60,33 +36,15 @@
           }
         },
         {
-          "type": "named",
-          "data": {
-            "name": "Shoot High"
-          }
-        },
-        {
           "type": "path",
           "data": {
             "pathName": "Center A1"
           }
         },
         {
-          "type": "named",
-          "data": {
-            "name": "Seek and Destroy"
-          }
-        },
-        {
           "type": "path",
           "data": {
             "pathName": "Center A2"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shoot High"
           }
         }
       ]

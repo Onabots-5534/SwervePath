@@ -8,8 +8,6 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
-import frc.robot.Shared;
-import frc.robot.constants.Setting;
 import frc.robot.support.*;
 
 public class Onabot {
@@ -23,17 +21,17 @@ public class Onabot {
 
     public static void Initialize() {
 
-        Shared.initSubsystems();
-
         Robot.m_Container = new RobotContainer();
 
+        Board.Initialize();
+
         // CONFIG AND SENSORS
-        // Alliance        .Initialize();
-        // AutonSelector   .Initialize();
+        Alliance        .Initialize();
+        AutonSelector   .Initialize();
         // Setting         .Initialize();
 
         // ADDITIONAL COMMANDS
-        // Comp.add( "Test Auton", new PathPlannerAuto( "Ctr-CBD" ) );
+        Board.tCompetition.add( "Test Auton", new PathPlannerAuto( "Calibration" ) );
     }
 
     public static void Periodic() {
@@ -41,10 +39,11 @@ public class Onabot {
         CommandScheduler.getInstance().run();
 
         CameraIntake.Display();
+        CameraTarget.Display();
 
         // CONFIG AND SENSORS
-        // Alliance        .Periodic();
-        // AutonSelector   .Periodic();
+        Alliance        .Periodic();
+        AutonSelector   .Periodic();
         // Setting         .Periodic();
 
     }

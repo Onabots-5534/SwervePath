@@ -1,29 +1,37 @@
 package frc.robot;
 
-// import com.pathplanner.lib.auto.NamedCommands;
+import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.*;
+import frc.robot.constants.Ports.pStick;
+import frc.robot.subsystems.*;
+import frc.robot.support.*;
+
+import com.pathplanner.lib.auto.NamedCommands;
 // import com.pathplanner.lib.path.GoalEndState;
 // import com.pathplanner.lib.path.PathConstraints;
 // import com.pathplanner.lib.path.PathPlannerPath;
-// import frc.robot.commands.*;
-// import frc.robot.subsystems.*;
 
 public class RobotContainer {
 
   // CONTROLLERS
-  // private CommandPS4Controller  DS = null;
-  // private CommandXboxController MS = null;
+  private CommandPS4Controller  DS = new CommandPS4Controller ( pStick.USB_DS );
+  private CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
 
-  // SUBSYSTEMS
-  // private SubClimber m_Climber = null;
-  // private SubDrive   m_Drive;
-  // private SubMover   m_Mover   = null;
-
-  // SENSORS
-  // public static final SubCameraIntake m_CamIntake  = new SubCameraIntake ();
-  // public static final SubCameraTarget m_CamTarget  = new SubCameraTarget ();
+  // SENSORS AND SUPPORT
+  public static final CameraIntake  m_CamIntake     = new CameraIntake ();
+  public static final CameraTarget  m_CamTarget     = new CameraTarget ();
   // public static final SubLED          m_Led        = new SubLED          ();
-  // public static final SubNavigation   m_Navigation = new SubNavigation   ();
+  public static final Navigation    m_Navigation = new Navigation   ();
   // public static final SubSonar        m_Sonar      = new SubSonar        ();
+
+  // SUBSYSTEM MECHANISMS
+  // private SubClimber m_Climber;
+  public static SubDrive   m_Drive  = new SubDrive();
+  public static SubIntake  m_Intake = new SubIntake();
+  public static SubMover   m_Mover  = new SubMover();
+  public static SubRoller  m_Roller = new SubRoller();
+
 
   public RobotContainer() {
 
@@ -37,25 +45,23 @@ public class RobotContainer {
 
 // ================ BINDINGS ====================
 
-    // if ( m_Drive != null ) {
-      // m_Drive.setDefaultCommand( new SplitStick() );
-    // }
+    m_Drive.setDefaultCommand( new SplitStick() );
 
-    // DS.R2()
-    //   .onTrue ( new Seek_and_Destroy() );
+    DS.R2()
+      .onTrue ( new Seek_and_Destroy() );
 
 // ==============================================
 
     // MS.a()
     //   .onTrue ( new Shoot_Low           () );
 
-    // MS.b()
-    //   .onTrue ( m_Mover.cReverse        () )
-    //   .onFalse( m_Mover.cStop           () );
+    MS.b()
+      .onTrue ( m_Mover.cReverse        () )
+      .onFalse( m_Mover.cStop           () );
 
-    // MS.x()
-    //   .onTrue ( new Collector_On        () )
-    //   .onFalse( new Collector_Off       () );
+    MS.x()
+      .onTrue ( new Collector_On        () )
+      .onFalse( new Collector_Off       () );
 
     // MS.y()
     //   .onTrue ( new Shoot_High          () );

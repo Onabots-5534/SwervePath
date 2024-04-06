@@ -49,10 +49,12 @@ public SubSwerve( String name, int[] ID ) {
 
   @Override public void periodic() {
 
+
     // VELOCITY INFO
     // VelPV = Drive.getVelocity().getValueAsDouble();
     VelSP = currentVelocity.speedMetersPerSecond * 200;
     // VelEr = ( VelPV - VelSP );
+    System.out.println( VelSP );
 
     // if ( Name == "FL" ) {
     //   SmartDashboard.putNumber( "Supply Voltage", Drive.getSupplyVoltage().getValueAsDouble() );
@@ -66,7 +68,7 @@ public SubSwerve( String name, int[] ID ) {
     DirPV = Encod.getAbsolutePosition().getValueAsDouble() * 360;
     DirSP = currentVelocity.angle.getDegrees();
     DirEr = ( DirPV - DirSP + 540 ) % 360 - 180;
-    DirPw = DirEr * 0.01;
+    DirPw = DirEr * 0.001;
 
     Drive.setControl( m_VelocityVoltage.withVelocity( VelSP ) );
     Steer.set( DirPw );

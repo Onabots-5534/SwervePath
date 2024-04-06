@@ -4,7 +4,6 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Shared;
 import frc.robot.subsystems.SubDrive;
 import frc.robot.subsystems.SubIntake;
 import frc.robot.subsystems.SubRoller;
@@ -17,15 +16,15 @@ public class Attack_Rotate extends Command {
  
   public Attack_Rotate() {
 
-    m_Drive  = Shared.m_Drive;
-    m_Intake = Shared.m_Intake;
-    m_Roller = Shared.m_Roller;
+    // m_Drive  = Shared.m_Drive;
+    // m_Intake = Shared.m_Intake;
+    // m_Roller = Shared.m_Roller;
 
-    addRequirements(
-      m_Drive,
-      m_Intake,
-      m_Roller
-    );
+    // addRequirements(
+    //   m_Drive,
+    //   m_Intake,
+    //   m_Roller
+    // );
   }
 
   public double

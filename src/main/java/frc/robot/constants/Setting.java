@@ -3,9 +3,6 @@ package frc.robot.constants;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.Shared;
-import frc.robot.subsystems.SubDrive;
 
 public class Setting {
 
@@ -19,12 +16,12 @@ public class Setting {
             .getEntry();
 
     public static void Initialize() {
-        Cfg.add( "Reset Encoder", Shared.m_Drive.cResetEncoders() )
-            .withPosition( 0, 1 )
-            .withSize( 1, 1 );
+        // Cfg.add( "Reset Encoder", Shared.m_Drive.cResetEncoders() )
+        //     .withPosition( 0, 1 )
+        //     .withSize( 1, 1 );
     }
 
     public static void Periodic() {
-        SmartDashboard.putNumber( "Rotations", SubDrive.Modules[0].Drive.getPosition().getValueAsDouble() );
+        // SmartDashboard.putNumber( "Rotations", SubDrive.Modules[0].Drive.getPosition().getValueAsDouble() );
     }
 }

@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.4,
-      "y": 5.5
+      "x": 0.0,
+      "y": 2.50432405626716
     },
     "rotation": 180.0
   },
@@ -14,18 +14,12 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Center B1"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Center B2"
+            "pathName": "Distance Calibration"
           }
         }
       ]
     }
   },
-  "folder": "Center",
+  "folder": "Custom",
   "choreoAuto": false
 }

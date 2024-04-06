@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 
 public class NavigationTab {
 
-    public ShuffleboardTab
+    public static ShuffleboardTab
         SBT;
 
     GenericEntry

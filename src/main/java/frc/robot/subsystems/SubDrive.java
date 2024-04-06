@@ -39,7 +39,7 @@ public class SubDrive extends SubsystemBase {
 
     Odometer = new SwerveDriveOdometry(
       Kinematics,
-      SubNavigation.NavX.getRotation2d(),
+      Navigation.NavX.getRotation2d(),
       getPositions()
     );
 
@@ -60,7 +60,7 @@ public class SubDrive extends SubsystemBase {
   }
 
   @Override public void periodic() {
-    Odometer .update( SubNavigation.NavX.getRotation2d(), getPositions() );
+    Odometer .update( Navigation.NavX.getRotation2d(), getPositions() );
     Field    .setRobotPose( getPose() );
 
     // Onabot.RobotX.setDouble( getPose().getX() );
@@ -72,7 +72,7 @@ public class SubDrive extends SubsystemBase {
   }
 
   public void resetPose( Pose2d pose ) {
-    Odometer.resetPosition( SubNavigation.NavX.getRotation2d(), getPositions(), pose );
+    Odometer.resetPosition( Navigation.NavX.getRotation2d(), getPositions(), pose );
   }
 
   public ChassisSpeeds getSpeeds() {

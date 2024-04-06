@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Shared;
+import frc.robot.RobotContainer;
 import frc.robot.mode.Teleoperate;
 import frc.robot.subsystems.SubDrive;
 
@@ -11,7 +11,7 @@ public class SplitStick extends Command {
 
   public SplitStick() {
 
-    m_Drive = Shared.getSubDrive();
+    m_Drive = RobotContainer.m_Drive;
 
     addRequirements( m_Drive );
   }

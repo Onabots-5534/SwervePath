@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 
 public class CameraTab {
 
-    public ShuffleboardTab
+    public static ShuffleboardTab
         SBT;
 
-    GenericEntry
+    public static GenericEntry
         IntakeX,
         IntakeY,
         
@@ -41,14 +41,4 @@ public class CameraTab {
         TargetY = SBT.add("Target Y",0).withPosition( 14, 5 ).withSize( 2, 1 ).getEntry();
     }
 
-    public void setIntake( double X, double Y ) {
-        IntakeX.setDouble( X );
-        IntakeY.setDouble( Y );
-    }
-
-    public void setTarget( double X, double Y ) {
-        TargetX.setDouble( X );
-        TargetY.setDouble( Y );
-    }
-
-}
+ }

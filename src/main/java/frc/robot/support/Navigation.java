@@ -1,4 +1,4 @@
-package frc.robot.subsystems;
+package frc.robot.support;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
@@ -18,11 +18,11 @@ public class Navigation {
     public Navigation() {
         NavX.calibrate();
 
-        SBT = Shared.m_NavigationTab; 
-        SBT.add( NavX )
-            .withPosition( 5, 4 )
-            .withSize( 3, 3 )
-            .withWidget( BuiltInWidgets.kGyro );
+        // SBT = Shared.m_NavigationTab; 
+        // Shared.m_NavigationTab.add( NavX )
+        //     .withPosition( 5, 4 )
+        //     .withSize( 3, 3 )
+        //     .withWidget( BuiltInWidgets.kGyro );
     }
 
     public static double GetDirection() { 

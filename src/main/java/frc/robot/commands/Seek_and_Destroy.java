@@ -2,7 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.Shared;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.SubDrive;
 import frc.robot.subsystems.SubIntake;
 import frc.robot.subsystems.SubRoller;
@@ -16,9 +16,9 @@ public class Seek_and_Destroy extends SequentialCommandGroup {
 
   public Seek_and_Destroy() {
 
-    m_Drive  = Shared.m_Drive;
-    m_Intake = Shared.m_Intake;
-    m_Roller = Shared.m_Roller;
+    m_Drive  = RobotContainer.m_Drive;
+    m_Intake = RobotContainer.m_Intake;
+    m_Roller = RobotContainer.m_Roller;
 
     addCommands(
 
