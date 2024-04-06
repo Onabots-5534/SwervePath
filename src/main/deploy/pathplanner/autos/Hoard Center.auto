@@ -1,0 +1,121 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.7572843717116003,
+      "y": 4.348972507468824
+    },
+    "rotation": 120.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "South H1"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Seek and Destroy"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Middle HG"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Seek and Destroy"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Middle GF"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Seek and Destroy"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Middle FE"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Seek and Destroy"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "MIddle ED"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Seek and Destroy"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Center D2"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot High"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "Custom",
+  "choreoAuto": false
+}
