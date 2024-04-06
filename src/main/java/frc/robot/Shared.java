@@ -2,13 +2,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.board.*;
 import frc.robot.constants.Ports.pStick;
 import frc.robot.subsystems.*;
 import frc.robot.support.SubLED;
 
 public class Shared {
-
-    // public static Shared instance  = null;
 
     public static CommandPS4Controller  m_DriveStick = null;
     public static CommandXboxController m_ManipStick = null;
@@ -23,8 +22,11 @@ public class Shared {
 
     public static SubLED m_LED = null;
 
+    public static AutonomousTab  m_AutonomousTab  = null;
+    public static IntakeTab   m_CollectorTab   = null;
+    public static CompetitionTab m_CompetitionTab = null;
+
     public void initSubsystems() {
-        // instance     = getInstance();
 
         m_DriveStick = new CommandPS4Controller ( pStick.USB_DS );
         m_ManipStick = new CommandXboxController( pStick.USB_MS );
@@ -36,6 +38,10 @@ public class Shared {
         m_Mover      = new SubMover();
         m_Roller     = new SubRoller();
         m_Shooter    = new SubShooter();
+
+        m_AutonomousTab  = new AutonomousTab();
+        m_CollectorTab   = new IntakeTab();
+        m_CompetitionTab = new CompetitionTab(); 
 
         m_LED        = new SubLED();
     }
