@@ -1,7 +1,8 @@
 package frc.robot;
 
 import org.littletonrobotics.junction.LoggedRobot;
-import frc.robot.Mode.*;
+
+import frc.robot.mode.*;
 
 public class Robot extends LoggedRobot {
 

@@ -6,11 +6,11 @@ import com.pathplanner.lib.auto.NamedCommands;
 // import com.pathplanner.lib.path.PathPlannerPath;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.robot.Commands.*;
-import frc.robot.Configuration.Ports.pStick;
-import frc.robot.Subsystems.*;
-import frc.robot.Support.SubLED;
-import frc.robot.Support.SubSonar;
+import frc.robot.commands.*;
+import frc.robot.constants.Ports.pStick;
+import frc.robot.subsystems.*;
+import frc.robot.support.SubLED;
+import frc.robot.support.SubSonar;
 
 public class RobotContainer {
 
