@@ -12,28 +12,19 @@ public class Navigation {
     public static ADXRS450_Gyro
         NavX = new ADXRS450_Gyro();
 
-    public static NavigationTab    
-        SBT;
-
     public Navigation() {
         NavX.calibrate();
-
-        // SBT = Shared.m_NavigationTab; 
-        // Shared.m_NavigationTab.add( NavX )
-        //     .withPosition( 5, 4 )
-        //     .withSize( 3, 3 )
-        //     .withWidget( BuiltInWidgets.kGyro );
     }
 
     public static double GetDirection() { 
         return ( GetYaw() + 360 ) % 360;
     }
 
-    public static double GetError( double Heading ) {
-        return ( Heading - NavX.getAngle() + 180 ) % 360 - 180;
-    }
+    // public static double GetError( double Heading ) {
+    //     return ( Heading - NavX.getAngle() + 180 ) % 360 - 180;
+    // }
 
-    public static void Reset    () { NavX.reset    (); }
+    public static void Reset() { NavX.reset(); }
 
     // public static double GetPitch() { return +NavX.getPitch(); }
     // public static double GetRoll()  { return +NavX.getRoll();  }

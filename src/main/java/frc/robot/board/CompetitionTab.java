@@ -3,6 +3,7 @@ package frc.robot.board;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import frc.robot.support.*;
 
 public class CompetitionTab {
 
@@ -30,6 +31,11 @@ public class CompetitionTab {
 
         TargetX = SBT.add("Target X",0).withPosition( 11, 5 ).withSize( 2, 1 ).getEntry();
         TargetY = SBT.add("Target Y",0).withPosition( 14, 5 ).withSize( 2, 1 ).getEntry();
+
+        SBT.add( NavX )
+        .withPosition( 5, 4 )
+        .withSize( 3, 3 )
+        .withWidget( BuiltInWidgets.kGyro );
 
         SBT.addCamera( "Intake Camera", "Limelight 3", "http://10.55.34.13:5800" )
         .withPosition( 0, 0 )

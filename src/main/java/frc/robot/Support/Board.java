@@ -21,7 +21,6 @@ public class Board {
     // Autonomous  = new AutonomousTab();
     // Climber     = new ClimberTab();
     // Collector   = new IntakeTab();
-    // Competition = new CompetitionTab();
     // Mover       = new MoverTab();
     // Roller      = new RollerTab();
     // Shooter     = new ShooterTab();

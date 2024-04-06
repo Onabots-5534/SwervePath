@@ -10,17 +10,19 @@ public class DrivetrainTab {
         SBT;
 
     public static GenericEntry
-        RobotX,
-        RobotY;
+        FP_PV,
+        FL_SP;
 
     public DrivetrainTab() {
         SBT = Shuffleboard.getTab("Drivetrain");
 
-        RobotX = SBT.add("Robot X",0).withPosition( 5, 0 ).withSize( 2, 1 ).getEntry();
-        RobotY = SBT.add("Robot Y",0).withPosition( 5, 1 ).withSize( 2, 1 ).getEntry();
+        FL_PV = SBT.add("FL PV",0).getEntry();
+        FL_SP = SBT.add("FL SP",0).getEntry();
     }
 
     public void Refresh() {
+        FL_PV.setDouble( RobotContainer.m_Drive.Modules[0],VelPV );
+        FL_SP.setDouble( RobotContainer.m_Drive.Modules[0].VelSP );
     }
 
 }
