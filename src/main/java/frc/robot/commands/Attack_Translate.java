@@ -7,15 +7,12 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.SubDrive;
 import frc.robot.subsystems.SubIntake;
 import frc.robot.subsystems.SubRoller;
-import frc.robot.support.SubLED;
 
 public class Attack_Translate extends Command {
 
   private SubDrive  m_Drive  = null;
   private SubIntake m_Intake = null;
   private SubRoller m_Roller = null;
-
-  private SubLED    m_LED    = null;
 
   public Attack_Translate() {
 
@@ -56,8 +53,6 @@ public class Attack_Translate extends Command {
     ErrorX = 0;
     ErrorY = 0;
     ErrorZ = 0;
-
-    m_LED.Off();
   }
 
   double max = 0.08;
@@ -84,9 +79,9 @@ public class Attack_Translate extends Command {
     if ( DriveZ >  max ) { DriveZ =  max; }
     if ( DriveZ < -max ) { DriveZ = -max; }
 
-    if      ( Math.abs( ErrorX ) <= 3 && Math.abs( ErrorY ) <= 6  ) { m_LED.Blue (); }
-    else if ( Math.abs( ErrorX ) <= 1 && Math.abs( ErrorY ) <= 2  ) { m_LED.Green(); }
-    else                                                            { m_LED.Off  (); }
+    // if      ( Math.abs( ErrorX ) <= 3 && Math.abs( ErrorY ) <= 6  ) { m_LED.Blue (); }
+    // else if ( Math.abs( ErrorX ) <= 1 && Math.abs( ErrorY ) <= 2  ) { m_LED.Green(); }
+    // else                                                            { m_LED.Off  (); }
 
     m_Drive.RobotDrive( DriveX, DriveY, 0 );
   }

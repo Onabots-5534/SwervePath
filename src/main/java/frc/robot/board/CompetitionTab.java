@@ -9,21 +9,23 @@ public class CompetitionTab {
     public ShuffleboardTab
         SBT;
 
-    GenericEntry
-        RobotX = null,
-        RobotY = null,
-        RobotT = null;
+    public static GenericEntry
+        RobotX,
+        RobotY;
 
     public CompetitionTab() {
         SBT = Shuffleboard.getTab("Competition");
 
-        RobotX = SBT.add("Robot X",0).getEntry();
-        RobotY = SBT.add("Robot Y",0).getEntry();
-        RobotT = SBT.add("Robot T",0).getEntry();
+        RobotX = SBT.add("Robot X",0).withPosition( 5, 0 ).withSize( 2, 1 ).getEntry();
+        RobotY = SBT.add("Robot Y",0).withPosition( 5, 1 ).withSize( 2, 1 ).getEntry();
     }
 
-    public void setRobotX( double X ) { RobotX.setDouble(X); }
-    public void setRobotY( double Y ) { RobotX.setDouble(Y); }
-    public void setRobotZ( double Z ) { RobotX.setDouble(Z); }
+    public static void SetRobotPos( double X, double Y ) {
+        RobotX.setDouble( X );
+        RobotY.setDouble( Y );
+    }
+
+    // public void setRobotX( double X ) { RobotX.setDouble(X); }
+    // public void setRobotY( double Y ) { RobotX.setDouble(Y); }
 
 }

@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Ports.pLED;
 
-public class SubLED extends SubsystemBase {
+public class LED extends SubsystemBase {
 
     public static AddressableLED
         m_led;

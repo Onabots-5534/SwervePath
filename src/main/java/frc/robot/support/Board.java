@@ -2,30 +2,23 @@ package frc.robot.support;
 
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
-import frc.robot.board.CameraTab;
+import frc.robot.board.*;
 
 public class Board {
 
   public static ShuffleboardTab
     tCamera,
-    tCompetition;
+    tCompetition,
+    tDrivetrain;
 
-  public static CameraTab CameraTab = new CameraTab();
-
-  // public static AimerTab       Aimer       = null;
-  // public static AutonomousTab  Autonomous  = null;
-  // public static CameraTab t_CameraTab;
-    // public static ClimberTab     Climber     = null;
-  // public static CompetitionTab Competition = null;
-  // public static IntakeTab      Collector   = null;
-  // public static MoverTab       Mover       = null;
-  // public static RollerTab      Roller      = null;
-  // public static ShooterTab     Shooter     = null;
+  public static CameraTab      CameraTab      = new CameraTab();
+  public static CompetitionTab CompetitionTab = new CompetitionTab();
+  public static DrivetrainTab  DrivetrainTab  = new DrivetrainTab();
 
   public static void Initialize() {
       tCamera      = Shuffleboard.getTab("Camera");
       tCompetition = Shuffleboard.getTab("Competition");
-
+      tDrivetrain  = Shuffleboard.getTab("Drivetrain"); 
 
     // Aimer       = new AimerTab();
     // Autonomous  = new AutonomousTab();
@@ -35,6 +28,11 @@ public class Board {
     // Mover       = new MoverTab();
     // Roller      = new RollerTab();
     // Shooter     = new ShooterTab();
+  }
+
+  public static void Refresh() {
+    CameraTab.Refresh();
+    DrivetrainTab.Refresh();
   }
 
 }

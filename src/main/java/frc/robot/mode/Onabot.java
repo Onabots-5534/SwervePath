@@ -32,14 +32,16 @@ public class Onabot {
 
         // ADDITIONAL COMMANDS
         Board.tCompetition.add( "Test Auton", new PathPlannerAuto( "Calibration" ) );
+
     }
 
     public static void Periodic() {
 
         CommandScheduler.getInstance().run();
 
-        CameraIntake.Display();
-        CameraTarget.Display();
+        Board.Refresh();
+
+        RobotContainer.m_Drive.Display();
 
         // CONFIG AND SENSORS
         Alliance        .Periodic();

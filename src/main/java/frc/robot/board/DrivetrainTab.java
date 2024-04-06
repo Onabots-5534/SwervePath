@@ -9,20 +9,18 @@ public class DrivetrainTab {
     public ShuffleboardTab
         SBT;
 
-    GenericEntry
+    public static GenericEntry
         RobotX,
-        RobotY,
-        RobotT;
+        RobotY;
 
     public DrivetrainTab() {
         SBT = Shuffleboard.getTab("Drivetrain");
 
-        // ROBOT COORDINATES
-        RobotX = SBT.add("RobotX",0).getEntry();
+        RobotX = SBT.add("Robot X",0).withPosition( 5, 0 ).withSize( 2, 1 ).getEntry();
+        RobotY = SBT.add("Robot Y",0).withPosition( 5, 1 ).withSize( 2, 1 ).getEntry();
     }
 
-    public void SetCoord() {
-        
+    public void Refresh() {
     }
 
 }
