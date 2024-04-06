@@ -10,20 +10,19 @@ public class ClimberTab {
         SBT;
 
     GenericEntry
-        distance = null,
-        power    = null;
+        Distance = null,
+        Power    = null;
 
     public ClimberTab() {
         SBT = Shuffleboard.getTab("Climber");
 
-        distance = SBT.add( "Distance" ,0 ).getEntry();
-        power    = SBT.add( "Power"    ,0 ).getEntry();
+        Distance = SBT.add( "Distance" ,0 ).getEntry();
+        Power    = SBT.add( "Power"    ,0 ).getEntry();
     }
 
-    public double getDistance() { return distance.getDouble( 0 ); }
-    public void setDistance( double D ) { distance.setDouble( D ); }
-
-    public double getPower() { return power.getDouble( 0 ); }
-    public void setPower( double P ) { power.setDouble( P ); }
+    public static void Refresh() {
+        Distance.setDouble( -1 );
+        Power   .setDouble( SubClimber.Power );
+    } 
 
 }

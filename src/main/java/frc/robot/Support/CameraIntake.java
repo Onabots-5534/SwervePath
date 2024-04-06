@@ -2,7 +2,6 @@ package frc.robot.support;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import frc.robot.board.CameraTab;
 
 public class CameraIntake {
 
