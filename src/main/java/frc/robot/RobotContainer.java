@@ -7,36 +7,32 @@ import com.pathplanner.lib.auto.NamedCommands;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.*;
-import frc.robot.constants.Ports.pStick;
 import frc.robot.subsystems.*;
-import frc.robot.support.SubLED;
-import frc.robot.support.SubSonar;
 
 public class RobotContainer {
 
-  // CONTROLLERS
-  public static CommandPS4Controller  DS = new CommandPS4Controller ( pStick.USB_DS );
-  public static CommandXboxController MS = new CommandXboxController( pStick.USB_MS );
+  private Shared m_Shared;
 
-  // SYSTEMS
-  public static final SubAimer    m_Aimer    = new SubAimer   ();
-  public static final SubClimber  m_Climber  = new SubClimber ();
-  public static final SubDrive    m_Drive    = new SubDrive   ();
-  public static final SubFlipper  m_Flipper  = new SubFlipper ();
-  public static final SubIntake   m_Intake   = new SubIntake  ();
-  public static final SubMover    m_Mover    = new SubMover   ();
-  public static final SubRoller   m_Roller   = new SubRoller  ();
-  public static final SubShooter  m_Shooter  = new SubShooter ();
+  // CONTROLLERS
+  private CommandPS4Controller  DS = null;
+  private CommandXboxController MS = null;
+
+  // SUBSYSTEMS
+  private SubClimber m_Climber = null;
+  private SubDrive   m_Drive   = null;
+  private SubMover   m_Mover   = null;
 
   // SENSORS
-  public static final SubCameraIntake m_CamIntake  = new SubCameraIntake ();
-  public static final SubCameraTarget m_CamTarget  = new SubCameraTarget ();
-  public static final SubLED          m_Led        = new SubLED          ();
-  public static final SubNavigation   m_Navigation = new SubNavigation   ();
-  public static final SubSonar        m_Sonar      = new SubSonar        ();
+  // public static final SubCameraIntake m_CamIntake  = new SubCameraIntake ();
+  // public static final SubCameraTarget m_CamTarget  = new SubCameraTarget ();
+  // public static final SubLED          m_Led        = new SubLED          ();
+  // public static final SubNavigation   m_Navigation = new SubNavigation   ();
+  // public static final SubSonar        m_Sonar      = new SubSonar        ();
 
   public RobotContainer() {
-  
+
+    m_Shared.initSubsystems();
+
     // REGISTER NAMED COMMANDS
     NamedCommands.registerCommand( "Seek and Destroy", new Seek_and_Destroy () );
     NamedCommands.registerCommand( "Shoot High",       new Shoot_High       () );

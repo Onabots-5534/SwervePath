@@ -4,15 +4,27 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.RobotContainer;
+import frc.robot.Shared;
+import frc.robot.subsystems.SubDrive;
+import frc.robot.subsystems.SubIntake;
+import frc.robot.subsystems.SubRoller;
 
 public class Attack_Rotate extends Command {
 
+  private SubDrive  m_Drive  = null;
+  private SubIntake m_Intake = null;
+  private SubRoller m_Roller = null;
+ 
   public Attack_Rotate() {
+
+    m_Drive  = Shared.m_Drive;
+    m_Intake = Shared.m_Intake;
+    m_Roller = Shared.m_Roller;
+
     addRequirements(
-      RobotContainer.m_Drive,
-      RobotContainer.m_Intake,
-      RobotContainer.m_Roller
+      m_Drive,
+      m_Intake,
+      m_Roller
     );
   }
 
@@ -32,8 +44,8 @@ public class Attack_Rotate extends Command {
     tx;
 
   @Override public void initialize() {
-    RobotContainer.m_Roller.Forward();
-    RobotContainer.m_Intake.Suck();
+    m_Roller.Forward();
+    m_Intake.Suck();
 
     table = NetworkTableInstance.getDefault().getTable("limelight-intake");
 
@@ -66,13 +78,13 @@ public class Attack_Rotate extends Command {
     if ( DriveZ >  max ) { DriveZ =  max; }
     if ( DriveZ < -max ) { DriveZ = -max; }
 
-    RobotContainer.m_Drive.RobotDrive( DriveX, 0, DriveZ );
+    m_Drive.RobotDrive( DriveX, 0, DriveZ );
   }
 
   @Override public void end( boolean interrupted ) {
-      RobotContainer.m_Drive   .Stop();
-      RobotContainer.m_Intake  .Stop();
-      RobotContainer.m_Roller  .Stop();
+      m_Drive   .Stop();
+      m_Intake  .Stop();
+      m_Roller  .Stop();
   }
 
   @Override public boolean isFinished() {

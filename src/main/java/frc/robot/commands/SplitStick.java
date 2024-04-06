@@ -1,13 +1,19 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.RobotContainer;
+import frc.robot.Shared;
 import frc.robot.mode.Teleoperate;
+import frc.robot.subsystems.SubDrive;
 
 public class SplitStick extends Command {
 
+  private SubDrive m_Drive = null;
+
   public SplitStick() {
-    addRequirements( RobotContainer.m_Drive );
+
+    m_Drive = Shared.m_Drive;
+
+    addRequirements( m_Drive );
   }
 
   @Override public void execute() {
@@ -17,7 +23,7 @@ public class SplitStick extends Command {
       Y = Teleoperate.Y,
       Z = Teleoperate.Z;
 
-    RobotContainer.m_Drive.RobotDrive( X, Y, Z );
+    m_Drive.RobotDrive( X, Y, Z );
   }
 
 }

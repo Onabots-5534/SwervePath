@@ -4,15 +4,32 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.RobotContainer;
+import frc.robot.Shared;
+import frc.robot.subsystems.SubDrive;
+import frc.robot.subsystems.SubIntake;
+import frc.robot.subsystems.SubRoller;
+import frc.robot.support.SubLED;
 
 public class Attack_Translate extends Command {
 
+  private SubDrive  m_Drive  = null;
+  private SubIntake m_Intake = null;
+  private SubRoller m_Roller = null;
+
+  private SubLED    m_LED    = null;
+
   public Attack_Translate() {
+
+    m_Drive  = Shared.m_Drive;
+    m_Intake = Shared.m_Intake;
+    m_Roller = Shared.m_Roller;
+
+    m_LED    = Shared.m_LED;
+
     addRequirements(
-      RobotContainer.m_Drive,
-      RobotContainer.m_Intake,
-      RobotContainer.m_Roller
+      m_Drive,
+      m_Intake,
+      m_Roller
     );
   }
 
@@ -32,8 +49,8 @@ public class Attack_Translate extends Command {
     tx;
 
   @Override public void initialize() {
-    RobotContainer.m_Roller.Forward();
-    RobotContainer.m_Intake.Suck();
+    m_Roller.Forward();
+    m_Intake.Suck();
 
     table = NetworkTableInstance.getDefault().getTable("limelight-intake");
 
@@ -41,7 +58,7 @@ public class Attack_Translate extends Command {
     ErrorY = 0;
     ErrorZ = 0;
 
-    RobotContainer.m_Led.Off();
+    m_LED.Off();
   }
 
   double max = 0.08;
@@ -68,17 +85,17 @@ public class Attack_Translate extends Command {
     if ( DriveZ >  max ) { DriveZ =  max; }
     if ( DriveZ < -max ) { DriveZ = -max; }
 
-    if      ( Math.abs( ErrorX ) <= 3 && Math.abs( ErrorY ) <= 6  ) { RobotContainer.m_Led.Blue (); }
-    else if ( Math.abs( ErrorX ) <= 1 && Math.abs( ErrorY ) <= 2  ) { RobotContainer.m_Led.Green(); }
-    else                                                            { RobotContainer.m_Led.Off  (); }
+    if      ( Math.abs( ErrorX ) <= 3 && Math.abs( ErrorY ) <= 6  ) { m_LED.Blue (); }
+    else if ( Math.abs( ErrorX ) <= 1 && Math.abs( ErrorY ) <= 2  ) { m_LED.Green(); }
+    else                                                            { m_LED.Off  (); }
 
-    RobotContainer.m_Drive.RobotDrive( DriveX, DriveY, 0 );
+    m_Drive.RobotDrive( DriveX, DriveY, 0 );
   }
 
   @Override public void end( boolean interrupted ) {
-      RobotContainer.m_Drive   .Stop();
-      RobotContainer.m_Intake  .Stop();
-      RobotContainer.m_Roller  .Stop();
+      m_Drive   .Stop();
+      m_Intake  .Stop();
+      m_Roller  .Stop();
   }
 
   @Override public boolean isFinished() {

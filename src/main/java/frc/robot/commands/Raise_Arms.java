@@ -1,27 +1,33 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.RobotContainer;
+import frc.robot.Shared;
+import frc.robot.subsystems.SubClimber;
 
 public class Raise_Arms extends Command {
 
+  private SubClimber m_Climber = null;
+
   public Raise_Arms() {
+
+    m_Climber = Shared.m_Climber;
+
     addRequirements(
-      RobotContainer.m_Climber
+      m_Climber
     );
   }
 
   @Override public void initialize() {}
 
   @Override public void execute() {
-    RobotContainer.m_Climber.RaiseArms();
+    m_Climber.RaiseArms();
   }
 
   @Override public void end(boolean interrupted) {
-    RobotContainer.m_Climber.cStop();
+    m_Climber.cStop();
   }
 
   @Override public boolean isFinished() {
-    return RobotContainer.m_Climber.GetDistance() >= -420 ? false : true;
+    return m_Climber.GetDistance() >= -420 ? false : true;
   }
 }
