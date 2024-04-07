@@ -26,7 +26,7 @@ public class SBT_Drivetrain {
 
 // ================ FUNCTIONS ===================
 
-    public static double Get
+    // public static double GetAutonScale() { return Auton_Scale.}
 
 
 }
