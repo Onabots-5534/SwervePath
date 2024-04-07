@@ -14,7 +14,7 @@ public class SBT_Drivetrain {
         FL_PV = SBT.add("FL PV",0).withPosition( 5, 0 ).withSize( 2, 1 ).getEntry(),
         FL_SP = SBT.add("FL SP",0).withPosition( 5, 0 ).withSize( 2, 1 ).getEntry(),
 
-        Auton_Scale = SBT.addPersistent("Auton Scale",0).withPosition( 7, 1 ).withSize( 2, 1 ).getEntry();
+        Auton_Scale = SBT.addPersistent("PathPlanner Distance Scale", 1 ).withPosition( 7, 1 ).withSize( 2, 1 ).getEntry();
 
     public static void Initialize() {
     }
@@ -26,7 +26,7 @@ public class SBT_Drivetrain {
 
 // ================ FUNCTIONS ===================
 
-    // public static double GetAutonScale() { return Auton_Scale.}
+    public static double GetPPDistanceScale() { return Auton_Scale.getDouble( 1 ); }
 
 
 }

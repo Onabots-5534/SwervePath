@@ -13,7 +13,8 @@ public class SBT_Test {
         SBT = Shuffleboard.getTab("Test");
 
     public static GenericEntry
-        FL_Clicks = SBT.add( "FL Clicks",0 ).getEntry();
+        FL_Clicks = SBT.add( "FL Clicks",0 ).getEntry(),
+        Max_Speed = SBT.addPersistent( "Max Speed", 0 ).getEntry();
 
     public static void Initialize() {
 
@@ -25,5 +26,12 @@ public class SBT_Test {
     public static void Periodic() {
         FL_Clicks.setDouble( SubDrive.Modules[0].Drive.getPosition().getValueAsDouble() );
     } 
+
+// ================ FUNCTIONS ===================
+
+    public static double
+        GetMaxSpeed() { return Max_Speed.getDouble( 0 );
+    }
+
 
 }
