@@ -67,7 +67,7 @@ public SubSwerve( String name, int[] ID ) {
     }
 
     if ( RobotState.isAutonomous() ) {}
-    
+
     VelSP *= 200;
 
     // VelPw += VelEr * -0.001;
@@ -99,5 +99,12 @@ public SubSwerve( String name, int[] ID ) {
   public Command cResetEncoder() { return this.runOnce( () -> ResetEncoder() ); }
   public void     ResetEncoder() { Drive.setPosition( 0.00 );
   }
+
+  /* 162.979 clicks per inch
+   * 0.0061357 inches per click
+   * 
+   * 6416.5145 clicks per meter
+   * 0.00015584 meters per click
+   */
 
 }
