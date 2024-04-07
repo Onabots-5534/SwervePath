@@ -11,12 +11,12 @@ public class SBT_Drivetrain {
         SBT = Shuffleboard.getTab("Drivetrain");
 
     public static GenericEntry
-        FL_PV = SBT.add("FL PV",0).getEntry(),
-        FL_SP = SBT.add("FL SP",0).getEntry();
+        FL_PV = SBT.add("FL PV",0).withPosition( 5, 0 ).withSize( 2, 1 ).getEntry(),
+        FL_SP = SBT.add("FL SP",0).withPosition( 5, 0 ).withSize( 2, 1 ).getEntry();
 
     public static void Initialize() {
     }
-
+    
     public static void Periodic() {
         FL_PV.setDouble( SubDrive.Modules[0].VelPV );
         FL_SP.setDouble( SubDrive.Modules[0].VelSP );

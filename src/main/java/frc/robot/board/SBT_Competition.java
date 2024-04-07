@@ -1,11 +1,12 @@
 package frc.robot.board;
 
 import java.util.Map;
-import com.pathplanner.lib.commands.PathPlannerAuto;
+import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.SubDrive;
 import frc.robot.support.*;
 
@@ -26,18 +27,16 @@ public class SBT_Competition {
 
     public static void Initialize() {
 
-        // AUTON COMMANDS
-        SBT.add( "Test Auton", new PathPlannerAuto( "Calibration" ) );
+        // AUTON SELECTOR
+        SBT.add( "Auton Selector", AutonSelector.m_Chooser )
+        .withWidget( BuiltInWidgets.kComboBoxChooser )
+        .withPosition( 7, 4 )
+        .withSize( 2, 1 );
 
         // FIELD DIAGRAM
         SBT.add( "Field Diagram", SubDrive.Field )
         .withPosition( 5, 0 )
         .withSize( 6, 4 );
-
-        SBT.add( "Auton Selector", AutonSelector.m_Chooser )
-        .withWidget( BuiltInWidgets.kComboBoxChooser )
-        .withPosition( 7, 4 )
-        .withSize( 2, 1 );
 
         // NAVIGATION
         SBT.add( Navigation.NavX )
@@ -63,6 +62,13 @@ public class SBT_Competition {
     public static void Periodic() {
         IntakeX.setDouble( CameraIntake.TX() );
         IntakeY.setDouble( CameraIntake.TY() );
+
+        Pose2d Pose = RobotContainer.m_Drive.getPose();
+        RobotX.setDouble( Pose.getX() );
+        RobotY.setDouble( Pose.getY() );
+
+        TargetX.setDouble( CameraTarget.TX() );
+        TargetY.setDouble( CameraTarget.TY() );
     }
 
 }

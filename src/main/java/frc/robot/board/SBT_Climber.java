@@ -11,8 +11,8 @@ public class SBT_Climber {
         SBT = Shuffleboard.getTab("Climber");
 
     public static GenericEntry
-        Distance = SBT.add( "Distance" ,0 ).getEntry(),
-        Power    = SBT.add( "Power"    ,0 ).getEntry();
+        Distance = SBT.add( "Distance" ,0 ).withPosition( 5, 1 ).withSize( 2, 1 ).getEntry(),
+        Power    = SBT.add( "Power"    ,0 ).withPosition( 5, 1 ).withSize( 2, 1 ).getEntry();
 
     public static void Initialize() {}
 

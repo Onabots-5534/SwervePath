@@ -24,6 +24,7 @@ public class Onabot {
         SBT_Climber     .Initialize();
         SBT_Competition .Initialize();
         SBT_Drivetrain  .Initialize();
+        SBT_Test        .Initialize();
 
     }
 
@@ -43,6 +44,7 @@ public class Onabot {
         SBT_Climber     .Periodic();
         SBT_Competition .Periodic();
         SBT_Drivetrain  .Periodic();
+        SBT_Test        .Periodic();
     }
 
 }
