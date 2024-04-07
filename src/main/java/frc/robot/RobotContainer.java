@@ -1,5 +1,6 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.*;
@@ -39,18 +40,18 @@ public class RobotContainer {
 
     // REGISTER NAMED COMMANDS
     NamedCommands.registerCommand( "Seek and Destroy", new Seek_and_Destroy () );
-    // NamedCommands.registerCommand( "Shoot High",       new Shoot_High       () );
+    NamedCommands.registerCommand( "Shoot High",       new Shoot_High       () );
 
-    // NamedCommands.registerCommand( "marker1",     Commands.print( "Passed marker 1") );
-    // NamedCommands.registerCommand( "marker2",     Commands.print( "Passed marker 2") );
-    // NamedCommands.registerCommand( "print hello", Commands.print( "hello" ) );
+    NamedCommands.registerCommand( "marker 1",    Commands.print( "Passed marker 1" ) );
+    NamedCommands.registerCommand( "marker 2",    Commands.print( "Passed marker 2" ) );
+    NamedCommands.registerCommand( "print hello", Commands.print( "Hello" ) );
 
 // ================ BINDINGS ====================
 
     m_Drive.setDefaultCommand( new SplitStick() );
 
-    // DS.R2()
-    //   .onTrue ( new Seek_and_Destroy() );
+    DS.R2() // TODO: Untested
+      .onTrue ( new Seek_and_Destroy() );
 
 // ==============================================
 

@@ -8,10 +8,14 @@ public class Sonar {
     public static Ultrasonic
         Chute = new Ultrasonic( pSonar.DIO_Chute[0], pSonar.DIO_Chute[1] );
 
-    public Sonar() {
+    public static void Initialize() {
         Ultrasonic.setAutomaticMode( true );
 
         Chute.setEnabled( true );
+    }
+
+    public static void Periodic() {
+        
     }
 
 }

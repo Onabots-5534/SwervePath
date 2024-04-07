@@ -29,7 +29,15 @@ public class SBT_Competition {
         // AUTON COMMANDS
         SBT.add( "Test Auton", new PathPlannerAuto( "Calibration" ) );
 
-        SBT.add( "Field Diagram", SubDrive.Field ).withPosition( 5, 0 ).withSize( 6, 4 );
+        // FIELD DIAGRAM
+        SBT.add( "Field Diagram", SubDrive.Field )
+        .withPosition( 5, 0 )
+        .withSize( 6, 4 );
+
+        SBT.add( "Auton Selector", AutonSelector.m_Chooser )
+        .withWidget( BuiltInWidgets.kComboBoxChooser )
+        .withPosition( 7, 4 )
+        .withSize( 2, 1 );
 
         // NAVIGATION
         SBT.add( Navigation.NavX )

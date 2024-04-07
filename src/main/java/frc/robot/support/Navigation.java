@@ -7,9 +7,15 @@ public class Navigation {
     public static ADXRS450_Gyro
         NavX = new ADXRS450_Gyro();
 
-    public Navigation() {
+    // public Navigation() {
+    //     NavX.calibrate();
+    // }
+
+    public static void Initialize() {
         NavX.calibrate();
     }
+
+    public static void Periodic() {}
 
     public static double GetDirection() { 
         return ( GetYaw() + 360 ) % 360;

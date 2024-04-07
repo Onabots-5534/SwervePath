@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import frc.robot.board.*;
-import frc.robot.subsystems.SubDrive;
 import frc.robot.support.*;
 
 public class Onabot {
@@ -16,10 +15,15 @@ public class Onabot {
         // CONFIG AND SENSORS
         Alliance        .Initialize();
         AutonSelector   .Initialize();
-        // Setting         .Initialize();
+        LED             .Initialize();
+        Navigation      .Initialize();
+        Sonar           .Initialize();
+        // Switches        .Initialize();
 
         // SHUFFLEBOARD TABS
+        SBT_Climber     .Initialize();
         SBT_Competition .Initialize();
+        SBT_Drivetrain  .Initialize();
 
     }
 
@@ -27,16 +31,18 @@ public class Onabot {
 
         CommandScheduler.getInstance().run();
 
-
-        SubDrive.Display();
-
         // CONFIG AND SENSORS
         Alliance        .Periodic();
         AutonSelector   .Periodic();
-        // Setting         .Periodic();
+        LED             .Periodic();
+        Navigation      .Periodic();
+        Sonar           .Periodic();
+        // Switches        .Periodic();
 
-        // SBT_Climber     .Periodic();
+        // SHUFFLEBOARD TABS
+        SBT_Climber     .Periodic();
         SBT_Competition .Periodic();
+        SBT_Drivetrain  .Periodic();
     }
 
 }

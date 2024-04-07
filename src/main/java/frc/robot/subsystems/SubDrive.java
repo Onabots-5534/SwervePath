@@ -62,9 +62,6 @@ public class SubDrive extends SubsystemBase {
     Field    .setRobotPose( getPose() );
   }
 
-  public static void Display() {
-  }
-
   public Pose2d getPose() {
     return Odometer.getPoseMeters();
   }

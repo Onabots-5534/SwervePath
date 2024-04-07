@@ -28,6 +28,8 @@ public class LED extends SubsystemBase {
         m_led.start();
     }
 
+    public static void Periodic() {}
+
     public static void SetColor() {
         for ( var i = 0; i < m_buf.getLength(); i++ ) { m_buf.setHSV( i, H, S, V ); }
         m_led.setData( m_buf );
