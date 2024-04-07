@@ -51,7 +51,7 @@ public class RobotContainer {
     m_Drive.setDefaultCommand( new SplitStick() );
 
     DS.R2() // TODO: Untested
-      .whileTrue ( new Seek_and_Destroy() );
+      .onTrue( new Seek_and_Destroy() );
 
 // ==============================================
 
@@ -59,24 +59,23 @@ public class RobotContainer {
     //   .onTrue ( new Shoot_Low           () );
 
     MS.b()
-      .whileTrue( m_Mover.cReverse        () );
+      .whileTrue( m_Mover.cReverse() );
 
     MS.x()
-      .whileTrue( new Collector_On        () );
+      .whileTrue( new Collector_On() );
 
-    // MS.y()
-    //   .onTrue ( new Shoot_High          () );
+    MS.y()
+      .onTrue ( new Shoot_High() );
    
-    // MS.start()
-    //   .onTrue ( new Raise_Robot         () );
+    MS.start()
+      .whileTrue ( new Raise_Robot() );
 
     // MS.back()
     //   .onTrue ( new Raise_Arms          () );
 
-    // // RESET ARMS AFTER MATCH
-    // MS.leftBumper().and( MS.rightBumper () )
-    //   .onTrue ( m_Climber.cLowerArms    () )
-    //   .onFalse( m_Climber.cStop         () );
+    // RESET ARMS AFTER MATCH
+    MS.leftBumper().and( MS.rightBumper() )
+      .whileTrue ( m_Climber.cLowerArms () );
 
   }
 }  
