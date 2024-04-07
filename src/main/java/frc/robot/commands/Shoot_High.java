@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.SubAimer;
 import frc.robot.subsystems.SubMover;
 import frc.robot.subsystems.SubRoller;
@@ -16,10 +17,10 @@ public class Shoot_High extends SequentialCommandGroup {
 
   public Shoot_High() {
 
-    // m_Aimer   = Shared.m_Aimer;
-    // m_Mover   = Shared.m_Mover;
-    // m_Roller  = Shared.m_Roller;
-    // m_Shooter = Shared.m_Shooter;
+    m_Aimer   = RobotContainer.m_Aimer;
+    m_Mover   = RobotContainer.m_Mover;
+    m_Roller  = RobotContainer.m_Roller;
+    m_Shooter = RobotContainer.m_Shooter;
 
     addCommands(
 
