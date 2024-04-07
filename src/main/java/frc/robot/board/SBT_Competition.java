@@ -30,32 +30,27 @@ public class SBT_Competition {
         // AUTON SELECTOR
         SBT.add( "Auton Selector", AutonSelector.m_Chooser )
         .withWidget( BuiltInWidgets.kComboBoxChooser )
-        .withPosition( 7, 4 )
-        .withSize( 2, 1 );
+        .withPosition( 7, 4 ).withSize( 2, 1 );
 
         // FIELD DIAGRAM
         SBT.add( "Field Diagram", SubDrive.Field )
-        .withPosition( 5, 0 )
-        .withSize( 6, 4 );
+        .withPosition( 5, 0 ).withSize( 6, 4 );
 
         // NAVIGATION
         SBT.add( Navigation.NavX )
-        .withPosition( 5, 4 )
-        .withSize( 3, 3 )
+        .withPosition( 5, 4 ).withSize( 3, 3 )
         .withWidget( BuiltInWidgets.kGyro );
 
         // INTAKE CAMERA
         SBT.addCamera( "Intake Camera", "Limelight 3", "http://10.55.34.13:5800" )
-        .withPosition( 0, 0 )
+        .withPosition( 0, 0 ).withSize( 5, 5 )
         .withProperties( Map.of( "showControls", false ) )
-        .withSize( 5, 5 )
         .withWidget( BuiltInWidgets.kCameraStream );
 
         // TARGET CAMERA
         SBT.addCamera( "Target Camera", "Limelight 2", "http://10.55.34.12:5800" )
-        .withPosition( 11, 0 )
+        .withPosition( 11, 0 ).withSize( 5, 5 )
         .withProperties( Map.of( "showControls", false ) )
-        .withSize( 5, 5 )
         .withWidget( BuiltInWidgets.kCameraStream );
     }
 

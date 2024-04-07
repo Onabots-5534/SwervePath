@@ -7,6 +7,7 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class SubSwerve extends SubsystemBase {
@@ -85,8 +86,8 @@ public SubSwerve( String name, int[] ID ) {
     );
   }
 
-  public void ResetEncoder() {
-    Drive.setPosition( 0.00 );
+  public Command cResetEncoder() { return this.runOnce( () -> ResetEncoder() ); }
+  public void     ResetEncoder() { Drive.setPosition( 0.00 );
   }
 
 }
