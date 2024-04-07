@@ -2,10 +2,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.robot.Commands.*;
-import frc.robot.Constants.Ports.pStick;
-import frc.robot.Ssupport.*;
-import frc.robot.Subsystems.*;
+import frc.robot.commands.*;
+import frc.robot.constants.Ports.pStick;
+import frc.robot.subsystems.*;
+import frc.robot.support.*;
 
 import com.pathplanner.lib.auto.NamedCommands;
 // import com.pathplanner.lib.path.GoalEndState;
