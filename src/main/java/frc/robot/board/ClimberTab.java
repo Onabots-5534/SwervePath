@@ -3,13 +3,14 @@ package frc.robot.board;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import frc.robot.subsystems.SubClimber;
 
 public class ClimberTab {
 
     public ShuffleboardTab
         SBT;
 
-    GenericEntry
+    public static GenericEntry
         Distance = null,
         Power    = null;
 

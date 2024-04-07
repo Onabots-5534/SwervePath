@@ -11,9 +11,8 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.board.*;
-import frc.robot.constants.Constants;
-import frc.robot.constants.Ports.pSwerve;
+import frc.robot.Constants.Constants;
+import frc.robot.Constants.Ports.pSwerve;
 import frc.robot.support.*;
 
 public class SubDrive extends SubsystemBase {
@@ -57,7 +56,7 @@ public class SubDrive extends SubsystemBase {
     // Set up custom logging to add the current path to a field 2d widget
     PathPlannerLogging.setLogActivePathCallback( ( poses ) -> Field.getObject( "path" ).setPoses( poses ) );
 
-    Board.tCompetition.add( "Field Diagram", Field ).withPosition( 5, 0 ).withSize( 6, 4 );
+    Board.SBT_Competition.add( "Field Diagram", Field ).withPosition( 5, 0 ).withSize( 6, 4 );
   }
 
   @Override public void periodic() {

@@ -1,7 +1,7 @@
 package frc.robot.support;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import frc.robot.constants.Ports.pSwitch;
+import frc.robot.Constants.Ports.pSwitch;
 
 public class Switches {
 

@@ -7,15 +7,15 @@ import frc.robot.board.*;
 public class Board {
 
   public static ShuffleboardTab
-    tCompetition,
-    tDrivetrain;
+    SBT_Competition,
+    SBT_Drivetrain;
 
   public static CompetitionTab CompetitionTab = new CompetitionTab();
   public static DrivetrainTab  DrivetrainTab  = new DrivetrainTab();
 
   public static void Initialize() {
-      tCompetition = Shuffleboard.getTab("Competition");
-      tDrivetrain  = Shuffleboard.getTab("Drivetrain"); 
+      SBT_Competition = Shuffleboard.getTab("Competition");
+      SBT_Drivetrain  = Shuffleboard.getTab("Drivetrain"); 
 
     // Aimer       = new AimerTab();
     // Autonomous  = new AutonomousTab();

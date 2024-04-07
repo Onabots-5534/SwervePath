@@ -1,13 +1,10 @@
 package frc.robot.mode;
 
 import com.pathplanner.lib.commands.PathPlannerAuto;
-
-import edu.wpi.first.networktables.GenericEntry;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
+import frc.robot.subsystems.SubDrive;
 import frc.robot.support.*;
 
 public class Onabot {
@@ -31,7 +28,7 @@ public class Onabot {
         // Setting         .Initialize();
 
         // ADDITIONAL COMMANDS
-        Board.tCompetition.add( "Test Auton", new PathPlannerAuto( "Calibration" ) );
+        Board.SBT_Competition.add( "Test Auton", new PathPlannerAuto( "Calibration" ) );
 
     }
 
@@ -41,7 +38,7 @@ public class Onabot {
 
         Board.Refresh();
 
-        RobotContainer.m_Drive.Display();
+        SubDrive.Display();
 
         // CONFIG AND SENSORS
         Alliance        .Periodic();

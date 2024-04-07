@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.constants.Ports.pAimer;
+import frc.robot.Constants.Ports.pAimer;
 
 public class SubAimer extends SubsystemBase {
 
