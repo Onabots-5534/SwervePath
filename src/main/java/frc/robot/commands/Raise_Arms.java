@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.SubClimber;
 
 public class Raise_Arms extends Command {
@@ -9,11 +10,11 @@ public class Raise_Arms extends Command {
 
   public Raise_Arms() {
 
-    // m_Climber = Shared.m_Climber;
+    m_Climber = RobotContainer.m_Climber;
 
-    // addRequirements(
-    //   m_Climber
-    // );
+    addRequirements(
+      m_Climber
+    );
   }
 
   @Override public void initialize() {}
