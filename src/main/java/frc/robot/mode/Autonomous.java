@@ -10,6 +10,7 @@ public class Autonomous {
         m_autonomousCommand = "";
 
     public static void Initialize() {
+        m_autonomousCommand = "";
         CommandScheduler.getInstance().cancelAll();
 
         m_autonomousCommand = AutonSelector.m_Chooser.getSelected();
