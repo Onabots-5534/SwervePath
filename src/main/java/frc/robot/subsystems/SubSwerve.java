@@ -52,13 +52,18 @@ public SubSwerve( String name, int[] ID ) {
 
     // VELOCITY INFO
     VelPV = Drive.getVelocity().getValueAsDouble();
-    VelSP = currentVelocity.speedMetersPerSecond * 200;
+    VelSP = currentVelocity.speedMetersPerSecond;
     // VelEr = ( VelPV - VelSP );
 
     if ( Name == "FL" ) {
       SmartDashboard.putNumber( "FL Supply Voltage", Drive.getSupplyVoltage().getValueAsDouble() );
       SmartDashboard.putNumber( "FL Motor Voltage",  Drive.getMotorVoltage ().getValueAsDouble() );
+
+      SmartDashboard.putNumber( "FL Vel-PV raw", VelPV );
+      SmartDashboard.putNumber( "FL Vel-SP raw", VelSP );
     }
+
+    VelSP *= 200;
 
     // VelPw += VelEr * -0.001;
     // if ( VelSP == 0 ) { VelPw = 0; }
