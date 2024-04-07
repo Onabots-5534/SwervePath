@@ -1,4 +1,4 @@
-package frc.robot.board;
+package frc.robot.Board;
 
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;

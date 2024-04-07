@@ -1,4 +1,4 @@
-package frc.robot.board;
+package frc.robot.Board;
 
 import java.util.Map;
 import edu.wpi.first.networktables.GenericEntry;
