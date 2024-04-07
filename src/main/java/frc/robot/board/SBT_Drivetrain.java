@@ -14,6 +14,8 @@ public class SBT_Drivetrain {
         FL_PV = SBT.add("FL PV",0).withPosition( 5, 0 ).withSize( 2, 1 ).getEntry(),
         FL_SP = SBT.add("FL SP",0).withPosition( 5, 0 ).withSize( 2, 1 ).getEntry();
 
+        Auton_Scale = SBT.addPersistent("Auton Scale",0).withPosition( 7, 1 ).withSize( 2, 1 ).getEntry;
+
     public static void Initialize() {
     }
     
@@ -21,5 +23,10 @@ public class SBT_Drivetrain {
         FL_PV.setDouble( SubDrive.Modules[0].VelPV );
         FL_SP.setDouble( SubDrive.Modules[0].VelSP );
     }
+
+// ================ FUNCTIONS ===================
+
+    public static double Get
+
 
 }
