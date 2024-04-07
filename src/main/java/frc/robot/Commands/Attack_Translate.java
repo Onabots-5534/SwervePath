@@ -4,9 +4,9 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.SubDrive;
-import frc.robot.subsystems.SubIntake;
-import frc.robot.subsystems.SubRoller;
+import frc.robot.Subsystems.SubDrive;
+import frc.robot.Subsystems.SubIntake;
+import frc.robot.Subsystems.SubRoller;
 
 public class Attack_Translate extends Command {
 

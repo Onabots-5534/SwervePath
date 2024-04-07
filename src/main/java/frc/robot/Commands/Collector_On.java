@@ -2,8 +2,8 @@ package frc.robot.Commands;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.RobotContainer;
-import frc.robot.subsystems.SubIntake;
-import frc.robot.subsystems.SubRoller;
+import frc.robot.Subsystems.SubIntake;
+import frc.robot.Subsystems.SubRoller;
 
 public class Collector_On extends InstantCommand {
 

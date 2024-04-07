@@ -3,7 +3,7 @@ package frc.robot.Board;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
-import frc.robot.subsystems.SubClimber;
+import frc.robot.Subsystems.SubClimber;
 
 public class ClimberTab {
 

@@ -2,8 +2,8 @@ package frc.robot.Board;
 
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
-import frc.robot.subsystems.SubDrive;
-import frc.robot.support.Board;
+import frc.robot.Ssupport.Board;
+import frc.robot.Subsystems.SubDrive;
 
 public class DrivetrainTab {
 

@@ -2,10 +2,10 @@ package frc.robot.Commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.subsystems.SubAimer;
-import frc.robot.subsystems.SubMover;
-import frc.robot.subsystems.SubRoller;
-import frc.robot.subsystems.SubShooter;
+import frc.robot.Subsystems.SubAimer;
+import frc.robot.Subsystems.SubMover;
+import frc.robot.Subsystems.SubRoller;
+import frc.robot.Subsystems.SubShooter;
 
 public class Shoot_High extends SequentialCommandGroup {
 
