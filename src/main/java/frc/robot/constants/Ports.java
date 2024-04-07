@@ -57,7 +57,7 @@ public class Ports {
 
     public class pSonar { // Untested
         public static int[]
-            DIO_Chute = { 0, 0 };
+            DIO_Chute = { 0, 1 };
     }
 
     public class pStick {
@@ -66,7 +66,7 @@ public class Ports {
             USB_MS = 1;
     }
 
-    public class pSwerve { // Talon FX
+    public class pSwerve { // Kraken, Talon FX
         public static int[]
             CAN_FL = { 12, 11, 5 },
             CAN_FR = { 14, 13, 6 },
