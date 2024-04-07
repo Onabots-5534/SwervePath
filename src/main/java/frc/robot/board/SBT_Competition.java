@@ -16,11 +16,11 @@ public class SBT_Competition {
         SBT = Shuffleboard.getTab("Competition");
 
     public static GenericEntry
-        IntakeX = SBT.add("Intake X",0).withPosition( 0, 5 ).withSize( 2, 1 ).getEntry(),
-        IntakeY = SBT.add("Intake Y",0).withPosition( 3, 5 ).withSize( 2, 1 ).getEntry(),
+        IntakeX = SBT.add("Intake X",0).withPosition(  0, 5 ).withSize( 2, 1 ).getEntry(),
+        IntakeY = SBT.add("Intake Y",0).withPosition(  3, 5 ).withSize( 2, 1 ).getEntry(),
 
-        RobotX  = SBT.add("Robot X",0).withPosition( 5, 0 ).withSize( 2, 1 ).getEntry(),
-        RobotY  = SBT.add("Robot Y",0).withPosition( 5, 1 ).withSize( 2, 1 ).getEntry(),
+        RobotX  = SBT.add("Robot X", 0).withPosition(  5, 0 ).withSize( 2, 1 ).getEntry(),
+        RobotY  = SBT.add("Robot Y", 0).withPosition(  5, 1 ).withSize( 2, 1 ).getEntry(),
 
         TargetX = SBT.add("Target X",0).withPosition( 11, 5 ).withSize( 2, 1 ).getEntry(),
         TargetY = SBT.add("Target Y",0).withPosition( 14, 5 ).withSize( 2, 1 ).getEntry();
