@@ -51,11 +51,9 @@ public SubSwerve( String name, int[] ID ) {
   @Override public void periodic() {
 
     // VELOCITY INFO
-    VelPV = Drive.getVelocity().getValueAsDouble(); // Rotations per second
-    VelSP = currentVelocity.speedMetersPerSecond;
-    // VelEr = ( VelPV - VelSP );
-
-    // With 4 in diameter wheels this amounts to 
+    VelPV = Drive.getVelocity().getValueAsDouble()  * 2; // Rotations per second
+    VelSP = currentVelocity.speedMetersPerSecond * 3.13; // Convert to rotations per second
+    // VelEr = ( VelSP - VelPV );
 
     if ( Name == "FL" ) {
       SmartDashboard.putNumber( "FL Supply Voltage", Drive.getSupplyVoltage().getValueAsDouble() );
@@ -65,9 +63,7 @@ public SubSwerve( String name, int[] ID ) {
       SmartDashboard.putNumber( "FL Vel-SP raw", VelSP );
     }
 
-    VelSP *= 200;
-
-    // VelPw += VelEr * -0.001;
+    // VelPw += VelEr * 0.001;
     // if ( VelSP == 0 ) { VelPw = 0; }
 
     // DIRECTION INFO

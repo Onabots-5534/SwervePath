@@ -1,5 +1,6 @@
 package frc.robot.mode;
 
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 public class Test {
@@ -9,7 +10,7 @@ public class Test {
     }
 
     public static void Periodic() {
-        // Shared.m_Drive.RobotDrive( 0.00, 0.00, 0.20 );
+        RobotContainer.m_Drive.RobotDrive( 0.00, 0.00, 1.00 );
     }
 
 }

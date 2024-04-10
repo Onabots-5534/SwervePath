@@ -23,7 +23,6 @@ public class Onabot {
         SBT_Competition .Initialize();
         SBT_Drivetrain  .Initialize();
         SBT_Test        .Initialize();
-
     }
 
     public static void Periodic() {
