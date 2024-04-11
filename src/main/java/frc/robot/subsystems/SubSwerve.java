@@ -51,14 +51,15 @@ public SubSwerve( String name, int[] ID ) {
   @Override public void periodic() {
 
     // VELOCITY INFO
-    VelPV = Drive.getVelocity().getValueAsDouble()  * 2; // Rotations per second
-    VelSP = currentVelocity.speedMetersPerSecond * 3.13; // Convert to rotations per second
+    VelPV = Drive.getVelocity().getValueAsDouble() * 8.14;  // Apply gear ratio for true rotations per second
+    VelSP = currentVelocity.speedMetersPerSecond * 3.13; // 
     // VelEr = ( VelSP - VelPV );
 
     if ( Name == "FL" ) {
       SmartDashboard.putNumber( "FL Supply Voltage", Drive.getSupplyVoltage().getValueAsDouble() );
       SmartDashboard.putNumber( "FL Motor Voltage",  Drive.getMotorVoltage ().getValueAsDouble() );
-
+      SmartDashboard.putNumber( "FL Position", Drive.getPosition().getValueAsDouble() );
+      System.out.println( Drive.getPosition().getValueAsDouble() );
       SmartDashboard.putNumber( "FL Vel-PV raw", VelPV );
       SmartDashboard.putNumber( "FL Vel-SP raw", VelSP );
     }
@@ -72,8 +73,10 @@ public SubSwerve( String name, int[] ID ) {
     DirEr = ( DirPV - DirSP + 540 ) % 360 - 180;
     DirPw = DirEr * 0.001;
 
-    Drive.setControl( m_VelocityVoltage.withVelocity( VelSP ) );
-    Steer.set( DirPw );
+    // Drive.set( 1.00 );
+
+    // Drive.setControl( m_VelocityVoltage.withVelocity( VelSP ) );
+    // Steer.set( DirPw );
   }
 
   public void setTargetState( SwerveModuleState targetState ) {
